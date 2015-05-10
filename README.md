@@ -5,7 +5,7 @@
 
 >>>
 
-[Test](./slides/test/test.html)
+[Test](./test.html)
 
 >>>
 
