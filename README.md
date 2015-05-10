@@ -5,7 +5,7 @@
 
 >>>
 
-Link of first slide will be here.
+[Test](./slides/test/test.html)
 
 >>>
 
