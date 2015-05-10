@@ -6,5 +6,5 @@
 >>>
 
 このようにしてスライドを増殖させていく。  
-[Back to table of contents](../../index.html)
+[Back to table of contents](./index.html)
 
