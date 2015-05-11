@@ -6,7 +6,7 @@
 >>>
 
 * [Test](./test.html)  
-* [Git study No.1 - indexをうまく使ってcommit綺麗に](./git_study_commit.html)
+* [Git Study No.1 - commit綺麗にする小技集](./git_study_commit.html)
 
 >>>
 
