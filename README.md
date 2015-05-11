@@ -5,9 +5,11 @@
 
 >>>
 
-[Test](./test.html)
+* [Test](./test.html)  
+* [Git study No.1 - indexをうまく使ってcommit綺麗に](./git_study_commit.html)
 
 >>>
 
-Link of second slide will be here.
+Reserved.  
+Link to other slide.
 
