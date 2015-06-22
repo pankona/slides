@@ -13,7 +13,7 @@ WIP Pull Requestとは
 
 ---
 
-こんなのです。
+[こんなのです。](https://github.com/pankona/slides/pull/3)
 
 ---
 
