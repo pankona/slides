@@ -30,7 +30,41 @@ WIP Pull Requestとは
 
 ---
 
+やり方
 
-開幕WIP Pull Request
+* 作業中（ワンコミットしたあと）に<br>プルリク作ればOK  <!-- .element: class="fragment" data-fragment-index="1" -->
+* プルリクのタイトルに [WIP] をつけて、<br>作業中だからマージしないでをアピール  <!-- .element: class="fragment" data-fragment-index="2" -->
+* 変更完了したらWIPを外してガチレビュー依頼  <!-- .element: class="fragment" data-fragment-index="3" -->
 
---allow-empty
+---
+
+TIPS: 開幕WIP Pull Request
+
+* もう作業開始したら<br>さっさとWIPプルリク作っちゃおうか！
+* でもワンコミットしないとプルリクが作れない、<br>どうすれば…  <!-- .element: class="fragment" data-fragment-index="1" -->
+
+---
+
+そんなときはこれ
+
+* `git commit --allow-empty` で変更のないコミットが作れます
+* これで開幕WIPプルリクもできる！
+
+---
+
+無駄コミットログができちゃうけど…？
+
+* 安心しろ、大丈夫だ
+* その後 `git commit --amend` すれば、<br>その無駄コミットも消せる
+
+---
+
+快適なプルリクライフを！
+
+---
+
+Thank you!
+
+>>>
+
+[Back to table of contents](./index.html)
