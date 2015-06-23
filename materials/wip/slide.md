@@ -59,6 +59,13 @@ TIPS: 開幕WIP Pull Request
 
 ---
 
+ツール紹介
+
+* [scriptForGithub](https://github.com/kasaharu/scriptForGitHub) by kasaharu
+* プルリク、コミットメッセージのテンプレートを提供してくれる
+
+---
+
 快適なプルリクライフを！
 
 ---
