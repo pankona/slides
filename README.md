@@ -10,6 +10,7 @@
 * [Git Study No.1 - commit綺麗にする小技集](./git_study_commit.html)
 * [素晴らしいテキストエディタの紹介](./vim.html)
 * [WIP Pull Requestのすゝめ](./wip.html)
+* [CIに関するTIPS](./ci-tips.html)
 
 >>>
 
