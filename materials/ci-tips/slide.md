@@ -53,7 +53,7 @@ CIしてますか！
 
 ---
 
-** 何が起こるかというと **
+** これで何が嬉しいかというと **
 
 * マージしても大丈夫なPull Requestかわかる。 <!-- .element: class="fragment" data-fragment-index="1" -->
 * masterにマージしてから色々こけたのが分かるのより効率が良い。 <!-- .element: class="fragment" data-fragment-index="2" -->
