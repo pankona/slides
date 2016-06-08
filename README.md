@@ -13,6 +13,7 @@
 * [CIに関するTIPS](./ci-tips.html)
 * [[WIP]Docker紹介](./docker_intro.html)
 * [Let's Go](./golang_intro.html)
+* [Google I/O 2016 簡易まとめ](./google_io_2016.html)
 
 >>>
 
