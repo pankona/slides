@@ -3,7 +3,7 @@ Let's Go!
 
 **golang の紹介**
 
-![gopher](./materials/golang_intro/gopher.png)
+![gopher](./materials/golang_intro_1/gopher.png)
 
 >>>
 
@@ -12,8 +12,8 @@ Let's Go!
 ---
 
 ここ最近、2つ程 Go言語の勉強会に参加してきました。
-![golang_study](./materials/golang_intro/golang_strudy_20150811.png)
-![golang_allstarts](./materials/golang_intro/golang_allstarts_20151011.png)<br>
+![golang_study](./materials/golang_intro_1/golang_strudy_20150811.png)
+![golang_allstarts](./materials/golang_intro_1/golang_allstarts_20151011.png)<br>
 
 なので、Go言語がどんなもんか  
 軽く紹介したいと思います。
