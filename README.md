@@ -13,8 +13,9 @@
 * [CIに関するTIPS](./ci-tips.html)
 * [[WIP]Docker紹介](./docker_intro.html)
 * [Let's Go (1)](./golang_intro_1.html)
-* [Let's Go (2)](./golang_intro_2.html)
 * [Google I/O 2016 簡易まとめ](./google_io_2016.html)
+* [Let's Go (2)](./golang_intro_2.html)
+* [オススメは gomobile](./gomobile.html)
 
 >>>
 
