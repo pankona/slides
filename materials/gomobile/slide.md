@@ -3,7 +3,7 @@
 
 **Go 言語と gomobile の紹介**
 
-![21.png](./materials/golang_intro_2/21.png)
+![21.png](./materials/gomobile/21.png)
 
 赤塚洋介 (33)
 
@@ -13,7 +13,7 @@
 
 ---
 
-![01.png](./materials/golang_intro_2/01.png)
+![01.png](./materials/gomobile/01.png)
 
 Go 言語マスコットキャラの Gopher くん
 
@@ -25,7 +25,7 @@ Go 言語マスコットキャラの Gopher くん
 * Go 言語の良いところ
 * Go で Android/iOS アプリを作る
 
-![09.png](./materials/golang_intro_2/09.png)
+![09.png](./materials/gomobile/09.png)
 
 ---
 
@@ -36,7 +36,7 @@ Go 言語マスコットキャラの Gopher くん
 * シンプルな言語仕様を保つことにこだわっている。
 * とはいえ、型推論などのモダンな一面も。
 
-![05.png](./materials/golang_intro_2/05.png)
+![05.png](./materials/gomobile/05.png)
 
 ---
 
@@ -213,7 +213,7 @@ func main() {
 
 3日くらい学べば何か書けるんでは
 
-![14.png](./materials/golang_intro_2/14.png)
+![14.png](./materials/gomobile/14.png)
 
 ---
 
@@ -244,28 +244,68 @@ gomobile っていうの使います。
 ** gomobile bind **
 
 * 要は C/C++ で書いて NDK ビルドする部分を Go で書けるという話
+* shared object、Java クラス生成が自動。JNI 書かなくて良い
 
->>>
+![jni.png](./materials/gomobile/jni.png)
 
-** gomobile bind (続き) **
+---
 
-* Android 向けライブラリを出力するには、  
-`gomobile bind` というコマンドを使う。
-* 以下を自動生成してくれる
-  * shared object (.so)
-  * Java クラス (ソースファイル)
+** 例えばこのソースは... **
 
-つまり JNI を書かなくて良い！
+~~~go
+package hello
+
+import "fmt"
+
+func Greetings(name string) string {
+    return fmt.Sprintf("Hello, %s!", name)
+}
+~~~
+
+---
+
+** このように使われる **
+
+~~~java
+
+import go.hello.Hello;
+
+public class MainActivity extends Activity {
+
+    private TextView mTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mTextView = (TextView) findViewById(R.id.mytextview);
+
+        // Call Go function.
+        String greetings = Hello.Greetings("Android and Gopher");
+        mTextView.setText(greetings);
+    }   
+}
+~~~
+
+---
+
+** 補足 **
+
+* goroutine 等の Go の機能は通常通り使える
+* 型は全部使えるわけではなく、プリミティブなものに制限される
+  * int、float
+  * bool、String、 byte のスライス（配列）
+* Java から渡されるオブジェクトは interface{} で引き回したり
 
 ---
 
 トライしてみたらいかがかな！
 
-![04.png](./materials/golang_intro_2/04.png)
+![04.png](./materials/gomobile/04.png)
 
 ---
 
-![25.png](./materials/golang_intro_2/25.png)
+![25.png](./materials/gomobile/25.png)
 
 >>>
 
