@@ -11,11 +11,11 @@
 * [素晴らしいテキストエディタの紹介](./vim.html)
 * [WIP Pull Requestのすゝめ](./wip.html)
 * [CIに関するTIPS](./ci-tips.html)
-* [[WIP]Docker紹介](./docker_intro.html)
 * [Let's Go (1)](./golang_intro_1.html)
 * [Google I/O 2016 簡易まとめ](./google_io_2016.html)
 * [Let's Go (2)](./golang_intro_2.html)
 * [オススメは gomobile](./gomobile.html)
+* [CI をちょっと便利にする Docker](./docker_for_ci.html)
 
 >>>
 
