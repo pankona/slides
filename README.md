@@ -16,6 +16,7 @@
 * [Let's Go (2)](./golang_intro_2.html)
 * [オススメは gomobile](./gomobile.html)
 * [CI をちょっと便利にする Docker](./docker_for_ci.html)
+* [Espresso Test Recorder 使ってみた](./espresso.html)
 
 >>>
 
