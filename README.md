@@ -1,7 +1,7 @@
 目次
 =======================
 
-** スライドの寄せ集め**
+**スライドの寄せ集め**
 
 >>>
 
@@ -17,9 +17,4 @@
 * [オススメは gomobile](./gomobile.html)
 * [CI をちょっと便利にする Docker](./docker_for_ci.html)
 * [Espresso Test Recorder 使ってみた](./espresso.html)
-
->>>
-
-Reserved.  
-Link to other slide.
 
