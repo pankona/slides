@@ -39,17 +39,26 @@ Espresso Test Recorder を使ってみた感想を発表します。
 
 ---
 
+**実演**
+
+<img src="./materials/espresso/19.png" style="background:none; border:none; box-shadow:none;">
+
+---
+
 **実際ちょっとやってみて現時点での感想**
 
 * 割と使えそう (初見〜 30 分くらいでまあまあ書ける)
 * 自動生成されたテストコードはそれなりに調整する必要がある。
 * 0 から自力で書くよりは何倍も楽っぽい
+* 1 テストにつき 1 クラス作られるのはとても微妙...
 
 ---
 
-**実演**
+**実際の運用は…**
 
-<img src="./materials/espresso/19.png" style="background:none; border:none; box-shadow:none;">
+* あくまでテンプレート作りに使う。全部これで作ろうとしない。
+  * テスト作りとしては、テンプレートの改変作業に時間を費やす。
+* テストドリブン的に使うのは厳しい。デグレ防止としての用途。
 
 ---
 
