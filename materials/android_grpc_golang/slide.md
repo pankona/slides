@@ -155,12 +155,12 @@ message HelloReply {
 
 >>>
 
-構成
+アプリの構成
 
 <img src="./materials/android_grpc_golang/grpc.svg" style="width:250px; background:none; border:none; box-shadow:none;">
 
-* Go ... gRPC サーバ
 * Java ... gRPC クライアント
+* Go ... gRPC サーバ (gomobile でビルド)
 
 >>>
 
@@ -237,7 +237,7 @@ Go 側はこれの他に
 
 * (動いてるところ見せられなくて地味ですが)   
 これで動きました。
-* Java、Go 共にあんまり書かないで済んでしまう。
+* Java、Go 共に gRPC 通信のために書くソースは少なめ。
 * 実装はとても簡単という印象。
 
 ---
