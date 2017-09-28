@@ -20,8 +20,10 @@
 * [CI をちょっと便利にする Docker](./docker_for_ci.html)
 * [Espresso Test Recorder 使ってみた](./espresso.html)
 * [Let's Go (3)](./golang_intro_3.html)
+
 >>>
 
 * [gomobile vs gRPC](./android_grpc_golang.html)
 * [.so tweaking](./so_tweaking.html)
+* [golang.tokyo #9](./golang_tokyo_201709.html)
 
