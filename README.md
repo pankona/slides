@@ -3,6 +3,8 @@
 
 **スライドの寄せ集め**
 
+スライドの各所に現れる Gopher (Goのマスコット) の原作者はRenee Frenchさんです。
+
 >>>
 
 * [Test](./test.html)  
