@@ -74,7 +74,7 @@ gomobile とは
 
 ---
 
-**ゲーム作るなら gomobile build のほうが楽？**
+**Go でゲーム作るなら gomobile build で楽ができる？**
 
 ---
 
