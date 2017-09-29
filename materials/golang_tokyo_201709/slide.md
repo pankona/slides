@@ -18,7 +18,7 @@ by @pankona
 
 ---
 
-先般開催された [Gopher Game Jam](https://itch.io/jam/gopher-jam)<br>
+先般開催された [Gopher Game Jam](https://itch.io/jam/gopher-jam) (itch.io 主催)<br>
 <br>
 <a href=https://itch.io/jam/gopher-jam><img src="./materials/golang_tokyo_201709/ggj.png" width="300" style="background-color:#FFFFFF; border:none; box-shadow:none;"></a>
 
