@@ -70,6 +70,7 @@ gomobile とは
 
 * `gomobile build` でビルドできるアプリは<br>`go build` も可能
 * PC 版 (Win、OSX、Linux) が出力できる。動作確認したりデバッグしたりが手軽。
+* サンプルもあり〼
 
 ---
 
