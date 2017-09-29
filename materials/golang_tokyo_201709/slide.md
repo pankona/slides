@@ -188,17 +188,6 @@ gomobile とは
 
 ---
 
-完
-
----
-
-**最後に**
-
-* pankona は Go を書ける職場環境を求めています。
-* I WANT TO BE HIRED!
-
----
-
 <img src="./materials/golang_tokyo_201709/thank.png" width="300" style="background:none; border:none; box-shadow:none;"><br>
 
 ---
