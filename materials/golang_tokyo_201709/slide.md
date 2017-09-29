@@ -42,6 +42,7 @@ gomobile について
 gomobile とは
 
 * Go でモバイルアプリを作るためのツール
+* Go のサブプロジェクト。experimental な位置づけ。
 * [gomobile 公式 (Mirror)](https://github.com/golang/mobile)
 * Android / iOS に対応
 * `gomobile bind` と `gomobile build` というコマンドを主に使う
