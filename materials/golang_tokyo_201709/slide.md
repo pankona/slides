@@ -164,7 +164,7 @@ gomobile とは
 
 * 出来上がったもの。タワーディフェンス的な。
 * 製作期間は Jam のルールに則って 2017/4E 〜 2017/7E
-* Linux, OSX、Android で動作確認
+* Linux、OSX、Android で動作確認
 * Jam では 2 位を獲得
 * (応募総数 4 作品)  <!-- .element: class="fragment" data-fragment-index="1" -->
 
