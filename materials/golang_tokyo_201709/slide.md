@@ -113,9 +113,10 @@ gomobile とは
 **gomobile build の難所 (5)**
 
 * 音出すのツライ
-  * デフォルトのビルドは音サポートなし。
-  * オプション指定で OpenAL 利用するように。
-  * ビルドがなかなか通らない上に OpenAL は LGPL。
+  * デフォルトの状態では音サポートなし
+  * オプション指定で OpenAL 利用するように
+  * ビルドがなかなか通らない (個人差があります)
+  * OpenAL は LGPL...
 
 --- 
 
@@ -123,7 +124,7 @@ gomobile とは
 
 * `gomobile build` 一発で APK 出てくるのは魅力的
 * PC 版も出せてデバッグも楽
-* なにより僕は Go で書きたい
+* **なにより僕は Go で書きたい**
 * なので頑張って使ってみました
 
 ---
@@ -139,6 +140,8 @@ gomobile とは
 **アフィン変換...？**
 
 <img src="./materials/golang_tokyo_201709/atamanowaruihito.jpg" width="300" style="background:none; border:none; box-shadow:none;"><br>
+<br>
+僕は絵を表示したいだけなのに…
 
 ---
 
@@ -149,7 +152,7 @@ gomobile とは
   * 端末の画面サイズに合わせて描画を拡大縮小
   * OpenAL 使わない音を出すインターフェース
   * 絵を次々入れ替える (アニメーションさせる) 仕組み
-  * 各画像にタッチリスナーを設定可能
+  * 各画像にタッチイベントのリスナーを設定可能
   * テキストの表示
   * 各種 example もあり〼
 
