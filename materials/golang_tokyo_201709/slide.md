@@ -51,7 +51,7 @@ gomobile とは
 **gomobile bind**
 
 * Go のソースから Android/iOS アプリ向け共有ライブラリを吐き出すコマンド
-* 生成したライブラリを Android Stduio 等からインポートして使う
+* 生成したライブラリを Android Studio 等からインポートして使う
 * 今日は `gomobile bind` については割愛。
 
 >>>
