@@ -146,7 +146,7 @@ gomobile とは
 
 ---
 
-**[gomo-simra](https://github.com/pankona/gomo-simra)**
+**https://github.com/pankona/gomo-simra**
 
 * アプリを作ってて面倒だと思った部分を色々ラップしたライブラリ
   * 画像の大きさと座標と回転具合だけ指定して描画
@@ -159,7 +159,7 @@ gomobile とは
 
 ---
 
-**[phantomize](https://github.com/pankona/phantomize)**
+**https://github.com/pankona/phantomize**
 
 <img src="./materials/golang_tokyo_201709/phantomize.png" width="500" style="background:none; border:none; box-shadow:none;"><br>
 
