@@ -35,7 +35,7 @@ by @pankona
 
 --- 
 
-まず gomobile について
+gomobile について
 
 >>>
 
@@ -44,6 +44,7 @@ gomobile とは
 * Go でモバイルアプリを作るためのツール
 * Android / iOS に対応
 * [gomobile 公式 (Mirror)](https://github.com/golang/mobile)
+* `gomobile bind` と `gomobile build` というコマンドを主に使う
 
 >>>
 
@@ -58,6 +59,8 @@ gomobile とは
 **gomobile build**
 
 * Go のソースから APK を直接吐き出すコマンド
+* OpenGL のバインディングを使って絵を描画することでアプリを作っていく
+* 描画更新のために 60回/秒 でイベントが発生する仕組みが用意されている
 * Go だけで Android アプリが作れる
 * iOS 向けも出来ると思われる (がデバイス持ってないので未確認です…)
 
@@ -70,7 +73,7 @@ gomobile とは
 
 ---
 
-**gomobile build のほうが楽？**
+**ゲーム作るなら gomobile build のほうが楽？**
 
 ---
 
@@ -127,8 +130,8 @@ gomobile とは
 **gomobile build を使うにあたって必要な知識**
 
 * 絵を出す周りは結構生ナマしい API になっている
-* OpenGL (あまり知らなくても大丈夫)
-* アフィン変換 (結構知ってる必要ある)
+  * OpenGL (あまり知らなくても大丈夫)
+  * アフィン変換 (結構知ってる必要ある)
 
 >>>
 
