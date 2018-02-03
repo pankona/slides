@@ -26,4 +26,5 @@
 * [gomobile vs gRPC](./android_grpc_golang.html)
 * [.so tweaking](./so_tweaking.html)
 * [golang.tokyo #9](./golang_tokyo_201709.html)
+* [DroidKaigi 2018](./droidkaigi_2018.html)
 
