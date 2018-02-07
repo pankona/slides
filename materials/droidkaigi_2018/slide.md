@@ -6,7 +6,7 @@
 by @pankona
 
 ---
-<img src="./materials/golang_tokyo_201709/face.jpg" width="300" style="background:none; border:none; box-shadow:none;">
+<img src="./materials/droidkaigi_2018/face.jpg" width="300" style="background:none; border:none; box-shadow:none;">
 
 * <span style="font-size:35px">本名: 赤塚洋介</span>
 * <span style="font-size:35px">所属: 株式会社 ACCESS</span>
@@ -21,7 +21,7 @@ by @pankona
 
 先般開催された [Gopher Game Jam](https://itch.io/jam/gopher-jam) (itch.io 主催)<br>
 <br>
-<a href=https://itch.io/jam/gopher-jam><img src="./materials/golang_tokyo_201709/ggj.png" width="300" style="background-color:#FFFFFF; border:none; box-shadow:none;"></a>
+<a href=https://itch.io/jam/gopher-jam><img src="./materials/droidkaigi_2018/ggj.png" width="300" style="background-color:#FFFFFF; border:none; box-shadow:none;"></a>
 
 <span style="font-size:29px">gomobile でゲームを作ってこれに応募していった話をします。</span>
 
@@ -29,7 +29,7 @@ by @pankona
 
 **目次**
 
-* Go と gomobile プロジェクトについて
+* Go と gomobile について
 * `gomobile build` の利点/欠点
 * 便利ライブラリ製作中
 * 実際に出来たもの
@@ -79,6 +79,7 @@ import (
 
 func main() {
     i := 5 // 使ってない変数があるとコンパイル通らない
+
     for {  // while がないので、無限ループも for を使う
         fmt.Printf("hello, world\n")
     }
@@ -94,8 +95,9 @@ func main() {
 * ビルドの結果、ワンバイナリになるのでデプロイ簡単
   * 依存関係をバイナリに抱え込んでいるので、<br>ちょっと古い Linux とかでも動く
   * ただちょっとバイナリサイズがおっきくなりがち
-* 充実のクロスコンパイル (windows、mac、linux、等)
+* 充実のクロスコンパイル (windows、mac、linux、arm、mips 等)
 * 特別な実行環境はいらない
+* いざとなったら C のコードも書ける (cgo という機能)
 
 ---
 
@@ -118,6 +120,7 @@ gomobile とは
 
 `$ go get golang.org/x/mobile/cmd/gomobile`
 
+* 別途 NDK のダウンロードが必要
 * gomobile というコマンドが使えるようになる
 * `gomobile bind` と `gomobile build` というサブコマンドを主に使う
 
@@ -126,7 +129,7 @@ gomobile とは
 **gomobile bind**
 
 * Go のソースから Android アプリ向け共有ライブラリを吐き出すコマンド
-  * C/C++ で書いたソースを NDK ビルドするのと同じ位置づけ
+  * C/C++ で書いたソースを NDK ビルドするのと同じような位置づけ
 * 生成したライブラリを Android Studio 等からインポートして使う
 * 今日は `gomobile bind` については割愛。
 
@@ -151,7 +154,7 @@ gomobile とは
 
 **Go でゲーム作るなら gomobile build で楽ができる？**
 
-以下、難所を特集 <!-- .element: class="fragment" data-fragment-index="1" -->
+以下、ハマりどころを特集 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
@@ -175,7 +178,7 @@ gomobile とは
 
 **gomobile build の難所 (3)**
 
-* キーボード使用不可
+* ソフトウェアキーボード使用不可
 * 使用可能な入力は基本的に「タップ」のみ
 
 >>>
@@ -195,6 +198,14 @@ gomobile とは
   * オプション指定で OpenAL 利用するように
   * ビルドがなかなか通らない (個人差があります)
 
+>>>
+
+**gomobile build の難所 (6)**
+
+* 文字が出せない
+  * 簡単に文字を出す API は用意されていない
+  * 文字を画像化して表示するという工程を踏んで表示する
+
 --- 
 
 **欠点あるとはいえ...**
@@ -202,6 +213,7 @@ gomobile とは
 * `gomobile build` 一発で APK 出てくるのは魅力的
 * PC 版も出せてデバッグも楽
 * **なにより僕は Go で書きたい**
+
 * なので頑張って使ってみました
 
 ---
@@ -209,8 +221,10 @@ gomobile とは
 **gomobile build を使うにあたって必要な知識**
 
 * 絵を出す周りは結構生ナマしい API になっている
-  * OpenGL (あまり知らなくても大丈夫)
+  * OpenGL (サンプル見ればあまり知らなくても大丈夫)
   * アフィン変換 (結構知ってる必要ある)
+
+* めんどくさいと思った…？  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
@@ -230,7 +244,7 @@ gomobile とは
 
 **https://github.com/pankona/phantomize**
 
-<img src="./materials/golang_tokyo_201709/phantomize.png" width="500" style="background:none; border:none; box-shadow:none;"><br>
+<img src="./materials/droidkaigi_2018/phantomize.png" width="500" style="background:none; border:none; box-shadow:none;"><br>
 
 * 出来上がったもの。タワーディフェンス的な。
 * 製作期間は Jam のルールに則って 2017/4E 〜 2017/7E
@@ -258,7 +272,7 @@ gomobile とは
 
 ---
 
-<img src="./materials/golang_tokyo_201709/thank.png" width="300" style="background:none; border:none; box-shadow:none;"><br>
+<img src="./materials/droidkaigi_2018/thank.png" width="300" style="background:none; border:none; box-shadow:none;"><br>
 
 ---
 
