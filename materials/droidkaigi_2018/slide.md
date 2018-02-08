@@ -99,7 +99,29 @@ func main() {
 * 特別な実行環境はいらない
 * いざとなったら C のコードも書ける (cgo という機能)
 
+>>>
+
+** cgo の例 **
+
+```
+package main
+
+/*
+#include <stdio.h>
+void print(char* s) {
+    printf("%s", s);
+}
+*/
+import "C"
+
+func main() {
+    s := C.CString("hello cgo!\n")
+    C.print(s)
+}
+```
+
 ---
+
 
 gomobile について
 
@@ -178,7 +200,7 @@ gomobile とは
 
 **gomobile build の難所 (3)**
 
-* ソフトウェアキーボード使用不可
+* いつものソフトウェアキーボード使用不可
 * 使用可能な入力は基本的に「タップ」のみ
 
 >>>
