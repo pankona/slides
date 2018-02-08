@@ -246,7 +246,7 @@ gomobile とは
   * OpenGL (サンプル見ればあまり知らなくても大丈夫)
   * アフィン変換 (結構知ってる必要ある)
 
-* めんどくさいと思った…？  <!-- .element: class="fragment" data-fragment-index="1" -->
+* もうちょっとライトにやりたい...  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
