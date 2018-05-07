@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="about_go.html" />
+    <link rel="next" href="intro.html" />
     
     
 
@@ -104,12 +104,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="about_go.html">
+        <li class="chapter " data-level="1.2" data-path="intro.html">
             
-                <a href="about_go.html">
+                <a href="intro.html">
             
                     
-                    Go言語について
+                    本日のテーマ
             
                 </a>
             
@@ -117,25 +117,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="what_is_goroutine.html">
+        <li class="chapter " data-level="1.3" data-path="about_go.html">
+            
+                <a href="about_go.html">
+            
+                    
+                    Go 言語について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="what_is_goroutine.html">
             
                 <a href="what_is_goroutine.html">
             
                     
                     goroutine とは
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="goroutine_pitfall.html">
-            
-                <a href="goroutine_pitfall.html">
-            
-                    
-                    よくハマる goroutine の落とし穴
             
                 </a>
             
@@ -188,7 +188,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="conclusion.html">
+        <li class="chapter " data-level="1.6" data-path="sync.html">
+            
+                <a href="sync.html">
+            
+                    
+                    待ち合わせ処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="goroutine_pitfall.html">
+            
+                <a href="goroutine_pitfall.html">
+            
+                    
+                    よくハマる goroutine の落とし穴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="conclusion.html">
             
                 <a href="conclusion.html">
             
@@ -246,12 +272,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="goroutine-introduction">goroutine introduction</h1>
-<p>&#x672C;&#x8CC7;&#x6599;&#x306F;&#x3001;&#x682A;&#x5F0F;&#x4F1A;&#x793E; ACCESS &#x793E;&#x5185;&#x52C9;&#x5F37;&#x4F1A;&#x306B;&#x3066;&#x7528;&#x3044;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
-    fmt.Println(<span class="hljs-string">&quot;hello world!&quot;</span>)
-}
-</code></pre>
+                                <h1 id="&#x672C;&#x8CC7;&#x6599;&#x306B;&#x3064;&#x3044;&#x3066;">&#x672C;&#x8CC7;&#x6599;&#x306B;&#x3064;&#x3044;&#x3066;</h1>
+<ul>
+<li>&#x672C;&#x8CC7;&#x6599;&#x306F;&#x3001;&#x682A;&#x5F0F;&#x4F1A;&#x793E; ACCESS &#x793E;&#x5185;&#x52C9;&#x5F37;&#x4F1A;&#x306B;&#x3066;&#x7528;&#x3044;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x6587;&#x66F8;&#x306F; <a href="https://github.com/pankona/slides/tree/gh-pages/materials/goroutine" target="_blank">https://github.com/pankona/slides/tree/gh-pages/materials/goroutine</a> &#x3067;&#x7BA1;&#x7406;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<ul>
+<li>&#x8AA4;&#x308A;&#x3001;&#x6539;&#x5584;&#x70B9;&#x306A;&#x3069;&#x3042;&#x308C;&#x3070; issue&#x3001;pull request &#x6B53;&#x8FCE;&#x3067;&#x3059;&#x3002;</li>
+<li>&#x6587;&#x8CAC;&#x306F; <a href="https://github.com/pankona" target="_blank">@pankona</a> &#x3067;&#x3059;&#x3002;</li>
+</ul>
+</li>
+<li>&#x8CC7;&#x6599;&#x306E;&#x5404;&#x6240;&#x306B;&#x73FE;&#x308C;&#x308B; Gopher (Go &#x306E;&#x30DE;&#x30B9;&#x30B3;&#x30C3;&#x30C8;&#x30AD;&#x30E3;&#x30E9;&#x30AF;&#x30BF;&#x30FC;) &#x306E;&#x539F;&#x4F5C;&#x8005;&#x306F; Renee French &#x3055;&#x3093;&#x3067;&#x3059;&#x3002;</li>
+</ul>
 
                                 
                                 </section>
@@ -280,7 +310,7 @@
             
                 
                 
-                <a href="about_go.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Go言語について">
+                <a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 本日のテーマ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -291,7 +321,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"本資料について","level":"1.1","depth":1,"next":{"title":"Go言語について","level":"1.2","depth":1,"path":"about_go.md","ref":"about_go.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-05-07T02:58:50.433Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T02:59:06.802Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"本資料について","level":"1.1","depth":1,"next":{"title":"本日のテーマ","level":"1.2","depth":1,"path":"intro.md","ref":"intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-05-07T12:08:59.230Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T14:22:33.592Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

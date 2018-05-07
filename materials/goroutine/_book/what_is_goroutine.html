@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="goroutine_pitfall.html" />
+    <link rel="next" href="com.html" />
     
     
     <link rel="prev" href="about_go.html" />
@@ -106,12 +106,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="about_go.html">
+        <li class="chapter " data-level="1.2" data-path="intro.html">
             
-                <a href="about_go.html">
+                <a href="intro.html">
             
                     
-                    Go言語について
+                    本日のテーマ
             
                 </a>
             
@@ -119,25 +119,25 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="what_is_goroutine.html">
+        <li class="chapter " data-level="1.3" data-path="about_go.html">
+            
+                <a href="about_go.html">
+            
+                    
+                    Go 言語について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="what_is_goroutine.html">
             
                 <a href="what_is_goroutine.html">
             
                     
                     goroutine とは
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="goroutine_pitfall.html">
-            
-                <a href="goroutine_pitfall.html">
-            
-                    
-                    よくハマる goroutine の落とし穴
             
                 </a>
             
@@ -190,7 +190,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="conclusion.html">
+        <li class="chapter " data-level="1.6" data-path="sync.html">
+            
+                <a href="sync.html">
+            
+                    
+                    待ち合わせ処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="goroutine_pitfall.html">
+            
+                <a href="goroutine_pitfall.html">
+            
+                    
+                    よくハマる goroutine の落とし穴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="conclusion.html">
             
                 <a href="conclusion.html">
             
@@ -249,6 +275,109 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="goroutine-&#x3068;&#x306F;">goroutine &#x3068;&#x306F;</h1>
+<ul>
+<li>Go &#x8A00;&#x8A9E;&#x306E;&#x4E3B;&#x305F;&#x308B;&#x8A00;&#x8A9E;&#x6A5F;&#x80FD;&#x306E;&#x3072;&#x3068;&#x3064;&#x3068;&#x3057;&#x3066; <strong>goroutine</strong> &#x304C;&#x3042;&#x308B;&#x3002;</li>
+</ul>
+<h2 id="goroutine-&#x3068;&#x306F;&#x4F55;&#x304B;">goroutine &#x3068;&#x306F;&#x4F55;&#x304B;</h2>
+<ul>
+<li><em>A goroutine is a lightweight thread managed by Go runtime.</em> (<a href="https://tour.golang.org/concurrency/1" target="_blank">Tour of Go - concurrency</a> &#x3088;&#x308A;&#x629C;&#x7C8B;)<ul>
+<li>&#x8EFD;&#x91CF;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;&#x3002;</li>
+<li>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9; <code>go</code> &#x3092;&#x4F34;&#x3063;&#x3066;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3053;&#x3068;&#x3067;&#x3001;&#x6307;&#x5B9A;&#x306E;&#x95A2;&#x6570;&#x306F; goroutine &#x4E0A;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3002;</li>
+<li><a href="https://gobyexample.com/goroutines" target="_blank">Go by Example: Goroutines (&#x516C;&#x5F0F;&#x306E;&#x89E3;&#x8AAC;&#x30DA;&#x30FC;&#x30B8;)</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="goroutine-&#x3092;&#x4F7F;&#x3063;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x4F8B;">goroutine &#x3092;&#x4F7F;&#x3063;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x4F8B;</h3>
+<ul>
+<li>&#x4E0B;&#x8A18;&#x306F; <code>say</code> &#x95A2;&#x6570;&#x3092; goroutine &#x4E0A;&#x3067;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x4F8B; <a href="https://play.golang.org/p/n8xaGOYM4X2" target="_blank">(playground)</a></li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5F15;&#x6570;&#x306B;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x6587;&#x5B57;&#x5217;&#x3092; 100 &#x30DF;&#x30EA;&#x79D2;&#x9593;&#x9694;&#x3067; 5 &#x56DE; &#x51FA;&#x529B;&#x3059;&#x308B;&#x95A2;&#x6570;</span>
+<span class="hljs-keyword">func</span> say(s <span class="hljs-keyword">string</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++ {
+        time.Sleep(<span class="hljs-number">100</span> * time.Millisecond)
+        fmt.Println(s)
+    }
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">go</span> say(<span class="hljs-string">&quot;world&quot;</span>) <span class="hljs-comment">// &quot;go&quot; &#x3092;&#x3064;&#x3051;&#x3066;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3068; goroutine &#x4E0A;&#x3067;&#x306E;&#x5B9F;&#x884C;&#x306B;&#x306A;&#x308B;</span>
+    say(<span class="hljs-string">&quot;hello&quot;</span>) <span class="hljs-comment">// &#x3053;&#x3063;&#x3061;&#x306F; &quot;go&quot; &#x306A;&#x3057;&#x3067;&#x5B9F;&#x884C;</span>
+}
+</code></pre>
+<ul>
+<li>&#x7121;&#x540D;&#x95A2;&#x6570;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x308B;<ul>
+<li>&#x4EE5;&#x4E0B;&#x306E;&#x4F8B;&#x306F;&#x5148;&#x8FF0;&#x306E;&#x4F8B;&#x3068;&#x540C;&#x7B49;&#x306E;&#x52D5;&#x304D; <a href="https://play.golang.org/p/VpjUWTiZGi9" target="_blank">(playground)</a></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(s <span class="hljs-keyword">string</span>) {
+        <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++ {
+            time.Sleep(<span class="hljs-number">100</span> * time.Millisecond)
+            fmt.Println(s)
+        }
+    }(<span class="hljs-string">&quot;world&quot;</span>)
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++ {
+        time.Sleep(<span class="hljs-number">100</span> * time.Millisecond)
+        fmt.Println(<span class="hljs-string">&quot;hello&quot;</span>)
+    }
+}
+</code></pre>
+<h2 id="goroutine-&#x306E;&#x7279;&#x5FB4;">goroutine &#x306E;&#x7279;&#x5FB4;</h2>
+<ul>
+<li>&#x8EFD;&#x91CF;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308A;&#x3001;&#x3044;&#x308F;&#x3086;&#x308B;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3001;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3088;&#x308A;&#x3082;&#x7701;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3002;<ul>
+<li>&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306F; 1&#x301C;2 MB &#x306E;&#x521D;&#x671F;&#x30B9;&#x30BF;&#x30C3;&#x30AF;&#x30E1;&#x30E2;&#x30EA;&#x3092;&#x5FC5;&#x8981;&#x3068;&#x3059;&#x308B;&#x3089;&#x3057;&#x3044;&#x3002;goroutine &#x306F; 2 KB &#x7A0B;&#x5EA6;&#x3002;&#x8D77;&#x52D5;&#x304C;&#x901F;&#x3044;&#x3002;</li>
+</ul>
+</li>
+<li>&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306F; CPU &#x306E;&#x30B3;&#x30A2;&#x306B;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x308B;&#x304C;&#x3001;goroutine &#x306F; OS &#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306B;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x308B;&#x3002;<ul>
+<li>&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3078;&#x306E; CPU &#x51E6;&#x7406;&#x6642;&#x9593;&#x5272;&#x5F53;&#x306E;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x306F; OS &#x306E;&#x4ED5;&#x4E8B;&#x3002;</li>
+<li>goroutine &#x3078;&#x306E; CPU &#x51E6;&#x7406;&#x6642;&#x9593;&#x5272;&#x5F53;&#x306E;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x306F; Go runtime &#x306E;&#x4ED5;&#x4E8B;&#x3002;</li>
+<li>&#x3064;&#x307E;&#x308A; M:N &#x30E2;&#x30C7;&#x30EB; (OS &#x306E;&#x30B9;&#x30EC;&#x30C3;&#x30C9; M &#x500B;&#x306B;&#x5BFE;&#x3057;&#x3001;goroutine &#x306F; N &#x500B;)&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x4F59;&#x8AC7;-&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x7A2E;&#x985E;">&#x4F59;&#x8AC7;: &#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x7A2E;&#x985E;</h2>
+<ul>
+<li>N:1<ul>
+<li>1 &#x500B;&#x306E; OS &#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x4E0A;&#x3067; N &#x500B;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x7A7A;&#x9593;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304C;&#x52D5;&#x304F;</li>
+<li>&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x304C;&#x901F;&#x3044;&#x304C;&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x306E;&#x6069;&#x6075;&#x3092;&#x53D7;&#x3051;&#x3089;&#x308C;&#x306A;&#x3044;</li>
+</ul>
+</li>
+<li>1:1<ul>
+<li>1 &#x500B;&#x306E; OS &#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x4E0A;&#x3067; 1 &#x500B;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x7A7A;&#x9593;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304C;&#x52D5;&#x304F;</li>
+<li>&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x304C;&#x9045;&#x3044;&#x304C;&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x306E;&#x6069;&#x6075;&#x3092;&#x53D7;&#x3051;&#x3089;&#x308C;&#x308B;</li>
+</ul>
+</li>
+<li>M:N<ul>
+<li>M &#x500B;&#x306E; OS &#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x306E;&#x4E0A;&#x3067; N &#x500B;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x7A7A;&#x9593;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x304C;&#x52D5;&#x304F;</li>
+<li>&#x30B3;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x30B9;&#x30A4;&#x30C3;&#x30C1;&#x304C;&#x901F;&#x3044;&#x4E0A;&#x306B;&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x306E;&#x6069;&#x6075;&#x3082;&#x53D7;&#x3051;&#x3089;&#x308C;&#x308B;</li>
+<li>&#x305F;&#x3060;&#x3057;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306E;&#x6271;&#x3044;&#x304C;&#x7169;&#x96D1;</li>
+<li>Go &#x306F;&#x3053;&#x308C;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="https://speakerdeck.com/morikuni/golang-dot-tokyo-number-14" target="_blank">&#x30DB;&#x30EA;&#x30CD;&#x30BA;&#x30DF;&#x3067;&#x3082;&#x308F;&#x304B;&#x308B; Goroutine &#x5165;&#x9580;</a></li>
+<li><a href="http://ascii.jp/elem/000/001/480/1480872/" target="_blank">ASCII.jp: Go&#x8A00;&#x8A9E;&#x3068;&#x4E26;&#x5217;&#x51E6;&#x7406;(2) - Go&#x306A;&#x3089;&#x308F;&#x304B;&#x308B;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;</a></li>
+<li><a href="https://talks.godoc.org/github.com/niconegoto/talks/concurrency.slide#1" target="_blank">Go &#x306E;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x30FC;&#x5B9F;&#x88C5;&#x3068;&#x30CF;&#x30DE;&#x308A;&#x30DD;&#x30A4;&#x30F3;&#x30C8;</a></li>
+<li><a href="https://morsmachine.dk/go-scheduler" target="_blank">The Go scheduler - Morsing&apos;s Blog</a></li>
+</ul>
 
                                 
                                 </section>
@@ -276,12 +405,12 @@
 
             
                 
-                <a href="about_go.html" class="navigation navigation-prev " aria-label="Previous page: Go言語について">
+                <a href="about_go.html" class="navigation navigation-prev " aria-label="Previous page: Go 言語について">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="goroutine_pitfall.html" class="navigation navigation-next " aria-label="Next page: よくハマる goroutine の落とし穴">
+                <a href="com.html" class="navigation navigation-next " aria-label="Next page: goroutine 間の通信">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -292,7 +421,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"goroutine とは","level":"1.3","depth":1,"next":{"title":"よくハマる goroutine の落とし穴","level":"1.4","depth":1,"path":"goroutine_pitfall.md","ref":"goroutine_pitfall.md","articles":[]},"previous":{"title":"Go言語について","level":"1.2","depth":1,"path":"about_go.md","ref":"about_go.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"what_is_goroutine.md","mtime":"2018-05-07T02:54:29.484Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T02:59:06.802Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"goroutine とは","level":"1.4","depth":1,"next":{"title":"goroutine 間の通信","level":"1.5","depth":1,"path":"com.md","ref":"com.md","articles":[{"title":"共有メモリによる通信","level":"1.5.1","depth":2,"path":"com_by_shared_memory.md","ref":"com_by_shared_memory.md","articles":[]},{"title":"channel による通信","level":"1.5.2","depth":2,"path":"com_by_channel.md","ref":"com_by_channel.md","articles":[]}]},"previous":{"title":"Go 言語について","level":"1.3","depth":1,"path":"about_go.md","ref":"about_go.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"what_is_goroutine.md","mtime":"2018-05-07T14:21:26.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T14:22:33.592Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

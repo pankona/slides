@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="com.html" />
+    <link rel="next" href="conclusion.html" />
     
     
-    <link rel="prev" href="what_is_goroutine.html" />
+    <link rel="prev" href="sync.html" />
     
 
     </head>
@@ -106,12 +106,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="about_go.html">
+        <li class="chapter " data-level="1.2" data-path="intro.html">
             
-                <a href="about_go.html">
+                <a href="intro.html">
             
                     
-                    Go言語について
+                    本日のテーマ
             
                 </a>
             
@@ -119,25 +119,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="what_is_goroutine.html">
+        <li class="chapter " data-level="1.3" data-path="about_go.html">
+            
+                <a href="about_go.html">
+            
+                    
+                    Go 言語について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="what_is_goroutine.html">
             
                 <a href="what_is_goroutine.html">
             
                     
                     goroutine とは
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.4" data-path="goroutine_pitfall.html">
-            
-                <a href="goroutine_pitfall.html">
-            
-                    
-                    よくハマる goroutine の落とし穴
             
                 </a>
             
@@ -190,7 +190,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="conclusion.html">
+        <li class="chapter " data-level="1.6" data-path="sync.html">
+            
+                <a href="sync.html">
+            
+                    
+                    待ち合わせ処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="goroutine_pitfall.html">
+            
+                <a href="goroutine_pitfall.html">
+            
+                    
+                    よくハマる goroutine の落とし穴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="conclusion.html">
             
                 <a href="conclusion.html">
             
@@ -249,6 +275,114 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x3088;&#x304F;&#x30CF;&#x30DE;&#x308B;-goroutine-&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;">&#x3088;&#x304F;&#x30CF;&#x30DE;&#x308B; goroutine &#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;</h1>
+<ul>
+<li>goroutine &#x306F;&#x4FBF;&#x5229;&#x3060;&#x304C;&#x843D;&#x3068;&#x3057;&#x7A74;&#x3082;&#x3042;&#x308B;</li>
+<li>&#x983B;&#x767A;&#x3059;&#x308B;&#x843D;&#x3068;&#x3057;&#x7A74;&#x306E;&#x4F8B;&#x3092;&#x7D39;&#x4ECB;</li>
+</ul>
+<h2 id="&#x7F60;&#x306E;&#x4F8B;-1-goroutine-&#x3068;-for-&#x30EB;&#x30FC;&#x30D7;">&#x7F60;&#x306E;&#x4F8B; (1) goroutine &#x3068; for &#x30EB;&#x30FC;&#x30D7;</h2>
+<ul>
+<li>goroutine &#x3092;&#x4F7F;&#x3063;&#x3066;&#x914D;&#x5217;&#x306E;&#x4E2D;&#x8EAB;&#x3092;&#x30C0;&#x30F3;&#x30D7;&#x3057;&#x3066;&#x307F;&#x308B;&#x3053;&#x3068;&#x306B;&#x3057;&#x305F;</li>
+<li>&#x4EE5;&#x4E0B;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B; <a href="https://play.golang.org/p/Pbw1Fwa01bX" target="_blank">(playground)</a></li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    ints := []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>} <span class="hljs-comment">// &#x30C0;&#x30F3;&#x30D7;&#x3057;&#x305F;&#x3044;&#x914D;&#x5217;</span>
+    <span class="hljs-keyword">for</span> _, n := <span class="hljs-keyword">range</span> ints {
+        <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+            fmt.Println(n)
+        }()
+    }
+
+    time.Sleep(<span class="hljs-number">3</span> * time.Second) <span class="hljs-comment">// &#x5341;&#x5206;&#x306B;&#x5F85;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3059;&#x308B;</span>
+}
+</code></pre>
+<ul>
+<li>&#x306A;&#x3093;&#x304B; 6 &#x3070;&#x3063;&#x304B;&#x308A;&#x51FA;&#x305F;&#x3093;&#x3067;&#x3059;&#x3051;&#x3069;<ul>
+<li>goroutine &#x306B;&#x51E6;&#x7406;&#x304C;&#x5207;&#x308A;&#x66FF;&#x308F;&#x308B;&#x306E;&#x306F;&#x3001;for &#x30EB;&#x30FC;&#x30D7;&#x304C;&#x7D42;&#x308F;&#x3063;&#x305F;&#x5F8C;</li>
+<li>for &#x30EB;&#x30FC;&#x30D7;&#x304C;&#x7D42;&#x308F;&#x3063;&#x305F;&#x6BB5;&#x968E;&#x3067; n &#x3092;&#x53C2;&#x7167;&#x3059;&#x308B;&#x3068;&#x3001;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x6700;&#x5F8C;&#x306E;&#x6570;&#x5B57;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;</li>
+<li>goroutine &#x306E;&#x51E6;&#x7406;&#x306F;&#x3044;&#x3064;&#x59CB;&#x307E;&#x308B;&#x304B;&#x5206;&#x304B;&#x3089;&#x306A;&#x3044;&#x3057;&#x3001;&#x4F55;&#x306A;&#x3089;&#x9806;&#x5E8F;&#x306E;&#x4FDD;&#x8A3C;&#x3082;&#x306A;&#x3044;&#x3068;&#x8003;&#x3048;&#x3066;&#x304A;&#x304F;</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x4FEE;&#x6B63;&#x6848;-goroutine-&#x306B;&#x5F15;&#x6570;&#x3092;&#x6E21;&#x3059;">&#x4FEE;&#x6B63;&#x6848;: goroutine &#x306B;&#x5F15;&#x6570;&#x3092;&#x6E21;&#x3059;</h3>
+<ul>
+<li>&#x9010;&#x4E00; goroutine &#x306B;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066;&#x6E21;&#x305B;&#x3070; OK <a href="https://play.golang.org/p/pFj7nrbcWGQ" target="_blank">(playground)</a></li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    ints := []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}
+    <span class="hljs-keyword">for</span> _, n := <span class="hljs-keyword">range</span> ints {
+        <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(i <span class="hljs-keyword">int</span>) { <span class="hljs-comment">// goroutine &#x304C;&#x5F15;&#x6570;&#x3092;&#x3068;&#x308B;&#x3088;&#x3046;&#x306B;&#x5909;&#x66F4;</span>
+            fmt.Println(i) <span class="hljs-comment">// &#x6E21;&#x3063;&#x3066;&#x304D;&#x305F;&#x5F15;&#x6570;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;</span>
+        }(n)
+    }
+
+    time.Sleep(<span class="hljs-number">3</span> * time.Second) <span class="hljs-comment">// &#x5341;&#x5206;&#x306B;&#x5F85;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3059;&#x308B;</span>
+}
+</code></pre>
+<h2 id="&#x7F60;&#x306E;&#x4F8B;-2-waitgroup-&#x3057;&#x3066;&#x308B;&#x306E;&#x306B;&#xFF1F;">&#x7F60;&#x306E;&#x4F8B; (2) WaitGroup &#x3057;&#x3066;&#x308B;&#x306E;&#x306B;&#xFF1F;</h2>
+<ul>
+<li>WaitGroup &#x3092;&#x4F7F;&#x3063;&#x3066;&#x5F85;&#x3061;&#x5408;&#x308F;&#x305B;&#x3092;&#x3059;&#x308B;&#x4F8B;</li>
+<li>&#x4EE5;&#x4E0B;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B; <a href="https://play.golang.org/p/PXfQe6ej6Go" target="_blank">(playground)</a></li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    wg := sync.WaitGroup{}
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(s <span class="hljs-keyword">string</span>) {
+        wg.Add(<span class="hljs-number">1</span>) <span class="hljs-comment">// &#x5185;&#x90E8;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x3092; 1 &#x5897;&#x3084;&#x3059;</span>
+        fmt.Println(s)
+        wg.Done() <span class="hljs-comment">// &#x5185;&#x90E8;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x3092; 1 &#x6E1B;&#x3089;&#x3059;</span>
+    }(<span class="hljs-string">&quot;hello world!&quot;</span>)
+    wg.Wait() <span class="hljs-comment">// &#x5185;&#x90E8;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x304C; 0 &#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3064;</span>
+}
+</code></pre>
+<ul>
+<li>&#x4F55;&#x3082;&#x8868;&#x793A;&#x3055;&#x308C;&#x306A;&#x3044;&#x2026;&#xFF1F;<ul>
+<li>&#x5272;&#x3068;&#x3084;&#x308A;&#x304C;&#x3061;</li>
+<li>goroutine &#x306E;&#x4E2D;&#x3067; <code>wg.Add(1)</code> &#x3059;&#x308B;&#x306E;&#x306F;&#x8AA4;&#x308A;</li>
+<li>&#x7D50;&#x5C40; goroutine &#x304C;&#x59CB;&#x307E;&#x308B;&#x524D;&#x306B;&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x7D42;&#x308F;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x4FEE;&#x6B63;&#x6848;-goroutine-&#x306E;&#x5916;&#x3067;-wgadd1-&#x3059;&#x308B;">&#x4FEE;&#x6B63;&#x6848;: goroutine &#x306E;&#x5916;&#x3067; <code>wg.Add(1)</code> &#x3059;&#x308B;</h3>
+<ul>
+<li>goroutine &#x306E;&#x624B;&#x524D;&#x3067; <code>wg.Add(1)</code> &#x3059;&#x308B;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    wg := sync.WaitGroup{}
+    wg.Add(<span class="hljs-number">1</span>) <span class="hljs-comment">// &#x5185;&#x90E8;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x3092; 1 &#x5897;&#x3084;&#x3059;</span>
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(s <span class="hljs-keyword">string</span>) {
+        fmt.Println(s)
+        wg.Done() <span class="hljs-comment">// &#x5185;&#x90E8;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x3092; 1 &#x6E1B;&#x3089;&#x3059;</span>
+    }(<span class="hljs-string">&quot;hello world!&quot;</span>)
+    wg.Wait() <span class="hljs-comment">// &#x5185;&#x90E8;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x304C; 0 &#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3064;</span>
+}
+</code></pre>
 
                                 
                                 </section>
@@ -276,12 +410,12 @@
 
             
                 
-                <a href="what_is_goroutine.html" class="navigation navigation-prev " aria-label="Previous page: goroutine とは">
+                <a href="sync.html" class="navigation navigation-prev " aria-label="Previous page: 待ち合わせ処理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="com.html" class="navigation navigation-next " aria-label="Next page: goroutine 間の通信">
+                <a href="conclusion.html" class="navigation navigation-next " aria-label="Next page: まとめ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -292,7 +426,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"よくハマる goroutine の落とし穴","level":"1.4","depth":1,"next":{"title":"goroutine 間の通信","level":"1.5","depth":1,"path":"com.md","ref":"com.md","articles":[{"title":"共有メモリによる通信","level":"1.5.1","depth":2,"path":"com_by_shared_memory.md","ref":"com_by_shared_memory.md","articles":[]},{"title":"channel による通信","level":"1.5.2","depth":2,"path":"com_by_channel.md","ref":"com_by_channel.md","articles":[]}]},"previous":{"title":"goroutine とは","level":"1.3","depth":1,"path":"what_is_goroutine.md","ref":"what_is_goroutine.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"goroutine_pitfall.md","mtime":"2018-05-07T02:54:55.081Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T02:59:06.802Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"よくハマる goroutine の落とし穴","level":"1.7","depth":1,"next":{"title":"まとめ","level":"1.8","depth":1,"path":"conclusion.md","ref":"conclusion.md","articles":[]},"previous":{"title":"待ち合わせ処理","level":"1.6","depth":1,"path":"sync.md","ref":"sync.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"goroutine_pitfall.md","mtime":"2018-05-07T13:57:18.537Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T14:22:33.592Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
