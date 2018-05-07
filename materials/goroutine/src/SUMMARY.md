@@ -1,7 +1,7 @@
 # Summary
 
 * [本資料について](README.md)
-* [本日のテーマ](intro.md)
+* [本日のテーマ - goroutine](intro.md)
 * [Go 言語について](about_go.md)
 * [goroutine とは](what_is_goroutine.md)
 * [goroutine 間の通信](com.md)
