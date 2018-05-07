@@ -27,4 +27,5 @@
 * [.so tweaking](./so_tweaking.html)
 * [golang.tokyo #9](./golang_tokyo_201709.html)
 * [DroidKaigi 2018](./droidkaigi_2018.html)
+* [goroutine introduction](./materials/goroutine/_book/index.html)
 

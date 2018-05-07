@@ -62,7 +62,7 @@ Go 言語マスコットキャラの Gopher くん
 
 Hello World
 
-~~~golang
+~~~go
 package main
 
 import (
@@ -72,7 +72,7 @@ import (
 
 func main() {
     i := 5 // 使ってないやつ変数があるとコンパイル通らない
-    for {
+    for {  // 無限ループしようと思っても while ないので for 使う
         fmt.Printf("hello, world\n")
     }
 }
