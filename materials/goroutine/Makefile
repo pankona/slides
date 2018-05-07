@@ -1,5 +1,5 @@
 
-OUTDIR = $(CURDIR)/_book
+OUTDIR = $(CURDIR)/public
 
 all:
 	cd $(CURDIR)/src && \
