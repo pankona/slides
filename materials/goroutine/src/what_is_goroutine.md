@@ -84,9 +84,4 @@ func main() {
   * ただしスケジューラの扱いが煩雑
   * Go はこれ
 
-## 参考
 
-* [ホリネズミでもわかる Goroutine 入門](https://speakerdeck.com/morikuni/golang-dot-tokyo-number-14)
-* [ASCII.jp: Go言語と並列処理(2) - Goならわかるシステムプログラミング](http://ascii.jp/elem/000/001/480/1480872/)
-* [Go のスケジューラー実装とハマりポイント](https://talks.godoc.org/github.com/niconegoto/talks/concurrency.slide#1)
-* [The Go scheduler - Morsing's Blog](https://morsmachine.dk/go-scheduler)
