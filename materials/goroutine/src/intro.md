@@ -14,4 +14,4 @@
 * Go 言語使ったことない、もしくは使ったこと合ってもあまり熱心でない方
 * goroutine 使ったことない方
 
-
+![hello gopher](./assets/images/05.png)
