@@ -280,7 +280,7 @@
 </ul>
 <h2 id="goroutine-&#x3068;&#x306F;&#x4F55;&#x304B;">goroutine &#x3068;&#x306F;&#x4F55;&#x304B;</h2>
 <ul>
-<li><em>A goroutine is a lightweight thread managed by Go runtime.</em> (<a href="https://tour.golang.org/concurrency/1" target="_blank">Tour of Go - concurrency</a> &#x3088;&#x308A;&#x629C;&#x7C8B;)<ul>
+<li><em>A goroutine is a lightweight thread managed by Go runtime.</em> (<a href="https://tour.golang.org/concurrency/1" target="_blank">Tour of Go - Goroutines</a> &#x3088;&#x308A;&#x629C;&#x7C8B;)<ul>
 <li>&#x8EFD;&#x91CF;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;&#x3002;</li>
 <li>&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9; <code>go</code> &#x3092;&#x4F34;&#x3063;&#x3066;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3053;&#x3068;&#x3067;&#x3001;&#x6307;&#x5B9A;&#x306E;&#x95A2;&#x6570;&#x306F; goroutine &#x4E0A;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3002;</li>
 <li><a href="https://gobyexample.com/goroutines" target="_blank">Go by Example: Goroutines (&#x516C;&#x5F0F;&#x306E;&#x89E3;&#x8AAC;&#x30DA;&#x30FC;&#x30B8;)</a></li>
@@ -371,13 +371,6 @@
 </ul>
 </li>
 </ul>
-<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
-<ul>
-<li><a href="https://speakerdeck.com/morikuni/golang-dot-tokyo-number-14" target="_blank">&#x30DB;&#x30EA;&#x30CD;&#x30BA;&#x30DF;&#x3067;&#x3082;&#x308F;&#x304B;&#x308B; Goroutine &#x5165;&#x9580;</a></li>
-<li><a href="http://ascii.jp/elem/000/001/480/1480872/" target="_blank">ASCII.jp: Go&#x8A00;&#x8A9E;&#x3068;&#x4E26;&#x5217;&#x51E6;&#x7406;(2) - Go&#x306A;&#x3089;&#x308F;&#x304B;&#x308B;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;</a></li>
-<li><a href="https://talks.godoc.org/github.com/niconegoto/talks/concurrency.slide#1" target="_blank">Go &#x306E;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x30FC;&#x5B9F;&#x88C5;&#x3068;&#x30CF;&#x30DE;&#x308A;&#x30DD;&#x30A4;&#x30F3;&#x30C8;</a></li>
-<li><a href="https://morsmachine.dk/go-scheduler" target="_blank">The Go scheduler - Morsing&apos;s Blog</a></li>
-</ul>
 
                                 
                                 </section>
@@ -421,7 +414,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"goroutine とは","level":"1.4","depth":1,"next":{"title":"goroutine 間の通信","level":"1.5","depth":1,"path":"com.md","ref":"com.md","articles":[{"title":"共有メモリによる通信","level":"1.5.1","depth":2,"path":"com_by_shared_memory.md","ref":"com_by_shared_memory.md","articles":[]},{"title":"channel による通信","level":"1.5.2","depth":2,"path":"com_by_channel.md","ref":"com_by_channel.md","articles":[]}]},"previous":{"title":"Go 言語について","level":"1.3","depth":1,"path":"about_go.md","ref":"about_go.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"what_is_goroutine.md","mtime":"2018-05-07T14:21:26.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T14:38:15.282Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"goroutine とは","level":"1.4","depth":1,"next":{"title":"goroutine 間の通信","level":"1.5","depth":1,"path":"com.md","ref":"com.md","articles":[{"title":"共有メモリによる通信","level":"1.5.1","depth":2,"path":"com_by_shared_memory.md","ref":"com_by_shared_memory.md","articles":[]},{"title":"channel による通信","level":"1.5.2","depth":2,"path":"com_by_channel.md","ref":"com_by_channel.md","articles":[]}]},"previous":{"title":"Go 言語について","level":"1.3","depth":1,"path":"about_go.md","ref":"about_go.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"what_is_goroutine.md","mtime":"2018-05-08T12:41:44.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T12:53:00.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

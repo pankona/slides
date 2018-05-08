@@ -275,6 +275,202 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="channel-&#x306B;&#x3088;&#x308B;&#x901A;&#x4FE1;">channel &#x306B;&#x3088;&#x308B;&#x901A;&#x4FE1;</h1>
+<ul>
+<li>Go &#x8A00;&#x8A9E;&#x306B;&#x306F; <strong>channel</strong> &#x3068;&#x3044;&#x3046;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x3001;goroutine &#x9593;&#x306E;&#x901A;&#x4FE1;&#x306B;&#x3057;&#x3070;&#x3057;&#x3070;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x3002;</li>
+</ul>
+<h2 id="channel-&#x3068;&#x306F;&#xFF1F;">channel &#x3068;&#x306F;&#xFF1F;</h2>
+<ul>
+<li><em>Channels are a typed conduit through which you can send and receive values with the channel operator, &lt;-</em> (<a href="https://tour.golang.org/concurrency/2" target="_blank">Tour of Go - Channels</a> &#x3088;&#x308A;&#x629C;&#x7C8B;)<ul>
+<li>channel operator <code>&lt;-</code> &#x3092;&#x4F7F;&#x3063;&#x3066;&#x5024;&#x3092;&#x9001;&#x3063;&#x305F;&#x308A;&#x53D7;&#x3051;&#x3068;&#x3063;&#x305F;&#x308A;&#x3067;&#x304D;&#x308B;&#x3002;</li>
+<li><a href="https://gobyexample.com/channels" target="_blank">Go by Example: Channels (&#x516C;&#x5F0F;&#x306E;&#x89E3;&#x8AAC;&#x30DA;&#x30FC;&#x30B8;)</a></li>
+</ul>
+</li>
+<li>&#x30AD;&#x30E5;&#x30FC;&#x69CB;&#x9020; (FIFO) &#x3092;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;&#x30D0;&#x30C3;&#x30D5;&#x30A1; (&#x5BB9;&#x91CF;) &#x3092;&#x4EFB;&#x610F;&#x306B;&#x8A2D;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x3002;</li>
+<li><strong>channel &#x3078;&#x306E;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x306F;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x6392;&#x4ED6;&#x5236;&#x5FA1;&#x3055;&#x308C;&#x308B;&#x3002;</strong></li>
+</ul>
+<h3 id="channel-&#x3092;&#x4F7F;&#x3063;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x4F8B;">channel &#x3092;&#x4F7F;&#x3063;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x4F8B;</h3>
+<ul>
+<li>Go by Example &#x304B;&#x3089;&#x629C;&#x7C8B; <a href="https://play.golang.org/p/jkKaMWFUEyg" target="_blank">(playground)</a><ul>
+<li>channel &#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x3080;&#x3068;&#x304D;&#x3001;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x304C;&#x3042;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3063;&#x3066;&#x3066;&#x304F;&#x308C;&#x308B;</li>
+<li>channel &#x306B;&#x66F8;&#x304D;&#x8FBC;&#x3080;&#x3068;&#x304D;&#x3001;&#x30D0;&#x30C3;&#x30D5;&#x30A1;&#x304C;&#x3044;&#x3063;&#x3071;&#x3044;&#x3060;&#x3063;&#x305F;&#x3089;&#x7A7A;&#x304F;&#x307E;&#x3067;&#x5F85;&#x3063;&#x3066;&#x3066;&#x304F;&#x308C;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    messages := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) <span class="hljs-comment">// channel &#x3092;&#x4F5C;&#x308B;</span>
+
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+        messages &lt;- <span class="hljs-string">&quot;ping&quot;</span> <span class="hljs-comment">// channel &#x306B;&#x66F8;&#x304D;&#x8FBC;&#x3080;</span>
+    }()
+
+    msg := &lt;-messages <span class="hljs-comment">// channel &#x304B;&#x3089;&#x8AAD;&#x307F;&#x8FBC;&#x3080;</span>
+
+    fmt.Println(msg)
+}
+</code></pre>
+<ul>
+<li>&#x8907;&#x6570;&#x306E; goroutine &#x306B; channel &#x3092;&#x6E21;&#x3057;&#x3066;&#x901A;&#x4FE1;&#x3059;&#x308B; <a href="https://play.golang.org/p/8_hI06R6VAu" target="_blank">(playground)</a><ul>
+<li>&#x52DD;&#x624B;&#x306B;&#x6392;&#x4ED6;&#x5236;&#x5FA1;&#x304C;&#x639B;&#x304B;&#x308B;&#x306E;&#x3067;&#x4FBF;&#x5229;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;strconv&quot;</span>
+)
+
+<span class="hljs-comment">// &#x9001;&#x308B;&#x5074; (&#x5F15;&#x6570;&#x306F;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x5C02;&#x7528; channel)</span>
+<span class="hljs-keyword">func</span> send(ch <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">string</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        ch &lt;- strconv.Itoa(i)
+    }
+}
+
+<span class="hljs-comment">// &#x53D7;&#x3051;&#x53D6;&#x308B;&#x5074; (&#x5F15;&#x6570;&#x306F;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5C02;&#x7528; channel)</span>
+<span class="hljs-keyword">func</span> receive(ch &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        fmt.Println(&lt;-ch)
+    }
+}
+
+<span class="hljs-keyword">func</span> main() {
+    ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    <span class="hljs-keyword">go</span> send(ch)
+    receive(ch)
+}
+</code></pre>
+<h2 id="select-&#x3092;&#x4F7F;&#x3063;&#x3066;&#x8907;&#x6570;&#x306E;-channel-&#x3092;&#x6271;&#x3046;">select &#x3092;&#x4F7F;&#x3063;&#x3066;&#x8907;&#x6570;&#x306E; channel &#x3092;&#x6271;&#x3046;</h2>
+<ul>
+<li>&#x8907;&#x6570;&#x306E; channel &#x3092;&#x6271;&#x3046;&#x3068;&#x304D;&#x306F; select &#x304C;&#x3057;&#x3070;&#x3057;&#x3070;&#x7528;&#x3044;&#x3089;&#x308C;&#x308B;&#x3002;<ul>
+<li>&#x8907;&#x6570;&#x306E; channel &#x3092;&#x4E26;&#x3079;&#x3066;&#x3001;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x3063;&#x305F; channel &#x3078;&#x306E;&#x64CD;&#x4F5C;&#x3092;&#x3072;&#x3068;&#x3064;&#x3060;&#x3051;&#x5B9F;&#x884C;&#x3059;&#x308B;</li>
+<li>&#x4EE5;&#x4E0B;&#x306E;&#x4F8B;&#x306F;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x307E;&#x307E;&#x52D5;&#x304B;&#x306A;&#x3044;&#x306E;&#x3067;&#x6CE8;&#x610F; <a href="https://play.golang.org/p/NoyJw85_-Vl" target="_blank">(playground)</a></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// 3 &#x3064; channel &#x4F5C;&#x3063;&#x3066;...</span>
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    ch2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    ch3 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+
+    <span class="hljs-comment">// select &#x3067; channel &#x3092;&#x8907;&#x6570;&#x6307;&#x5B9A;&#x3059;&#x308B;</span>
+    <span class="hljs-comment">// &#x3069;&#x308C;&#x304B;&#x304C;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3063;&#x3066;&#x3066;&#x304F;&#x308C;&#x308B;</span>
+    <span class="hljs-comment">// &#x540C;&#x6642;&#x306B;&#x8907;&#x6570;&#x306E; channel &#x304C;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x3063;&#x3066;&#x3082;&#x3001;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x3072;&#x3068;&#x3064;&#x3060;&#x3051;</span>
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> v := &lt;-ch1:     <span class="hljs-comment">// ch1 &#x304B;&#x3089;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5F85;&#x3061;</span>
+        fmt.Println(v)
+    <span class="hljs-keyword">case</span> v := &lt;-ch2:     <span class="hljs-comment">// ch2 &#x304B;&#x3089;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5F85;&#x3061;</span>
+        fmt.Println(v)
+    <span class="hljs-keyword">case</span> ch3 &lt;- <span class="hljs-string">&quot;hello&quot;</span>: <span class="hljs-comment">// ch3 &#x3078;&#x306E;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x5F85;&#x3061;</span>
+        fmt.Println(<span class="hljs-string">&quot;hello!&quot;</span>)
+    }
+}
+</code></pre>
+<ul>
+<li>&#x5148;&#x8FF0;&#x306E;&#x4F8B;&#x306F;&#x4E00;&#x751F;&#x52D5;&#x4F5C;&#x3057;&#x306A;&#x3044; (deadlock &#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x305F;&#x3060;&#x3061;&#x306B; panic &#x3059;&#x308B;)<ul>
+<li>default &#x3092;&#x7528;&#x3044;&#x308B;&#x3068;&#x3001;&#x5168;&#x3066;&#x306E; channel &#x304C;&#x64CD;&#x4F5C;&#x4E0D;&#x80FD;&#x3067;&#x3082;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x306A;&#x3044; <a href="https://play.golang.org/p/leransKPFo_N" target="_blank">(playground)</a></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// 3 &#x3064; channel &#x4F5C;&#x3063;&#x3066;...</span>
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    ch2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    ch3 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+
+    <span class="hljs-comment">// select &#x3067; channel &#x3092;&#x8907;&#x6570;&#x6307;&#x5B9A;&#x3059;&#x308B;</span>
+    <span class="hljs-comment">// &#x3069;&#x308C;&#x304B;&#x304C;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308B;&#x307E;&#x3067;&#x5F85;&#x3063;&#x3066;&#x3066;&#x304F;&#x308C;&#x308B;</span>
+    <span class="hljs-comment">// &#x540C;&#x6642;&#x306B;&#x8907;&#x6570;&#x306E; channel &#x304C;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x3063;&#x3066;&#x3082;&#x3001;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x3072;&#x3068;&#x3064;&#x3060;&#x3051;</span>
+    <span class="hljs-comment">// default &#x66F8;&#x3044;&#x3066;&#x304A;&#x304F;&#x3068;&#x5F85;&#x305F;&#x305A;&#x306B;&#x3064;&#x308B;&#x3063;&#x3068;&#x629C;&#x3051;&#x308B;</span>
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> v := &lt;-ch1:     <span class="hljs-comment">// ch1 &#x304B;&#x3089;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5F85;&#x3061;</span>
+        fmt.Println(v)
+    <span class="hljs-keyword">case</span> v := &lt;-ch2:     <span class="hljs-comment">// ch2 &#x304B;&#x3089;&#x306E;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5F85;&#x3061;</span>
+        fmt.Println(v)
+    <span class="hljs-keyword">case</span> ch3 &lt;- <span class="hljs-string">&quot;hello&quot;</span>: <span class="hljs-comment">// ch3 &#x3078;&#x306E;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x5F85;&#x3061;</span>
+        fmt.Println(<span class="hljs-string">&quot;hello!&quot;</span>)
+    <span class="hljs-keyword">default</span>:
+        fmt.Println(<span class="hljs-string">&quot;all channels are not available now&quot;</span>)
+    }
+}
+</code></pre>
+<h2 id="&#x4F59;&#x8AC7;-context-&#x306B;&#x3088;&#x308B;-goroutine-&#x306E;&#x7D42;&#x4E86;&#x51E6;&#x7406;">&#x4F59;&#x8AC7;: context &#x306B;&#x3088;&#x308B; goroutine &#x306E;&#x7D42;&#x4E86;&#x51E6;&#x7406;</h2>
+<ul>
+<li>goroutine &#x3092; goroutine &#x306E;&#x5916;&#x5074;&#x304B;&#x3089;&#x5F37;&#x5236;&#x7684;&#x306B;&#x7D42;&#x308F;&#x3089;&#x305B;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x306A;&#x3044;<ul>
+<li>&#x3044;&#x308F;&#x3086;&#x308B; pthread &#x3067;&#x8A00;&#x3046;&#x3068;&#x3053;&#x308D;&#x306E; cancel &#x3084; kill &#x304C;&#x306A;&#x3044;</li>
+<li>&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x7D42;&#x308F;&#x3089;&#x305B;&#x305F;&#x304B;&#x3063;&#x305F;&#x3089;&#x81EA;&#x529B;&#x3067;&#x3061;&#x3083;&#x3093;&#x3068;&#x7D42;&#x308F;&#x3089;&#x305B;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
+<li>&#x4EE5;&#x4E0B;&#x3001;&#x9732;&#x9AA8;&#x306B; goroutine &#x304C;&#x6B8B;&#x308A;&#x7D9A;&#x3051;&#x3066;&#x30E1;&#x30E2;&#x30EA;&#x304C;&#x7121;&#x99C4;&#x306B;&#x6210;&#x308B;&#x4F8B; (goroutine leak) <a href="https://play.golang.org/p/XZCy1PoI_Ie" target="_blank">(playground)</a></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">// &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5C02;&#x7528; channel &#x3092;&#x5F15;&#x6570;&#x306B;&#x3068;&#x308B;&#x95A2;&#x6570;</span>
+<span class="hljs-keyword">func</span> receive(ch &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) {
+    fmt.Println(&lt;-ch)
+}
+
+<span class="hljs-keyword">func</span> main() {
+    ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+
+    <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x305F;&#x304F;&#x3055;&#x3093; goroutine &#x3092;&#x7ACB;&#x3066;&#x3066;&#x3044;&#x308B;&#x3001;&#x304C;&#x3001;</span>
+    <span class="hljs-comment">// &#x5404;&#x3005;&#x306E; goroutine &#x5185;&#x3067;&#x306F; channel &#x66F8;&#x304D;&#x8FBC;&#x307E;&#x308C;&#x5F85;&#x3061;&#x3067;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3044;&#x308B;</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++ {
+        <span class="hljs-keyword">go</span> receive(ch)
+    }
+}
+</code></pre>
+<ul>
+<li>goroutine &#x3092;&#x7D42;&#x308F;&#x3089;&#x305B;&#x308B;&#x65B9;&#x6CD5;&#x306E;&#x3072;&#x3068;&#x3064;&#x3068;&#x3057;&#x3066;&#x3001;<code>context.Context</code> &#x3092;&#x7528;&#x3044;&#x308B; <a href="https://play.golang.org/p/8Ktmj7Q6vUs" target="_blank">(playground)</a><ul>
+<li><code>context.WithCancel</code> &#x3092;&#x7528;&#x3044;&#x308B;&#x3068;&#x3001;context &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068; cancel &#x7528;&#x306E;&#x95A2;&#x6570;&#x304C;&#x5F97;&#x3089;&#x308C;&#x308B;</li>
+<li>cancel &#x7528;&#x306E;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3068;&#x3001;context &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306E; <code>Done()</code> &#x304C;&#x767A;&#x706B;&#x3059;&#x308B;</li>
+<li><code>Done()</code> &#x306F; channel &#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;&#x3002;select &#x3067;&#x5F85;&#x3063;&#x3068;&#x3044;&#x3066;&#x7D42;&#x4E86;&#x51E6;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;context&quot;</span>
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-comment">// &#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x5C02;&#x7528; channel &#x306B;&#x52A0;&#x3048;&#x3066;&#x3001;context &#x3092;&#x5F15;&#x6570;&#x306B;&#x3068;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x305F;</span>
+<span class="hljs-keyword">func</span> receive(ctx context.Context, ch &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) {
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> &lt;-ctx.Done(): <span class="hljs-comment">// ctx &#x306E; cancel &#x547C;&#x3070;&#x308C;&#x5F85;&#x3061;</span>
+        <span class="hljs-keyword">return</span>         <span class="hljs-comment">// cancel &#x547C;&#x3070;&#x308C;&#x305F;&#x3089;&#x95A2;&#x6570;&#x3092;&#x629C;&#x3051;&#x308B;</span>
+    <span class="hljs-keyword">case</span> v := &lt;-ch:
+        fmt.Println(v)
+    }
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// context &#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3068; cancel &#x7528;&#x306E;&#x95A2;&#x6570;&#x3092;&#x5F97;&#x308B;</span>
+    ctx, cancel := context.WithCancel(context.Background())
+    ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++ {
+        <span class="hljs-keyword">go</span> receive(ctx, ch) <span class="hljs-comment">// &#x5168;&#x90E8;&#x306E; goroutine &#x306B;&#x540C;&#x3058; ctx &#x3092;&#x6E21;&#x3059;</span>
+    }
+    cancel() <span class="hljs-comment">// cancel &#x3092;&#x547C;&#x3076;&#x3068;&#x5404;&#x3005;&#x306E; receive &#x306B;&#x6E21;&#x3063;&#x305F; ctx.Done() &#x304C;&#x767A;&#x706B;&#x3059;&#x308B;</span>
+}
+</code></pre>
 
                                 
                                 </section>
@@ -318,7 +514,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"channel による通信","level":"1.5.2","depth":2,"next":{"title":"待ち合わせ処理","level":"1.6","depth":1,"path":"sync.md","ref":"sync.md","articles":[]},"previous":{"title":"共有メモリによる通信","level":"1.5.1","depth":2,"path":"com_by_shared_memory.md","ref":"com_by_shared_memory.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"com_by_channel.md","mtime":"2018-05-07T02:55:36.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T14:38:15.282Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"channel による通信","level":"1.5.2","depth":2,"next":{"title":"待ち合わせ処理","level":"1.6","depth":1,"path":"sync.md","ref":"sync.md","articles":[]},"previous":{"title":"共有メモリによる通信","level":"1.5.1","depth":2,"path":"com_by_shared_memory.md","ref":"com_by_shared_memory.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"com_by_channel.md","mtime":"2018-05-08T12:35:48.817Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T12:53:00.245Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
