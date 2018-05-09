@@ -38,6 +38,8 @@ Go 言語のマスコットキャラクターの Gopher くん
 * いわゆるハローワールド
 
 ```go
+package main
+
 import fmt
 
 func main() {
@@ -48,6 +50,8 @@ func main() {
 * 余分な部分があるとコンパイル通らない例
 
 ```go
+package main
+
 import (
     "fmt"
     "os" // 使ってないインポートあるとコンパイル通らない
@@ -89,6 +93,7 @@ func main() {
 
 ## 充実の公式チュートリアル
 
-* 公式のチュートリアル [A Tour of Go](https://go-tour-jp.appspot.com/welcome/1)
-* 書き方に悩んだら [Effective Go](https://golang.org/doc/effective_go.html)
+* [The Go Programming Language (公式)](https://golang.org/)
+* [A Tour of Go (公式のチュートリアル )](https://go-tour-jp.appspot.com/welcome/1)
+* [Effective Go (書き方に悩んだらときのガイドライン)](https://golang.org/doc/effective_go.html)
 

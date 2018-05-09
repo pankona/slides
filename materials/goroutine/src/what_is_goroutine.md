@@ -6,8 +6,10 @@
 
 * _A goroutine is a lightweight thread managed by Go runtime._ ([Tour of Go - Goroutines](https://tour.golang.org/concurrency/1) より抜粋)
   * 軽量スレッドである。
+  * 平行処理を行うために用いられる。いわゆる C 言語で言うところの pthread と機能的には概ね同じ。
   * キーワード `go` を伴って関数を呼び出すことで、指定の関数は goroutine 上で実行されるようになる。
   * [Go by Example: Goroutines (公式の解説ページ)](https://gobyexample.com/goroutines)
+  * ちなみに main 関数もひとつの goroutine という扱い。
 
 ### goroutine を使ったコード例
 
