@@ -28,4 +28,5 @@
 * [golang.tokyo #9](./golang_tokyo_201709.html)
 * [DroidKaigi 2018](./droidkaigi_2018.html)
 * [goroutine introduction](./materials/goroutine/public/index.html)
+* [Google I/O 2018](./materials/google_io_2018/public/index.html)
 
