@@ -7,7 +7,7 @@
 * [Go の対応状況](go_support_status.md)
   * [ところで GopherJS](gopherjs.md)
 * [実際試してみる](demo.md)
-* Appendix
+* [Appendix](appendix.md)
   * [ベンチマーク](benchmark.md)
   * [参考文献](references.md)
 
