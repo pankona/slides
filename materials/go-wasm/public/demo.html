@@ -1,0 +1,393 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>実際試してみる · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="gopherjs.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    本日のテーマ: wasm by Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="what_is_wasm.html">
+            
+                <a href="what_is_wasm.html">
+            
+                    
+                    wasm とは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="each_lang_support_status.html">
+            
+                <a href="each_lang_support_status.html">
+            
+                    
+                    各言語の対応状況
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="go_support_status.html">
+            
+                <a href="go_support_status.html">
+            
+                    
+                    Go の対応状況
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="gopherjs.html">
+            
+                <a href="gopherjs.html">
+            
+                    
+                    ところで GopherJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="demo.html">
+            
+                <a href="demo.html">
+            
+                    
+                    実際試してみる
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="benchmark.html">
+            
+                <a href="benchmark.html">
+            
+                    
+                    ベンチマーク
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="references.html">
+            
+                <a href="references.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >実際試してみる</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5B9F;&#x969B;&#x306B;&#x3084;&#x3063;&#x3066;&#x307F;&#x308B;">&#x5B9F;&#x969B;&#x306B;&#x3084;&#x3063;&#x3066;&#x307F;&#x308B;</h1>
+<p>&#x5B9F;&#x969B;&#x306B;&#x3084;&#x3063;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x7528;&#x610F;&#x3059;&#x308B;&#x3082;&#x306E;">&#x7528;&#x610F;&#x3059;&#x308B;&#x3082;&#x306E;</h2>
+<ul>
+<li>Go 1.11 &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;<ul>
+<li>master &#x306E;&#x6700;&#x65B0;&#x304B; go1.11beta1 &#x30BF;&#x30B0;&#x304B;&#x3089;&#x30D3;&#x30EB;&#x30C9;&#x3057;&#x3066;&#x3082;&#x826F;&#x3044;</li>
+<li><code>go get</code> &#x3067; go1.11beta1 &#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x306E;&#x304C;&#x697D;</li>
+</ul>
+</li>
+<li>wasm &#x306B;&#x5909;&#x63DB;&#x3059;&#x308B; Go &#x306E;&#x30BD;&#x30FC;&#x30B9;</li>
+<li>wasm &#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x95A2;&#x6570;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B; JavaScript</li>
+<li>wasm &#x3068; JavaScript &#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3080; HTML &#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;</li>
+<li>&#x9069;&#x5F53;&#x306A; HTTP Server</li>
+</ul>
+<h2 id="&#x624B;&#x9806;-&#x30AB;&#x30F3;&#x30DA;">&#x624B;&#x9806; (&#x30AB;&#x30F3;&#x30DA;)</h2>
+<ul>
+<li>&#x3044;&#x3064;&#x3082;&#x306E; hello world &#x3092;&#x4F5C;&#x308B;</li>
+<li><code>GOOS=js GOARCH=wasm go build -o test.wasm main.go</code> &#x307F;&#x305F;&#x3044;&#x306B;&#x3057;&#x3066;&#x30D3;&#x30EB;&#x30C9;</li>
+<li><code>curl -sO https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.html</code> &#x3067; HTML &#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x5165;&#x624B;</li>
+<li><code>curl -sO https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.js</code> &#x3067; wasm &#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x95A2;&#x6570;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E; JavaScript &#x3092;&#x5165;&#x624B;</li>
+<li>HTML &#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3092;HTTP Server &#x3067;&#x30B5;&#x30FC;&#x30D6;<ul>
+<li>file:/// &#x3067;&#x306F;&#x30C0;&#x30E1;&#x3002;chrome &#x306E;&#x5236;&#x9650;&#x3067; file:/// &#x3060;&#x3068; JavaScript &#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x60C5;&#x5831;&#x3042;&#x308A;</li>
+</ul>
+</li>
+<li><p>&#x30B5;&#x30FC;&#x30D6;&#x3057;&#x305F;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3092;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x898B;&#x308B;</p>
+</li>
+<li><p>&#x4E0A;&#x8A18;&#x3092;&#x307E;&#x3068;&#x3081;&#x305F;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x304C;&#x4EE5;&#x4E0B;</p>
+<ul>
+<li><a href="https://github.com/pankona/go-wasm-test" target="_blank">https://github.com/pankona/go-wasm-test</a> </li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x8A66;&#x3057;&#x305F;&#x3068;&#x3053;&#x308D;&#x3000;">&#x8A66;&#x3057;&#x305F;&#x3068;&#x3053;&#x308D;&#x2026;&#x3000;</h2>
+<ul>
+<li>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x306F;&#x3068;&#x3066;&#x3082;&#x3068;&#x3066;&#x3082;&#x7C21;&#x5358;&#x3060;&#x3063;&#x305F;</li>
+<li>&#x3051;&#x3069;&#x3001;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x3067;&#x304B;&#x3044;...&#x3002;&#x306E;&#x3067;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x9045;&#x3044;&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="gopherjs.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ところで GopherJS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"実際試してみる","level":"1.6","depth":1,"next":{"title":"Appendix","level":"1.7","depth":1,"ref":"","articles":[{"title":"ベンチマーク","level":"1.7.1","depth":2,"path":"benchmark.md","ref":"benchmark.md","articles":[]},{"title":"参考文献","level":"1.7.2","depth":2,"path":"references.md","ref":"references.md","articles":[]}]},"previous":{"title":"ところで GopherJS","level":"1.5.1","depth":2,"path":"gopherjs.md","ref":"gopherjs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"demo.md","mtime":"2018-07-17T17:22:45.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-17T17:32:10.890Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

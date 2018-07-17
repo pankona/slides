@@ -1,0 +1,406 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>wasm とは · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="each_lang_support_status.html" />
+    
+    
+    <link rel="prev" href="intro.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    本日のテーマ: wasm by Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="what_is_wasm.html">
+            
+                <a href="what_is_wasm.html">
+            
+                    
+                    wasm とは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="each_lang_support_status.html">
+            
+                <a href="each_lang_support_status.html">
+            
+                    
+                    各言語の対応状況
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="go_support_status.html">
+            
+                <a href="go_support_status.html">
+            
+                    
+                    Go の対応状況
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="gopherjs.html">
+            
+                <a href="gopherjs.html">
+            
+                    
+                    ところで GopherJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="demo.html">
+            
+                <a href="demo.html">
+            
+                    
+                    実際試してみる
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="benchmark.html">
+            
+                <a href="benchmark.html">
+            
+                    
+                    ベンチマーク
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="references.html">
+            
+                <a href="references.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >wasm とは</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="wasm-&#x3068;&#x306F;&#x4F55;&#x304B;">wasm &#x3068;&#x306F;&#x4F55;&#x304B;</h1>
+<ul>
+<li>&#x516C;&#x5F0F;&#x30B5;&#x30A4;&#x30C8;</li>
+</ul>
+<p><a class="embedly-card" data-card-controls="0" href="https://webassembly.org/" target="_blank">WebAssembly</a></p>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+
+<p><em>WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable target for compilation of high-level languages like C/C++/Rust, enabling deployment on the web for client and server applications.</em></p>
+<p>&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;&#x4EE5;&#x4E0B;&#x3002;</p>
+<ul>
+<li>binary instruction format (&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x547D;&#x4EE4;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30C3;&#x30C8;) &#x3067;&#x3042;&#x308B;</li>
+<li>C/C++/Rust &#x7B49;&#x306E;&#x9AD8;&#x6C34;&#x6E96;&#x8A00;&#x8A9E;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x751F;&#x6210;&#x3059;&#x308B;&#x30BF;&#x30FC;&#x30B2;&#x30C3;&#x30C8;&#x3068;&#x3057;&#x3066;&#x8A2D;&#x8A08;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;</li>
+<li>&#x30A6;&#x30A7;&#x30D6;&#x4E0A;&#x3067;&#x5C55;&#x958B;&#x53EF;&#x80FD;&#x3067;&#x3042;&#x308B;</li>
+</ul>
+<p>&#x3082;&#x3063;&#x3068;&#x3056;&#x3063;&#x304F;&#x308A;&#x8A00;&#x3046;&#x3068;&#x3001;</p>
+<ul>
+<li>C/C++/Rust &#x7B49;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x3066;&#x4F5C;&#x3063;&#x305F;&#x30D0;&#x30A4;&#x30CA;&#x30EA;&#x3092; Web &#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x4E0A;&#x3067;&#x52D5;&#x304B;&#x305B;&#x3061;&#x307E;&#x3046;&#x3093;&#x3060;</li>
+</ul>
+<p>&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3002;</p>
+<h2 id="&#x4F55;&#x306E;&#x305F;&#x3081;&#x306E;&#x3082;&#x306E;&#x304B;">&#x4F55;&#x306E;&#x305F;&#x3081;&#x306E;&#x3082;&#x306E;&#x304B;</h2>
+<p>&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;&#x3001;&#x300C;JavaScript &#x3088;&#x308A;&#x9AD8;&#x901F;&#x306B;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x300D;&#x3068;&#x3044;&#x3046;&#x306E;&#x304C;&#x30A6;&#x30EA;</p>
+<ul>
+<li><a href="https://webassembly.org/docs/faq/" target="_blank">FAQ</a> &#x306B;&#x3088;&#x308B;&#x3068; JavaScript &#x3088;&#x308A; 20x &#x901F;&#x304F;&#x306A;&#x308B;&#x30B1;&#x30FC;&#x30B9;&#x3082;&#x3001;&#x307F;&#x305F;&#x3044;&#x306A;&#x3053;&#x3068;&#x304C;&#x66F8;&#x304B;&#x308C;&#x3066;&#x3044;&#x308B;&#x304C;&#x2026;&#xFF1F;</li>
+<li>&#x3061;&#x306A;&#x307F;&#x306B; <a href="http://asmjs.org/" target="_blank">asm.js</a> &#x3068;&#x3044;&#x3046;&#x4F3C;&#x305F;&#x3088;&#x3046;&#x306A;&#x306E;&#x304C;&#x65E2;&#x306B;&#x3042;&#x308B;&#x304C;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B5;&#x30A4;&#x30BA;&#x304C;&#x5927;&#x304D;&#x3044;&#x3060;&#x3068;&#x304B;&#x57FA;&#x672C;&#x7684;&#x306B;&#x6570;&#x5024;&#x8A08;&#x7B97;&#x3057;&#x304B;&#x3067;&#x304D;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x9069;&#x7528;&#x3067;&#x304D;&#x308B;&#x5834;&#x9762;&#x306B;&#x9650;&#x308A;&#x304C;&#x3042;&#x308B;</li>
+<li>asm.js &#x3088;&#x308A;&#x3082;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x6E1B;&#x3089;&#x3057;&#x3001;&#x30ED;&#x30FC;&#x30C9;&#x6642;&#x9593;&#x306E;&#x77ED;&#x7E2E;&#x306B;&#x5BC4;&#x4E0E;&#x3059;&#x308B;</li>
+</ul>
+<h2 id="&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;">&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;</h2>
+<ul>
+<li><a href="https://webassembly.org/docs/use-cases/" target="_blank">&#x516C;&#x5F0F;&#x306B;&#x69D8;&#x3005;&#x306A;&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;&#x304C;&#x30EA;&#x30B9;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;</a></li>
+<li>C/C++/Rust &#x7B49;&#x3067;&#x66F8;&#x3044;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x3092; AltJS &#x7684;&#x306B;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;</li>
+<li>JavaScript &#x3067;&#x306F;&#x6027;&#x80FD;&#x7684;&#x306B;&#x8DB3;&#x308A;&#x306A;&#x3044;&#x90E8;&#x5206;&#x3092;&#x88DC;&#x3046;<ul>
+<li>&#x753B;&#x50CF;&#x30FB;&#x52D5;&#x753B;&#x306E;&#x7DE8;&#x96C6;</li>
+<li>&#x30B2;&#x30FC;&#x30E0;</li>
+<li>&#x753B;&#x50CF;&#x8A8D;&#x8B58;</li>
+<li>CAD (<a href="http://blogs.autodesk.com/autocad/autocad-web-app-google-io-2018/" target="_blank">AutoCAD &#x306F; wasm &#x4F7F;&#x3063;&#x3066;&#x308B;&#x3089;&#x3057;&#x3044;</a>)</li>
+</ul>
+</li>
+<li>&#x7B49;&#x306A;&#x3069;</li>
+</ul>
+<h2 id="&#x305D;&#x306E;&#x4ED6;">&#x305D;&#x306E;&#x4ED6;</h2>
+<ul>
+<li>&#x5272;&#x3068;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x304C;&#x3081;&#x3093;&#x3069;&#x304F;&#x3055;&#x3044;&#x3068;&#x8A00;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B; (&#x8A66;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x304C;<a href="https://qiita.com/umamichi/items/c62d18b7ed81fdba63c2" target="_blank">&#x30D3;&#x30EB;&#x30C9;&#x306B;&#x6570;&#x6642;&#x9593;&#x304B;&#x304B;&#x308B;&#x307F;&#x305F;&#x3044;&#x306A;&#x8A18;&#x4E8B;</a>&#x3082;&#x3042;&#x308B;)</li>
+<li>C/C++/Rust &#x4EE5;&#x5916;&#x306E;&#x8A00;&#x8A9E;&#x3067;&#x3082; wasm &#x3078;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x52D5;&#x5411;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: 本日のテーマ: wasm by Go">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="each_lang_support_status.html" class="navigation navigation-next " aria-label="Next page: 各言語の対応状況">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"wasm とは","level":"1.3","depth":1,"next":{"title":"各言語の対応状況","level":"1.4","depth":1,"path":"each_lang_support_status.md","ref":"each_lang_support_status.md","articles":[]},"previous":{"title":"本日のテーマ: wasm by Go","level":"1.2","depth":1,"path":"intro.md","ref":"intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"what_is_wasm.md","mtime":"2018-07-17T15:52:35.798Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-17T17:32:10.890Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
