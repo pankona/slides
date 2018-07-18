@@ -1,0 +1,888 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>サンプルで使った (取得した) ソース · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="references.html" />
+    
+    
+    <link rel="prev" href="benchmark.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    本日のテーマ: wasm by Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="what_is_wasm.html">
+            
+                <a href="what_is_wasm.html">
+            
+                    
+                    wasm とは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="each_lang_support_status.html">
+            
+                <a href="each_lang_support_status.html">
+            
+                    
+                    各言語の対応状況
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="go_support_status.html">
+            
+                <a href="go_support_status.html">
+            
+                    
+                    Go の対応状況
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="gopherjs.html">
+            
+                <a href="gopherjs.html">
+            
+                    
+                    ところで GopherJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="demo.html">
+            
+                <a href="demo.html">
+            
+                    
+                    実際試してみる
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="appendix.html">
+            
+                <a href="appendix.html">
+            
+                    
+                    Appendix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="benchmark.html">
+            
+                <a href="benchmark.html">
+            
+                    
+                    ベンチマーク
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.2" data-path="sources.html">
+            
+                <a href="sources.html">
+            
+                    
+                    サンプルで使った (取得した) ソース
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="references.html">
+            
+                <a href="references.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >サンプルで使った (取得した) ソース</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x7528;&#x3044;&#x305F;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x7528;&#x3044;&#x305F;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;</h1>
+<p><a href="https://github.com/pankona/go-wasm-test" target="_blank">https://github.com/pankona/go-wasm-test</a> &#x3092;&#x5B9F;&#x969B;&#x306B;&#x3053;&#x306D;&#x3066;&#x51FA;&#x3066;&#x304F;&#x308B;&#x3082;&#x306E;&#x306F;&#x4EE5;&#x4E0B;&#x3002;</p>
+<p>&#x4E0A;&#x8A18;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x3067; make &#x3092;&#x5B9F;&#x884C;&#x3059;&#x308C;&#x3070;&#x540C;&#x3058;&#x3082;&#x306E;&#x304C;&#x624B;&#x306B;&#x5165;&#x308B;&#x306F;&#x305A;&#x3060;&#x304C;&#x898B;&#x3084;&#x3059;&#x3055;&#x306E;&#x305F;&#x3081;&#x8EE2;&#x8A18;&#x3002;</p>
+<ul>
+<li>Go &#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x304B;&#x3089;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x985E;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x983B;&#x7E41;&#x306B;&#x5909;&#x66F4;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;&#x52D5;&#x3044;&#x305F;&#x5B9F;&#x7E3E;&#x306E;&#x3042;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x3068;&#x3057;&#x3066;</li>
+<li>&#x5927;&#x5143;&#x3092;&#x53C2;&#x7167;&#x3059;&#x308B;&#x306E;&#x9762;&#x5012;&#x306A;&#x4EBA;&#x306E;&#x305F;&#x3081;</li>
+</ul>
+<h2 id="maingo-&#x81EA;&#x524D;&#x3067;&#x4F5C;&#x6210;">main.go (&#x81EA;&#x524D;&#x3067;&#x4F5C;&#x6210;)</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    fmt.Println(<span class="hljs-string">&quot;Hello World!&quot;</span>)
+}
+</code></pre>
+<h2 id="wasmexechtml-go-&#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x304B;&#x3089;&#x53D6;&#x5F97;">wasm_exec.html (Go &#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x304B;&#x3089;&#x53D6;&#x5F97;)</h2>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<span class="hljs-comment">&lt;!--
+Copyright 2018 The Go Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Go wasm<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;wasm_exec.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+        <span class="hljs-keyword">if</span> (!WebAssembly.instantiateStreaming) { <span class="hljs-comment">// polyfill</span>
+            WebAssembly.instantiateStreaming = <span class="hljs-keyword">async</span> (resp, importObject) =&gt; {
+                <span class="hljs-keyword">const</span> source = <span class="hljs-keyword">await</span> (<span class="hljs-keyword">await</span> resp).arrayBuffer();
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> WebAssembly.instantiate(source, importObject);
+            };
+        }
+
+        <span class="hljs-keyword">const</span> go = <span class="hljs-keyword">new</span> Go();
+        <span class="hljs-keyword">let</span> mod, inst;
+        WebAssembly.instantiateStreaming(fetch(<span class="hljs-string">&quot;test.wasm&quot;</span>), go.importObject).then((result) =&gt; {
+            mod = result.module;
+            inst = result.instance;
+            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;runButton&quot;</span>).disabled = <span class="hljs-literal">false</span>;
+        });
+
+        <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">run</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-built_in">console</span>.clear();
+            <span class="hljs-keyword">await</span> go.run(inst);
+            inst = <span class="hljs-keyword">await</span> WebAssembly.instantiate(mod, go.importObject); <span class="hljs-comment">// reset instance</span>
+        }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&quot;run();&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;runButton&quot;</span> <span class="hljs-attr">disabled</span>&gt;</span>Run<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="wasmexecjs-go-&#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x304B;&#x3089;&#x53D6;&#x5F97;">wasm_exec.js (Go &#x306E;&#x30EA;&#x30DD;&#x30B8;&#x30C8;&#x30EA;&#x304B;&#x3089;&#x53D6;&#x5F97;)</h2>
+<pre><code class="lang-js"><span class="hljs-comment">// Copyright 2018 The Go Authors. All rights reserved.</span>
+<span class="hljs-comment">// Use of this source code is governed by a BSD-style</span>
+<span class="hljs-comment">// license that can be found in the LICENSE file.</span>
+
+(() =&gt; {
+    <span class="hljs-comment">// Map web browser API and Node.js API to a single common API (preferring web standards over Node.js API).</span>
+    <span class="hljs-keyword">const</span> isNodeJS = <span class="hljs-keyword">typeof</span> process !== <span class="hljs-string">&quot;undefined&quot;</span>;
+    <span class="hljs-keyword">if</span> (isNodeJS) {
+        global.require = <span class="hljs-built_in">require</span>;
+        global.fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;fs&quot;</span>);
+
+        <span class="hljs-keyword">const</span> nodeCrypto = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;crypto&quot;</span>);
+        global.crypto = {
+            getRandomValues(b) {
+                nodeCrypto.randomFillSync(b);
+            },
+        };
+
+        global.performance = {
+            now() {
+                <span class="hljs-keyword">const</span> [sec, nsec] = process.hrtime();
+                <span class="hljs-keyword">return</span> sec * <span class="hljs-number">1000</span> + nsec / <span class="hljs-number">1000000</span>;
+            },
+        };
+
+        <span class="hljs-keyword">const</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;util&quot;</span>);
+        global.TextEncoder = util.TextEncoder;
+        global.TextDecoder = util.TextDecoder;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> !== <span class="hljs-string">&quot;undefined&quot;</span>) {
+            <span class="hljs-built_in">window</span>.global = <span class="hljs-built_in">window</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> self !== <span class="hljs-string">&quot;undefined&quot;</span>) {
+            self.global = self;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;cannot export Go (neither window nor self is defined)&quot;</span>);
+        }
+
+        <span class="hljs-keyword">let</span> outputBuf = <span class="hljs-string">&quot;&quot;</span>;
+        global.fs = {
+            constants: { O_WRONLY: <span class="hljs-number">-1</span>, O_RDWR: <span class="hljs-number">-1</span>, O_CREAT: <span class="hljs-number">-1</span>, O_TRUNC: <span class="hljs-number">-1</span>, O_APPEND: <span class="hljs-number">-1</span>, O_EXCL: <span class="hljs-number">-1</span>, O_NONBLOCK: <span class="hljs-number">-1</span>, O_SYNC: <span class="hljs-number">-1</span> }, <span class="hljs-comment">// unused</span>
+            writeSync(fd, buf) {
+                outputBuf += decoder.decode(buf);
+                <span class="hljs-keyword">const</span> nl = outputBuf.lastIndexOf(<span class="hljs-string">&quot;\n&quot;</span>);
+                <span class="hljs-keyword">if</span> (nl != <span class="hljs-number">-1</span>) {
+                    <span class="hljs-built_in">console</span>.log(outputBuf.substr(<span class="hljs-number">0</span>, nl));
+                    outputBuf = outputBuf.substr(nl + <span class="hljs-number">1</span>);
+                }
+                <span class="hljs-keyword">return</span> buf.length;
+            },
+            openSync(path, flags, mode) {
+                <span class="hljs-keyword">const</span> err = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;not implemented&quot;</span>);
+                err.code = <span class="hljs-string">&quot;ENOSYS&quot;</span>;
+                <span class="hljs-keyword">throw</span> err;
+            },
+        };
+    }
+
+    <span class="hljs-keyword">const</span> encoder = <span class="hljs-keyword">new</span> TextEncoder(<span class="hljs-string">&quot;utf-8&quot;</span>);
+    <span class="hljs-keyword">const</span> decoder = <span class="hljs-keyword">new</span> TextDecoder(<span class="hljs-string">&quot;utf-8&quot;</span>);
+
+    global.Go = <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{
+        <span class="hljs-keyword">constructor</span>() {
+            <span class="hljs-keyword">this</span>.argv = [<span class="hljs-string">&quot;js&quot;</span>];
+            <span class="hljs-keyword">this</span>.env = {};
+            <span class="hljs-keyword">this</span>.exit = (code) =&gt; {
+                <span class="hljs-keyword">if</span> (code !== <span class="hljs-number">0</span>) {
+                    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">&quot;exit code:&quot;</span>, code);
+                }
+            };
+            <span class="hljs-keyword">this</span>._callbackTimeouts = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+            <span class="hljs-keyword">this</span>._nextCallbackTimeoutID = <span class="hljs-number">1</span>;
+
+            <span class="hljs-keyword">const</span> mem = () =&gt; {
+                <span class="hljs-comment">// The buffer may change when requesting more memory.</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">DataView</span>(<span class="hljs-keyword">this</span>._inst.exports.mem.buffer);
+            }
+
+            <span class="hljs-keyword">const</span> setInt64 = (addr, v) =&gt; {
+                mem().setUint32(addr + <span class="hljs-number">0</span>, v, <span class="hljs-literal">true</span>);
+                mem().setUint32(addr + <span class="hljs-number">4</span>, <span class="hljs-built_in">Math</span>.floor(v / <span class="hljs-number">4294967296</span>), <span class="hljs-literal">true</span>);
+            }
+
+            <span class="hljs-keyword">const</span> getInt64 = (addr) =&gt; {
+                <span class="hljs-keyword">const</span> low = mem().getUint32(addr + <span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
+                <span class="hljs-keyword">const</span> high = mem().getInt32(addr + <span class="hljs-number">4</span>, <span class="hljs-literal">true</span>);
+                <span class="hljs-keyword">return</span> low + high * <span class="hljs-number">4294967296</span>;
+            }
+
+            <span class="hljs-keyword">const</span> loadValue = (addr) =&gt; {
+                <span class="hljs-keyword">const</span> f = mem().getFloat64(addr, <span class="hljs-literal">true</span>);
+                <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isNaN</span>(f)) {
+                    <span class="hljs-keyword">return</span> f;
+                }
+
+                <span class="hljs-keyword">const</span> id = mem().getUint32(addr, <span class="hljs-literal">true</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._values[id];
+            }
+
+            <span class="hljs-keyword">const</span> storeValue = (addr, v) =&gt; {
+                <span class="hljs-keyword">const</span> nanHead = <span class="hljs-number">0x7FF80000</span>;
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">&quot;number&quot;</span>) {
+                    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(v)) {
+                        mem().setUint32(addr + <span class="hljs-number">4</span>, nanHead, <span class="hljs-literal">true</span>);
+                        mem().setUint32(addr, <span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
+                        <span class="hljs-keyword">return</span>;
+                    }
+                    mem().setFloat64(addr, v, <span class="hljs-literal">true</span>);
+                    <span class="hljs-keyword">return</span>;
+                }
+
+                <span class="hljs-keyword">switch</span> (v) {
+                    <span class="hljs-keyword">case</span> <span class="hljs-literal">undefined</span>:
+                        mem().setUint32(addr + <span class="hljs-number">4</span>, nanHead, <span class="hljs-literal">true</span>);
+                        mem().setUint32(addr, <span class="hljs-number">1</span>, <span class="hljs-literal">true</span>);
+                        <span class="hljs-keyword">return</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-literal">null</span>:
+                        mem().setUint32(addr + <span class="hljs-number">4</span>, nanHead, <span class="hljs-literal">true</span>);
+                        mem().setUint32(addr, <span class="hljs-number">2</span>, <span class="hljs-literal">true</span>);
+                        <span class="hljs-keyword">return</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-literal">true</span>:
+                        mem().setUint32(addr + <span class="hljs-number">4</span>, nanHead, <span class="hljs-literal">true</span>);
+                        mem().setUint32(addr, <span class="hljs-number">3</span>, <span class="hljs-literal">true</span>);
+                        <span class="hljs-keyword">return</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-literal">false</span>:
+                        mem().setUint32(addr + <span class="hljs-number">4</span>, nanHead, <span class="hljs-literal">true</span>);
+                        mem().setUint32(addr, <span class="hljs-number">4</span>, <span class="hljs-literal">true</span>);
+                        <span class="hljs-keyword">return</span>;
+                }
+
+                <span class="hljs-keyword">let</span> ref = <span class="hljs-keyword">this</span>._refs.get(v);
+                <span class="hljs-keyword">if</span> (ref === <span class="hljs-literal">undefined</span>) {
+                    ref = <span class="hljs-keyword">this</span>._values.length;
+                    <span class="hljs-keyword">this</span>._values.push(v);
+                    <span class="hljs-keyword">this</span>._refs.set(v, ref);
+                }
+                <span class="hljs-keyword">let</span> typeFlag = <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">typeof</span> v) {
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;string&quot;</span>:
+                        typeFlag = <span class="hljs-number">1</span>;
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;symbol&quot;</span>:
+                        typeFlag = <span class="hljs-number">2</span>;
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;function&quot;</span>:
+                        typeFlag = <span class="hljs-number">3</span>;
+                        <span class="hljs-keyword">break</span>;
+                }
+                mem().setUint32(addr + <span class="hljs-number">4</span>, nanHead | typeFlag, <span class="hljs-literal">true</span>);
+                mem().setUint32(addr, ref, <span class="hljs-literal">true</span>);
+            }
+
+            <span class="hljs-keyword">const</span> loadSlice = (addr) =&gt; {
+                <span class="hljs-keyword">const</span> array = getInt64(addr + <span class="hljs-number">0</span>);
+                <span class="hljs-keyword">const</span> len = getInt64(addr + <span class="hljs-number">8</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(<span class="hljs-keyword">this</span>._inst.exports.mem.buffer, array, len);
+            }
+
+            <span class="hljs-keyword">const</span> loadSliceOfValues = (addr) =&gt; {
+                <span class="hljs-keyword">const</span> array = getInt64(addr + <span class="hljs-number">0</span>);
+                <span class="hljs-keyword">const</span> len = getInt64(addr + <span class="hljs-number">8</span>);
+                <span class="hljs-keyword">const</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+                    a[i] = loadValue(array + i * <span class="hljs-number">8</span>);
+                }
+                <span class="hljs-keyword">return</span> a;
+            }
+
+            <span class="hljs-keyword">const</span> loadString = (addr) =&gt; {
+                <span class="hljs-keyword">const</span> saddr = getInt64(addr + <span class="hljs-number">0</span>);
+                <span class="hljs-keyword">const</span> len = getInt64(addr + <span class="hljs-number">8</span>);
+                <span class="hljs-keyword">return</span> decoder.decode(<span class="hljs-keyword">new</span> <span class="hljs-built_in">DataView</span>(<span class="hljs-keyword">this</span>._inst.exports.mem.buffer, saddr, len));
+            }
+
+            <span class="hljs-keyword">const</span> timeOrigin = <span class="hljs-built_in">Date</span>.now() - performance.now();
+            <span class="hljs-keyword">this</span>.importObject = {
+                go: {
+                    <span class="hljs-comment">// func wasmExit(code int32)</span>
+                    <span class="hljs-string">&quot;runtime.wasmExit&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> code = mem().getInt32(sp + <span class="hljs-number">8</span>, <span class="hljs-literal">true</span>);
+                        <span class="hljs-keyword">this</span>.exited = <span class="hljs-literal">true</span>;
+                        <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>._inst;
+                        <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>._values;
+                        <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>._refs;
+                        <span class="hljs-keyword">this</span>.exit(code);
+                    },
+
+                    <span class="hljs-comment">// func wasmWrite(fd uintptr, p unsafe.Pointer, n int32)</span>
+                    <span class="hljs-string">&quot;runtime.wasmWrite&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> fd = getInt64(sp + <span class="hljs-number">8</span>);
+                        <span class="hljs-keyword">const</span> p = getInt64(sp + <span class="hljs-number">16</span>);
+                        <span class="hljs-keyword">const</span> n = mem().getInt32(sp + <span class="hljs-number">24</span>, <span class="hljs-literal">true</span>);
+                        fs.writeSync(fd, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(<span class="hljs-keyword">this</span>._inst.exports.mem.buffer, p, n));
+                    },
+
+                    <span class="hljs-comment">// func nanotime() int64</span>
+                    <span class="hljs-string">&quot;runtime.nanotime&quot;</span>: (sp) =&gt; {
+                        setInt64(sp + <span class="hljs-number">8</span>, (timeOrigin + performance.now()) * <span class="hljs-number">1000000</span>);
+                    },
+
+                    <span class="hljs-comment">// func walltime() (sec int64, nsec int32)</span>
+                    <span class="hljs-string">&quot;runtime.walltime&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> msec = (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>).getTime();
+                        setInt64(sp + <span class="hljs-number">8</span>, msec / <span class="hljs-number">1000</span>);
+                        mem().setInt32(sp + <span class="hljs-number">16</span>, (msec % <span class="hljs-number">1000</span>) * <span class="hljs-number">1000000</span>, <span class="hljs-literal">true</span>);
+                    },
+
+                    <span class="hljs-comment">// func scheduleCallback(delay int64) int32</span>
+                    <span class="hljs-string">&quot;runtime.scheduleCallback&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> id = <span class="hljs-keyword">this</span>._nextCallbackTimeoutID;
+                        <span class="hljs-keyword">this</span>._nextCallbackTimeoutID++;
+                        <span class="hljs-keyword">this</span>._callbackTimeouts.set(id, setTimeout(
+                            () =&gt; { <span class="hljs-keyword">this</span>._resolveCallbackPromise(); },
+                            getInt64(sp + <span class="hljs-number">8</span>) + <span class="hljs-number">1</span>, <span class="hljs-comment">// setTimeout has been seen to fire up to 1 millisecond early</span>
+                        ));
+                        mem().setInt32(sp + <span class="hljs-number">16</span>, id, <span class="hljs-literal">true</span>);
+                    },
+
+                    <span class="hljs-comment">// func clearScheduledCallback(id int32)</span>
+                    <span class="hljs-string">&quot;runtime.clearScheduledCallback&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> id = mem().getInt32(sp + <span class="hljs-number">8</span>, <span class="hljs-literal">true</span>);
+                        clearTimeout(<span class="hljs-keyword">this</span>._callbackTimeouts.get(id));
+                        <span class="hljs-keyword">this</span>._callbackTimeouts.delete(id);
+                    },
+
+                    <span class="hljs-comment">// func getRandomData(r []byte)</span>
+                    <span class="hljs-string">&quot;runtime.getRandomData&quot;</span>: (sp) =&gt; {
+                        crypto.getRandomValues(loadSlice(sp + <span class="hljs-number">8</span>));
+                    },
+
+                    <span class="hljs-comment">// func stringVal(value string) ref</span>
+                    <span class="hljs-string">&quot;syscall/js.stringVal&quot;</span>: (sp) =&gt; {
+                        storeValue(sp + <span class="hljs-number">24</span>, loadString(sp + <span class="hljs-number">8</span>));
+                    },
+
+                    <span class="hljs-comment">// func valueGet(v ref, p string) ref</span>
+                    <span class="hljs-string">&quot;syscall/js.valueGet&quot;</span>: (sp) =&gt; {
+                        storeValue(sp + <span class="hljs-number">32</span>, <span class="hljs-built_in">Reflect</span>.get(loadValue(sp + <span class="hljs-number">8</span>), loadString(sp + <span class="hljs-number">16</span>)));
+                    },
+
+                    <span class="hljs-comment">// func valueSet(v ref, p string, x ref)</span>
+                    <span class="hljs-string">&quot;syscall/js.valueSet&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-built_in">Reflect</span>.set(loadValue(sp + <span class="hljs-number">8</span>), loadString(sp + <span class="hljs-number">16</span>), loadValue(sp + <span class="hljs-number">32</span>));
+                    },
+
+                    <span class="hljs-comment">// func valueIndex(v ref, i int) ref</span>
+                    <span class="hljs-string">&quot;syscall/js.valueIndex&quot;</span>: (sp) =&gt; {
+                        storeValue(sp + <span class="hljs-number">24</span>, <span class="hljs-built_in">Reflect</span>.get(loadValue(sp + <span class="hljs-number">8</span>), getInt64(sp + <span class="hljs-number">16</span>)));
+                    },
+
+                    <span class="hljs-comment">// valueSetIndex(v ref, i int, x ref)</span>
+                    <span class="hljs-string">&quot;syscall/js.valueSetIndex&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-built_in">Reflect</span>.set(loadValue(sp + <span class="hljs-number">8</span>), getInt64(sp + <span class="hljs-number">16</span>), loadValue(sp + <span class="hljs-number">24</span>));
+                    },
+
+                    <span class="hljs-comment">// func valueCall(v ref, m string, args []ref) (ref, bool)</span>
+                    <span class="hljs-string">&quot;syscall/js.valueCall&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">try</span> {
+                            <span class="hljs-keyword">const</span> v = loadValue(sp + <span class="hljs-number">8</span>);
+                            <span class="hljs-keyword">const</span> m = <span class="hljs-built_in">Reflect</span>.get(v, loadString(sp + <span class="hljs-number">16</span>));
+                            <span class="hljs-keyword">const</span> args = loadSliceOfValues(sp + <span class="hljs-number">32</span>);
+                            storeValue(sp + <span class="hljs-number">56</span>, <span class="hljs-built_in">Reflect</span>.apply(m, v, args));
+                            mem().setUint8(sp + <span class="hljs-number">64</span>, <span class="hljs-number">1</span>);
+                        } <span class="hljs-keyword">catch</span> (err) {
+                            storeValue(sp + <span class="hljs-number">56</span>, err);
+                            mem().setUint8(sp + <span class="hljs-number">64</span>, <span class="hljs-number">0</span>);
+                        }
+                    },
+
+                    <span class="hljs-comment">// func valueInvoke(v ref, args []ref) (ref, bool)</span>
+                    <span class="hljs-string">&quot;syscall/js.valueInvoke&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">try</span> {
+                            <span class="hljs-keyword">const</span> v = loadValue(sp + <span class="hljs-number">8</span>);
+                            <span class="hljs-keyword">const</span> args = loadSliceOfValues(sp + <span class="hljs-number">16</span>);
+                            storeValue(sp + <span class="hljs-number">40</span>, <span class="hljs-built_in">Reflect</span>.apply(v, <span class="hljs-literal">undefined</span>, args));
+                            mem().setUint8(sp + <span class="hljs-number">48</span>, <span class="hljs-number">1</span>);
+                        } <span class="hljs-keyword">catch</span> (err) {
+                            storeValue(sp + <span class="hljs-number">40</span>, err);
+                            mem().setUint8(sp + <span class="hljs-number">48</span>, <span class="hljs-number">0</span>);
+                        }
+                    },
+
+                    <span class="hljs-comment">// func valueNew(v ref, args []ref) (ref, bool)</span>
+                    <span class="hljs-string">&quot;syscall/js.valueNew&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">try</span> {
+                            <span class="hljs-keyword">const</span> v = loadValue(sp + <span class="hljs-number">8</span>);
+                            <span class="hljs-keyword">const</span> args = loadSliceOfValues(sp + <span class="hljs-number">16</span>);
+                            storeValue(sp + <span class="hljs-number">40</span>, <span class="hljs-built_in">Reflect</span>.construct(v, args));
+                            mem().setUint8(sp + <span class="hljs-number">48</span>, <span class="hljs-number">1</span>);
+                        } <span class="hljs-keyword">catch</span> (err) {
+                            storeValue(sp + <span class="hljs-number">40</span>, err);
+                            mem().setUint8(sp + <span class="hljs-number">48</span>, <span class="hljs-number">0</span>);
+                        }
+                    },
+
+                    <span class="hljs-comment">// func valueLength(v ref) int</span>
+                    <span class="hljs-string">&quot;syscall/js.valueLength&quot;</span>: (sp) =&gt; {
+                        setInt64(sp + <span class="hljs-number">16</span>, <span class="hljs-built_in">parseInt</span>(loadValue(sp + <span class="hljs-number">8</span>).length));
+                    },
+
+                    <span class="hljs-comment">// valuePrepareString(v ref) (ref, int)</span>
+                    <span class="hljs-string">&quot;syscall/js.valuePrepareString&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> str = encoder.encode(<span class="hljs-built_in">String</span>(loadValue(sp + <span class="hljs-number">8</span>)));
+                        storeValue(sp + <span class="hljs-number">16</span>, str);
+                        setInt64(sp + <span class="hljs-number">24</span>, str.length);
+                    },
+
+                    <span class="hljs-comment">// valueLoadString(v ref, b []byte)</span>
+                    <span class="hljs-string">&quot;syscall/js.valueLoadString&quot;</span>: (sp) =&gt; {
+                        <span class="hljs-keyword">const</span> str = loadValue(sp + <span class="hljs-number">8</span>);
+                        loadSlice(sp + <span class="hljs-number">16</span>).set(str);
+                    },
+
+                    <span class="hljs-comment">// func valueInstanceOf(v ref, t ref) bool</span>
+                    <span class="hljs-string">&quot;syscall/js.valueInstanceOf&quot;</span>: (sp) =&gt; {
+                        mem().setUint8(sp + <span class="hljs-number">24</span>, loadValue(sp + <span class="hljs-number">8</span>) <span class="hljs-keyword">instanceof</span> loadValue(sp + <span class="hljs-number">16</span>));
+                    },
+
+                    <span class="hljs-string">&quot;debug&quot;</span>: (value) =&gt; {
+                        <span class="hljs-built_in">console</span>.log(value);
+                    },
+                }
+            };
+        }
+
+        <span class="hljs-keyword">async</span> run(instance) {
+            <span class="hljs-keyword">this</span>._inst = instance;
+            <span class="hljs-keyword">this</span>._values = [ <span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> garbage collection</span>
+                <span class="hljs-literal">NaN</span>,
+                <span class="hljs-literal">undefined</span>,
+                <span class="hljs-literal">null</span>,
+                <span class="hljs-literal">true</span>,
+                <span class="hljs-literal">false</span>,
+                global,
+                <span class="hljs-keyword">this</span>._inst.exports.mem,
+                () =&gt; { <span class="hljs-comment">// resolveCallbackPromise</span>
+                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.exited) {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;bad callback: Go program has already exited&quot;</span>);
+                    }
+                    setTimeout(<span class="hljs-keyword">this</span>._resolveCallbackPromise, <span class="hljs-number">0</span>); <span class="hljs-comment">// make sure it is asynchronous</span>
+                },
+            ];
+            <span class="hljs-keyword">this</span>._refs = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+            <span class="hljs-keyword">this</span>.exited = <span class="hljs-literal">false</span>;
+
+            <span class="hljs-keyword">const</span> mem = <span class="hljs-keyword">new</span> <span class="hljs-built_in">DataView</span>(<span class="hljs-keyword">this</span>._inst.exports.mem.buffer)
+
+            <span class="hljs-comment">// Pass command line arguments and environment variables to WebAssembly by writing them to the linear memory.</span>
+            <span class="hljs-keyword">let</span> offset = <span class="hljs-number">4096</span>;
+
+            <span class="hljs-keyword">const</span> strPtr = (str) =&gt; {
+                <span class="hljs-keyword">let</span> ptr = offset;
+                <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(mem.buffer, offset, str.length + <span class="hljs-number">1</span>).set(encoder.encode(str + <span class="hljs-string">&quot;\0&quot;</span>));
+                offset += str.length + (<span class="hljs-number">8</span> - (str.length % <span class="hljs-number">8</span>));
+                <span class="hljs-keyword">return</span> ptr;
+            };
+
+            <span class="hljs-keyword">const</span> argc = <span class="hljs-keyword">this</span>.argv.length;
+
+            <span class="hljs-keyword">const</span> argvPtrs = [];
+            <span class="hljs-keyword">this</span>.argv.forEach((arg) =&gt; {
+                argvPtrs.push(strPtr(arg));
+            });
+
+            <span class="hljs-keyword">const</span> keys = <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.env).sort();
+            argvPtrs.push(keys.length);
+            keys.forEach((key) =&gt; {
+                argvPtrs.push(strPtr(<span class="hljs-string">`<span class="hljs-subst">${key}</span>=<span class="hljs-subst">${this.env[key]}</span>`</span>));
+            });
+
+            <span class="hljs-keyword">const</span> argv = offset;
+            argvPtrs.forEach((ptr) =&gt; {
+                mem.setUint32(offset, ptr, <span class="hljs-literal">true</span>);
+                mem.setUint32(offset + <span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);
+                offset += <span class="hljs-number">8</span>;
+            });
+
+            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+                <span class="hljs-keyword">const</span> callbackPromise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve) =&gt; {
+                    <span class="hljs-keyword">this</span>._resolveCallbackPromise = resolve;
+                });
+                <span class="hljs-keyword">this</span>._inst.exports.run(argc, argv);
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.exited) {
+                    <span class="hljs-keyword">break</span>;
+                }
+                <span class="hljs-keyword">await</span> callbackPromise;
+            }
+        }
+    }
+
+    <span class="hljs-keyword">if</span> (isNodeJS) {
+        <span class="hljs-keyword">if</span> (process.argv.length &lt; <span class="hljs-number">3</span>) {
+            process.stderr.write(<span class="hljs-string">&quot;usage: go_js_wasm_exec [wasm binary] [arguments]\n&quot;</span>);
+            process.exit(<span class="hljs-number">1</span>);
+        }
+
+        <span class="hljs-keyword">const</span> go = <span class="hljs-keyword">new</span> Go();
+        go.argv = process.argv.slice(<span class="hljs-number">2</span>);
+        go.env = process.env;
+        go.exit = process.exit;
+        WebAssembly.instantiate(fs.readFileSync(process.argv[<span class="hljs-number">2</span>]), go.importObject).then((result) =&gt; {
+            process.on(<span class="hljs-string">&quot;exit&quot;</span>, () =&gt; { <span class="hljs-comment">// Node.js exits if no callback is pending</span>
+                <span class="hljs-keyword">if</span> (!go.exited) {
+                    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">&quot;error: all goroutines asleep and no JavaScript callback pending - deadlock!&quot;</span>);
+                    process.exit(<span class="hljs-number">1</span>);
+                }
+            });
+            <span class="hljs-keyword">return</span> go.run(result.instance);
+        }).catch((err) =&gt; {
+            <span class="hljs-built_in">console</span>.error(err);
+            go.exited = <span class="hljs-literal">true</span>;
+            process.exit(<span class="hljs-number">1</span>);
+        });
+    }
+})();
+</code></pre>
+<h2 id="servergo-&#x81EA;&#x524D;&#x3067;&#x4F5C;&#x6210;">server.go (&#x81EA;&#x524D;&#x3067;&#x4F5C;&#x6210;)</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> handler(w http.ResponseWriter, r *http.Request) {
+    http.ServeFile(w, r, r.URL.Path[<span class="hljs-number">1</span>:])
+}
+
+<span class="hljs-keyword">func</span> main() {
+    http.HandleFunc(<span class="hljs-string">&quot;/&quot;</span>, handler)
+    http.ListenAndServe(<span class="hljs-string">&quot;:8080&quot;</span>, <span class="hljs-literal">nil</span>)
+}
+</code></pre>
+<h2 id="makefile">Makefile</h2>
+<pre><code class="lang-Makefile">WASM = test.wasm
+HTML = wasm_exec.html
+JS   = wasm_exec.js
+CLEAN_TARGET = <span class="hljs-variable">$(WASM)</span> <span class="hljs-variable">$(HTML)</span> <span class="hljs-variable">$(JS)</span>
+
+all: $(WASM) $(HTML) $(JS)
+
+$(WASM):
+    GOOS=js GOARCH=wasm go build -o test.wasm main.go
+
+$(HTML):
+    curl -sO https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.html
+
+$(JS):
+    curl -sO https://raw.githubusercontent.com/golang/go/master/misc/wasm/wasm_exec.js
+
+<span class="hljs-section">clean:</span>
+    rm -f $(CLEAN_TARGET)
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="benchmark.html" class="navigation navigation-prev " aria-label="Previous page: ベンチマーク">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="references.html" class="navigation navigation-next " aria-label="Next page: 参考文献">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"サンプルで使った (取得した) ソース","level":"1.7.2","depth":2,"next":{"title":"参考文献","level":"1.7.3","depth":2,"path":"references.md","ref":"references.md","articles":[]},"previous":{"title":"ベンチマーク","level":"1.7.1","depth":2,"path":"benchmark.md","ref":"benchmark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sources.md","mtime":"2018-07-18T00:48:11.313Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:49:16.711Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
