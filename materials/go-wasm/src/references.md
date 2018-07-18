@@ -9,6 +9,7 @@
 * [WebAssembly architecture for Go (設計資料)](https://docs.google.com/document/d/131vjr4DH6JFnb-blm_uRdaC0_Nv3OUwjEY5qVCxCup4/edit)
 * [WebAssembly with Go - SlideShare](https://www.slideshare.net/takuyaueda967/webassemblygo)
 * [GopherJS vs GOARCH=wasm](https://docs.google.com/presentation/d/e/2PACX-1vQLOcSY-SpdWedMT48QFZ8f9T_XojfqUOCgMg4jqIz8cJjFIJhHm98gHKVyMaboqGpsXCfedplT-lmp/pub?start=false&loop=false&delayms=3000#slide=id.g3ce4a96d7a_0_1093)
+* [syscall/js - GoDoc](https://tip.golang.org/pkg/syscall/js/)
 
 
 
