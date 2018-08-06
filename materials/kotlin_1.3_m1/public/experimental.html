@@ -1,0 +1,368 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Experimental language Feature · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="std_lib_api.html" />
+    
+    
+    <link rel="prev" href="new_feature.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    本日のテーマ: Kotlin 1.3-M1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="about_youtube_live.html">
+            
+                <a href="about_youtube_live.html">
+            
+                    
+                    その前に
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="about_kotlin_1.3-m1.html">
+            
+                <a href="about_kotlin_1.3-m1.html">
+            
+                    
+                    Kotlin 1.3-M1 について
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="new_feature.html">
+            
+                <a href="new_feature.html">
+            
+                    
+                    New Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="experimental.html">
+            
+                <a href="experimental.html">
+            
+                    
+                    Experimental language Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="std_lib_api.html">
+            
+                <a href="std_lib_api.html">
+            
+                    
+                    New Standard Library APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Experimental language Feature</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="experimental-language-features">Experimental language features</h1>
+<h2 id="inline-classes">Inline classes</h2>
+<ul>
+<li>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x578B;&#x5909;&#x63DB;&#x307F;&#x305F;&#x3044;&#x306A;&#x3053;&#x3068;&#x3092;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#x4F5C;&#x696D;&#x3002;</li>
+<li>&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3068;&#x3001;<code>Name</code> &#x3068;&#x3044;&#x3046;&#x30B7;&#x30B0;&#x30CD;&#x30C1;&#x30E3;&#x3067; <code>String</code> &#x3092;&#x6271;&#x3046;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3002;&#x578B;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x7684;&#x306A;&#x3002;</li>
+</ul>
+<pre><code class="lang-kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Name</span></span>(internal <span class="hljs-variable"><span class="hljs-keyword">val</span> value</span>: String)
+</code></pre>
+<ul>
+<li>&#x578B;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x3068;&#x9055;&#x3046;&#x306E;&#x306F;&#x3001;assignment &#x306B;&#x304A;&#x3051;&#x308B;&#x578B;&#x306E;&#x4E92;&#x63DB;&#x6027;<ul>
+<li>inline class &#x3092;&#x7528;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;&#x5DE6;&#x8FBA;&#x3068;&#x53F3;&#x8FBA;&#x306E;&#x578B;&#x304C;&#x5408;&#x308F;&#x306A;&#x304B;&#x3063;&#x305F;&#x3089;&#x4EE3;&#x5165;&#x3067;&#x304D;&#x306A;&#x3044;</li>
+<li>&#x578B;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#x3092;&#x7528;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;&#x5DE6;&#x8FBA;&#x3068;&#x53F3;&#x8FBA;&#x306E;&#x578B;&#x304C;&#x5B9F;&#x8CEA;&#x540C;&#x3058;&#x3067;&#x3042;&#x308C;&#x3070;&#x4EE3;&#x5165;&#x3067;&#x304D;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<h2 id="unsigned-integer-types">Unsigned integer types</h2>
+<ul>
+<li>Unsigned &#x306A;&#x3084;&#x3064;&#x304C;&#x8FFD;&#x52A0;&#x306B;&#x306A;&#x308B;&#x3002;</li>
+<li>&#x30B3;&#x30FC;&#x30C9;&#x4F8B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x611F;&#x3058;&#x3002;</li>
+</ul>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> operand1</span> = <span class="hljs-number">42</span>
+<span class="hljs-variable"><span class="hljs-keyword">val</span> operand2</span> = <span class="hljs-number">1000</span> * <span class="hljs-number">100</span>_000
+
+<span class="hljs-variable"><span class="hljs-keyword">val</span> signed</span>: <span class="hljs-keyword">Int</span> = operand1 * operand2
+<span class="hljs-variable"><span class="hljs-keyword">val</span> unsigned</span>: UInt = operand1.toUInt() * operand2.toUInt()
+</code></pre>
+<ul>
+<li>&#x30EA;&#x30C6;&#x30E9;&#x30EB;&#x3068;&#x3057;&#x3066;&#x4F7F;&#x3046;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x611F;&#x3058;&#x306B;&#x306A;&#x308B;&#x6A21;&#x69D8;&#x3002;<ul>
+<li>&#x8A9E;&#x5C3E;&#x306B; <code>u</code> &#x3068;&#x304B; <code>uL</code> &#x3092;&#x3064;&#x3051;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-kotlin"><span class="hljs-variable"><span class="hljs-keyword">val</span> uintMask</span> = <span class="hljs-number">0xFFFF</span>_FFFFu
+<span class="hljs-variable"><span class="hljs-keyword">val</span> ulongUpperPartMask</span> = <span class="hljs-number">0xFFFF</span>_FFFF_0000_0000uL
+
+const <span class="hljs-variable"><span class="hljs-keyword">val</span> MAX_SIZE</span> = <span class="hljs-number">32768</span>u
+
+const <span class="hljs-variable"><span class="hljs-keyword">val</span> MAX_SIZE_BITS</span> = MAX_SIZE * <span class="hljs-number">8</span>u <span class="hljs-comment">// Error in 1.3-M1</span>
+</code></pre>
+<h2 id="annotations-for-marking-an-experimental-api-and-opting-in-for-it">Annotations for marking an experimental API and opting-in for it</h2>
+<ul>
+<li>&#x3053;&#x306E; API &#x306F; Experimental &#x3060;&#x3088;&#xFF01;&#x3092;&#x8868;&#x3059;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x308B;<ul>
+<li>library &#x4F5C;&#x6210;&#x8005;&#x5411;&#x3051;&#x3002;</li>
+<li>Experimental &#x3092;&#x627F;&#x77E5;&#x3067;&#x4F7F;&#x3046;&#x3088;&#x3001;&#x3092; Opt-In &#x5F62;&#x5F0F;&#x3067;&#x8868;&#x660E;&#x3059;&#x308B;&#x3068; Experimental &#x306A; API &#x304C;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3002;<ul>
+<li>Opt-In &#x306A;&#x3057;&#x306B;&#x4F7F;&#x304A;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x8B66;&#x544A;&#x304C;&#x3067;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3002;</li>
+<li>I understand that I&apos;m using an experimental declaration that may break at any time.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="new_feature.html" class="navigation navigation-prev " aria-label="Previous page: New Feature">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="std_lib_api.html" class="navigation navigation-next " aria-label="Next page: New Standard Library APIs">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Experimental language Feature","level":"1.4.2","depth":2,"next":{"title":"New Standard Library APIs","level":"1.4.3","depth":2,"path":"std_lib_api.md","ref":"std_lib_api.md","articles":[]},"previous":{"title":"New Feature","level":"1.4.1","depth":2,"path":"new_feature.md","ref":"new_feature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["search","codeblock-filename"],"pluginsConfig":{"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"experimental.md","mtime":"2018-08-06T01:24:58.071Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-06T01:32:35.481Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,391 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>New Feature · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="experimental.html" />
+    
+    
+    <link rel="prev" href="about_kotlin_1.3-m1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    本日のテーマ: Kotlin 1.3-M1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="about_youtube_live.html">
+            
+                <a href="about_youtube_live.html">
+            
+                    
+                    その前に
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="about_kotlin_1.3-m1.html">
+            
+                <a href="about_kotlin_1.3-m1.html">
+            
+                    
+                    Kotlin 1.3-M1 について
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="new_feature.html">
+            
+                <a href="new_feature.html">
+            
+                    
+                    New Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="experimental.html">
+            
+                <a href="experimental.html">
+            
+                    
+                    Experimental language Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="std_lib_api.html">
+            
+                <a href="std_lib_api.html">
+            
+                    
+                    New Standard Library APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >New Feature</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="new-features">New features</h1>
+<h2 id="coroutines-are-graduating-to-stable">Coroutines are graduating to stable</h2>
+<ul>
+<li>Coroutine &#x304C;&#x3088;&#x308A;&#x5B89;&#x5B9A;&#x5316;&#x3059;&#x308B;&#xFF01;</li>
+<li>1.2 &#x306E;&#x3053;&#x308D;&#x306F;&#x4E00;&#x5FDC; experimental &#x3060;&#x3063;&#x305F;&#x3002;</li>
+<li>1.2 &#x3067;&#x65E2;&#x306B; coroutine &#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3001;1.3 &#x3092;&#x7528;&#x3044;&#x308B;&#x969B;&#x306B;&#x306F;&#x591A;&#x5C11;&#x306E;&#x30DE;&#x30A4;&#x30B0;&#x30EC;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x5FC5;&#x8981;<ul>
+<li>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x540D;&#x3068;&#x304B;&#x30AF;&#x30E9;&#x30B9;&#x540D;&#x3068;&#x304B;&#x591A;&#x5C11;&#x5909;&#x308F;&#x308B;&#x6A21;&#x69D8;</li>
+</ul>
+</li>
+</ul>
+<h2 id="capturing-when-subject-in-a-variable">Capturing when subject in a variable</h2>
+<ul>
+<li>when &#x3092;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306B;&#x5909;&#x6570;&#x3092;&#x30AD;&#x30E3;&#x30D7;&#x30C1;&#x30E3;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;<ul>
+<li>&#x3061;&#x306A;&#x307F;&#x306B; if &#x6587;&#x3067;&#x3082;&#x540C;&#x3058;&#x3053;&#x3068;&#x3084;&#x308A;&#x305F;&#x3044;&#xFF01;&#x3063;&#x3066;&#x3044;&#x3046;&#x8981;&#x671B;&#x3082;&#x51FA;&#x3066;&#x3044;&#x308B;&#x3089;&#x3057;&#x3044;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5730;&#x5473;&#x3060;&#x304C;&#x4FBF;&#x5229;&#x3063;&#x307D;&#x3044;&#x3002;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x66F8;&#x3051;&#x308B;&#x3002;</li>
+</ul>
+<pre><code class="lang-kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> Request.<span class="hljs-title">getBody</span><span class="hljs-params">()</span> =</span>
+    <span class="hljs-keyword">when</span> (<span class="hljs-variable"><span class="hljs-keyword">val</span> response</span> = executeRequest()) { <span class="hljs-comment">// &#x4EE5;&#x524D;&#x306F;&#x3053;&#x3046;&#x66F8;&#x3051;&#x306A;&#x304B;&#x3063;&#x305F;</span>
+        <span class="hljs-keyword">is</span> Success -&gt; response.body
+        <span class="hljs-keyword">is</span> HttpError -&gt; <span class="hljs-keyword">throw</span> HttpException(response.status)
+    }
+</code></pre>
+<pre><code class="lang-kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">main</span><span class="hljs-params">(args: <span class="hljs-type">Array&lt;String&gt;</span>)</span> {</span>
+    <span class="hljs-variable"><span class="hljs-keyword">val</span> hoge</span> = Hoge(<span class="hljs-string">&quot;hagehage&quot;</span>)
+    <span class="hljs-variable"><span class="hljs-keyword">val</span> res</span> = <span class="hljs-keyword">when</span>(<span class="hljs-variable"><span class="hljs-keyword">val</span> hage</span> = hoge.toStr()) { <span class="hljs-comment">// &#x4EE5;&#x524D;&#x306F;&#x3053;&#x3046;&#x66F8;&#x3051;&#x306A;&#x304B;&#x3063;&#x305F;</span>
+        <span class="hljs-string">&quot;hage&quot;</span> -&gt; <span class="hljs-string">&quot;hage&quot;</span>
+        <span class="hljs-string">&quot;hagehage&quot;</span> -&gt; <span class="hljs-string">&quot;hage&quot;</span>
+        <span class="hljs-keyword">else</span> -&gt; <span class="hljs-string">&quot;else&quot;</span>
+    }
+    println(res)
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hoge</span></span>(<span class="hljs-variable"><span class="hljs-keyword">val</span> value</span> : String) {
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">toStr</span><span class="hljs-params">()</span> = value</span>
+}
+</code></pre>
+<h2 id="jvmstatic-and-jvmfield-in-companions-of-interfaces">@JvmStatic and @JvmField in companions of interfaces</h2>
+<ul>
+<li>@JvmStatic &#x3068; @JvmField &#x304C; interface &#x306E; companion &#x90E8;&#x5206;&#x306B;&#x3082;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;</li>
+<li>&#x3053;&#x306E;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306F;&#x3001;Kotlin &#x3067;&#x66F8;&#x3044;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x3092; Java &#x304B;&#x3089;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3068;&#x304D;&#x306B;&#x3001;&#x3061;&#x3087;&#x3063;&#x3068;&#x304A;&#x624B;&#x8EFD;&#x306B;&#x547C;&#x3079;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3060;&#x3088;</li>
+</ul>
+<pre><code class="lang-kotlin">interface Service {
+    <span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
+        @JvmField
+        <span class="hljs-variable"><span class="hljs-keyword">val</span> ID</span> = <span class="hljs-number">0xF0EF</span>
+
+        @JvmStatic
+        <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">create</span><span class="hljs-params">()</span>: Service = ...</span>
+    }
+}
+</code></pre>
+<h2 id="nested-declarations-in-annotation-classes">Nested declarations in annotation classes</h2>
+<ul>
+<li>annotation &#x30AF;&#x30E9;&#x30B9;&#x5185;&#x306B; annotation &#x30AF;&#x30E9;&#x30B9;&#x304C;&#x66F8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;</li>
+<li>&#x4EE5;&#x524D;&#x3001;annotation &#x30AF;&#x30E9;&#x30B9;&#x306F; body &#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x304B;&#x3063;&#x305F;</li>
+<li>&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x66F8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3002;</li>
+</ul>
+<pre><code class="lang-kotlin">annotation <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Outer</span></span>(<span class="hljs-variable"><span class="hljs-keyword">val</span> param</span>: Inner) {
+    annotation <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Inner</span></span>(<span class="hljs-variable"><span class="hljs-keyword">val</span> value</span>: String)
+}
+</code></pre>
+<pre><code class="lang-kotlin">annotation <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Annotation</span> </span>{
+    <span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> {
+        @JvmField
+        <span class="hljs-variable"><span class="hljs-keyword">val</span> timestamp</span> = System.currentTimeMillis()
+    }
+}
+</code></pre>
+<h2 id="functional-types-of-higher-arity">Functional types of higher arity</h2>
+<ul>
+<li>Function &#x578B; (a.k.a FunctionN) &#x306F; 22 &#x307E;&#x3067;&#x3057;&#x304B;&#x306A;&#x304B;&#x3063;&#x305F;&#x306E;&#x304C; 255 &#x307E;&#x3067;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="about_kotlin_1.3-m1.html" class="navigation navigation-prev " aria-label="Previous page: Kotlin 1.3-M1 について">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="experimental.html" class="navigation navigation-next " aria-label="Next page: Experimental language Feature">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"New Feature","level":"1.4.1","depth":2,"next":{"title":"Experimental language Feature","level":"1.4.2","depth":2,"path":"experimental.md","ref":"experimental.md","articles":[]},"previous":{"title":"Kotlin 1.3-M1 について","level":"1.4","depth":1,"path":"about_kotlin_1.3-m1.md","ref":"about_kotlin_1.3-m1.md","articles":[{"title":"New Feature","level":"1.4.1","depth":2,"path":"new_feature.md","ref":"new_feature.md","articles":[]},{"title":"Experimental language Feature","level":"1.4.2","depth":2,"path":"experimental.md","ref":"experimental.md","articles":[]},{"title":"New Standard Library APIs","level":"1.4.3","depth":2,"path":"std_lib_api.md","ref":"std_lib_api.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["search","codeblock-filename"],"pluginsConfig":{"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"new_feature.md","mtime":"2018-08-06T01:31:18.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-06T01:32:35.481Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

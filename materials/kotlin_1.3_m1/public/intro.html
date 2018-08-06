@@ -1,0 +1,331 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>本日のテーマ: Kotlin 1.3-M1 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="./" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    本日のテーマ: Kotlin 1.3-M1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="about_youtube_live.html">
+            
+                <a href="about_youtube_live.html">
+            
+                    
+                    その前に
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="about_kotlin_1.3-m1.html">
+            
+                <a href="about_kotlin_1.3-m1.html">
+            
+                    
+                    Kotlin 1.3-M1 について
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="new_feature.html">
+            
+                <a href="new_feature.html">
+            
+                    
+                    New Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="experimental.html">
+            
+                <a href="experimental.html">
+            
+                    
+                    Experimental language Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="std_lib_api.html">
+            
+                <a href="std_lib_api.html">
+            
+                    
+                    New Standard Library APIs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >本日のテーマ: Kotlin 1.3-M1</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x672C;&#x65E5;&#x306E;&#x30C6;&#x30FC;&#x30DE;---go-&#x3067;-wasm">&#x672C;&#x65E5;&#x306E;&#x30C6;&#x30FC;&#x30DE; - Go &#x3067; wasm</h1>
+<ul>
+<li>Go &#x8A00;&#x8A9E;&#x306E; WebAssembly (&#x4EE5;&#x4E0B; wasm &#x3068;&#x8A18;&#x8F09;) &#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x3064;&#x3044;&#x3066;&#x8A71;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x4EE5;&#x4E0B;&#x306E;&#x52C9;&#x5F37;&#x4F1A;&#x306B;&#x53C2;&#x52A0;&#x3057;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x306E;&#x3067;&#x305D;&#x306E;&#x8A71;&#x3067;&#x3059;&#x3002;</li>
+</ul>
+<p><a class="embedly-card" data-card-controls="0" href="https://golangtokyo.connpass.com/event/92225/" target="_blank">golang.tokyo #16 (2018/07/13 19:00&#x301C;)</a></p>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+
+<h2 id="&#x672C;&#x8CC7;&#x6599;&#x306B;&#x8A18;&#x8F09;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;">&#x672C;&#x8CC7;&#x6599;&#x306B;&#x8A18;&#x8F09;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;</h2>
+<ul>
+<li>wasm &#x3068;&#x306F;&#x4F55;&#x304B;</li>
+<li>&#x5404;&#x8A00;&#x8A9E;&#x3067;&#x306E; wasm &#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x72B6;&#x6CC1;</li>
+<li>Go &#x3067;&#x306E; wasm &#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x72B6;&#x6CC1;</li>
+<li>&#x5B9F;&#x969B;&#x306B;&#x8A66;&#x3059;&#x65B9;&#x6CD5;</li>
+</ul>
+<h2 id="&#x5BFE;&#x8C61;&#x8074;&#x8005;">&#x5BFE;&#x8C61;&#x8074;&#x8005;</h2>
+<ul>
+<li>wasm &#x3063;&#x3066;&#x4F55;&#x304B;&#x805E;&#x3044;&#x305F;&#x3053;&#x3068;&#x3042;&#x308B;&#x3051;&#x3069;&#x4F55;&#x306E;&#x3053;&#x3068;&#x304B;&#x3088;&#x304F;&#x77E5;&#x3089;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x65B9;</li>
+<li>&#x8AB0;&#x3067;&#x3082;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="./" class="navigation navigation-next navigation-unique" aria-label="Next page: 本資料について">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"本日のテーマ: Kotlin 1.3-M1","level":"1.1","depth":1,"next":{"title":"本資料について","level":"1.2","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["search","codeblock-filename"],"pluginsConfig":{"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intro.md","mtime":"2018-08-06T01:17:39.913Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-06T01:32:35.481Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
