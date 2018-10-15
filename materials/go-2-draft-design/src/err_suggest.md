@@ -156,10 +156,10 @@ func ProcessFiles(user string, files chan string) error {
 
 ## 巷 (ちまた) の反応
 
-- [Go2ErrorHandlingFeedback (GitHub Wiki)](https://github.com/golang/go/wiki/Go2ErrorHandlingFeedback)
+- [Go 2 Error Handling Feedback (GitHub Wiki)](https://github.com/golang/go/wiki/Go2ErrorHandlingFeedback)
 - (赤塚が見る限りにおいては) 冷ややか寄りなのが多い気がする。無駄に複雑ではないかという意見が結構ある。
   - これだったら `if err != nil` 連打したほうが平和
-  - `if err != nil` との混在を考えたらキツイ
+  - `if err != nil` と混在して読みにくくなる懸念
   - default handler だけならまだいいかも
   - などなど…
 
