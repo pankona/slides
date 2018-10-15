@@ -2,8 +2,9 @@
 
 TMPDIR=$(mktemp -d)
 
-ln -s ../_gitbook_template/Makefile $TMPDIR/Makefile
-cp -r ./_gitbook_template/src       $TMPDIR/.
+ln -s ../_gitbook_template/Makefile  $TMPDIR/Makefile
+cp -r ./_gitbook_template/src        $TMPDIR/.
+cp -r ./_gitbook_template/.gitignore $TMPDIR/.
 
 if [ -z $OUTDIR ]; then
   mv -f $TMPDIR .
