@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 if [ -z $OUTDIR ]; then
   OUTDIR=$(mktemp -d)
