@@ -1,0 +1,5 @@
+
+
+fmt:
+	prettier --write *.md
+

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>本資料について · GitBook</title>
+        <title>Go 2 Draft Design とは · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,8 +61,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="err.html" />
     
-    <link rel="prev" href="references.html" />
     
 
     </head>
@@ -91,7 +91,7 @@
         
         
     
-        <li class="chapter " data-level="1.1" data-path="about_go2.html">
+        <li class="chapter active" data-level="1.1" data-path="about_go2.html">
             
                 <a href="about_go2.html">
             
@@ -234,7 +234,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="./">
+        <li class="chapter " data-level="1.4.3" data-path="./">
             
                 <a href="./">
             
@@ -282,7 +282,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >本資料について</a>
+        <a href="." >Go 2 Draft Design とは</a>
     </h1>
 </div>
 
@@ -297,18 +297,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x672C;&#x8CC7;&#x6599;&#x306B;&#x3064;&#x3044;&#x3066;">&#x672C;&#x8CC7;&#x6599;&#x306B;&#x3064;&#x3044;&#x3066;</h1>
+                                <h1 id="go-2-draft-design-&#x3068;&#x306F;">Go 2 Draft Design &#x3068;&#x306F;</h1>
+<p><a href="https://www.gophercon.com/" target="_blank">GopherCon 2018</a> &#x3067;&#x516C;&#x958B;&#x3055;&#x308C;&#x305F;<strong>&#x300C;Go 2&#x300D;&#x3068;&#x547C;&#x307C;&#x308C;&#x308B;&#x4F55;&#x304B;</strong>&#x306B;&#x5165;&#x308C;&#x3088;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B; Go &#x8A00;&#x8A9E;&#x3078;&#x306E;&#x8FFD;&#x52A0;&#x6A5F;&#x80FD;&#x306E;&#x63D0;&#x6848; (&#x30D7;&#x30ED;&#x30DD;&#x30FC;&#x30B6;&#x30EB;&#x4EE5;&#x524D;)&#x3002;</p>
 <ul>
-<li>&#x672C;&#x8CC7;&#x6599;&#x306F;&#x3001;2018/10/17&#x3001;&#x682A;&#x5F0F;&#x4F1A;&#x793E; ACCESS &#x793E;&#x5185;&#x52C9;&#x5F37;&#x4F1A;&#x306B;&#x3066;&#x7528;&#x3044;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
-<li>&#x6587;&#x66F8;&#x306F; <a href="https://github.com/pankona/slides/tree/gh-pages/materials/go-wasm" target="_blank">https://github.com/pankona/slides/tree/gh-pages/materials/go-2-draft-design</a> &#x3067;&#x7BA1;&#x7406;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<ul>
-<li>&#x8AA4;&#x308A;&#x3001;&#x6539;&#x5584;&#x70B9;&#x306A;&#x3069;&#x3042;&#x308C;&#x3070; issue&#x3001;pull request &#x6B53;&#x8FCE;&#x3067;&#x3059;&#x3002;</li>
-<li>&#x6587;&#x8CAC;&#x306F; <a href="https://github.com/pankona" target="_blank">@pankona</a> &#x3067;&#x3059;&#x3002;</li>
-<li>&#x30DB;&#x30B9;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x5148;&#x306E; URL &#x306F;&#x304A;&#x305D;&#x3089;&#x304F;<br><a href="http://pankona.github.io/slides/materials/go-2-draft-design/public/index.html" target="_blank">http://pankona.github.io/slides/materials/go-2-draft-design/public/index.html</a></li>
+<li>Go &#x306E;&#x754C;&#x9688;&#x3067;&#x3055;&#x3093;&#x3056;&#x3093;&#x3084;&#x308A;&#x7389;&#x306B;&#x3042;&#x304C;&#x3063;&#x3066;&#x304D;&#x305F;&#x3068;&#x3055;&#x308C;&#x308B;&#x4EE5;&#x4E0B;&#x306B;&#x5BFE;&#x3059;&#x308B; Go &#x30C1;&#x30FC;&#x30E0;&#x304B;&#x3089;&#x306E;&#x63D0;&#x6848;<ul>
+<li>&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;</li>
+<li>Generics</li>
 </ul>
 </li>
-<li>&#x8CC7;&#x6599;&#x306E;&#x5404;&#x6240;&#x306B;&#x73FE;&#x308C;&#x308B; Gopher (Go &#x306E;&#x30DE;&#x30B9;&#x30B3;&#x30C3;&#x30C8;&#x30AD;&#x30E3;&#x30E9;&#x30AF;&#x30BF;&#x30FC;) &#x306E;&#x539F;&#x4F5C;&#x8005;&#x306F; Renee French &#x3055;&#x3093;&#x3067;&#x3059;&#x3002;</li>
 </ul>
-<p><img src="assets/images/05.png" alt="hello gopher"></p>
+<p>&#x672C;&#x65E5;&#x306F;&#x3053;&#x308C;&#x3089;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;</p>
+<ul>
+<li>Go &#x306B;&#x304A;&#x3051;&#x308B;&#x73FE;&#x72B6;&#x306E;&#x78BA;&#x8A8D; (&#x554F;&#x984C;&#x3068;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x70B9;)</li>
+<li>&#x63D0;&#x6848;&#x306E;&#x5185;&#x5BB9;</li>
+</ul>
+<p>&#x3068;&#x3044;&#x3063;&#x305F;&#x3042;&#x305F;&#x308A;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>Go 2 Draft Designs &#x306F;&#x3053;&#x3061;&#x3089;<ul>
+<li><a href="https://blog.golang.org/go2draft" target="_blank">Go 2 Draft Designs - The Go Blog</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x672C;&#x63D0;&#x6848;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30BF;&#x30B9;-20181017-&#x73FE;&#x5728;">&#x672C;&#x63D0;&#x6848;&#x306E;&#x30B9;&#x30C6;&#x30FC;&#x30BF;&#x30B9; (2018/10/17 &#x73FE;&#x5728;)</h2>
+<ul>
+<li>&#x30D7;&#x30ED;&#x30DD;&#x30FC;&#x30B6;&#x30EB;&#x307E;&#x3067;&#x306F;&#x884C;&#x3063;&#x3066;&#x306A;&#x3044;&#x3002;&#x307E;&#x3060;&#x3084;&#x308F;&#x3084;&#x308F;&#x3002;</li>
+</ul>
+<p><img src="../assets/images/russcox.png" alt="russ"></p>
+<ul>
+<li>&#x5909;&#x308F;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x306A;&#x3044;&#x53EF;&#x80FD;&#x6027;&#x3082;&#x3042;&#x308B;</li>
+</ul>
+<h2 id="go-2-&#x306F;&#x3044;&#x3064;&#xFF1F;">Go 2 &#x306F;&#x3044;&#x3064;&#xFF1F;</h2>
+<ul>
+<li>Go 2 &#x304C;&#x3044;&#x3064;&#x51FA;&#x308B;&#x304B;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x660E;&#x8A00;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;</li>
+<li>Go 1.16 &#x3068;&#x304B; 1.17 &#x3042;&#x305F;&#x308A;&#x3092;&#x3082;&#x3063;&#x3066;&#x3044;&#x3066; Go 2 &#x3068;&#x547C;&#x3076;&#xFF1F;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x3092;&#x8A00;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x3088;&#x3046;&#x306A;<ul>
+<li>&#x3044;&#x307E;&#x304C; Go 1.11 &#x3067;&#x3042;&#x308A;&#x534A;&#x5E74;&#x306B;&#x4E00;&#x56DE;&#x30DE;&#x30A4;&#x30CA;&#x30FC;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;&#x304C;&#x3042;&#x304C;&#x308B;&#x3068;&#x8003;&#x3048;&#x308B;&#x3068; 2 &#x5E74;&#x301C;3 &#x5E74;&#x5F8C;&#xFF1F;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -336,10 +361,10 @@
 
             
                 
-                <a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 参考文献など">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
+                <a href="err.html" class="navigation navigation-next navigation-unique" aria-label="Next page: エラーハンドリング">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -348,7 +373,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"本資料について","level":"1.4.3","depth":2,"previous":{"title":"参考文献など","level":"1.4.2","depth":2,"path":"references.md","ref":"references.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-15T07:32:55.596Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T09:47:06.974Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go 2 Draft Design とは","level":"1.1","depth":1,"next":{"title":"エラーハンドリング","level":"1.2","depth":1,"path":"err.md","ref":"err.md","articles":[{"title":"Go のエラーハンドリング","level":"1.2.1","depth":2,"path":"err_current.md","ref":"err_current.md","articles":[]},{"title":"提案内容","level":"1.2.2","depth":2,"path":"err_proposal.md","ref":"err_proposal.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"about_go2.md","mtime":"2018-10-15T08:27:21.836Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T09:47:06.974Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
