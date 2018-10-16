@@ -1,0 +1,560 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Go 2 での提案内容 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="generics.html" />
+    
+    
+    <link rel="prev" href="err_current.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="about_go2.html">
+            
+                <a href="about_go2.html">
+            
+                    
+                    Go 2 Draft Design とは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="err.html">
+            
+                <a href="err.html">
+            
+                    
+                    エラーハンドリング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="err_current.html">
+            
+                <a href="err_current.html">
+            
+                    
+                    Go のエラーハンドリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="err_suggest.html">
+            
+                <a href="err_suggest.html">
+            
+                    
+                    Go 2 での提案内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="generics.html">
+            
+                <a href="generics.html">
+            
+                    
+                    Generics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="generics_current.html">
+            
+                <a href="generics_current.html">
+            
+                    
+                    Generics がない Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="generics_suggest.html">
+            
+                <a href="generics_suggest.html">
+            
+                    
+                    Go 2 での提案内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="appendix.html">
+            
+                <a href="appendix.html">
+            
+                    
+                    Appendix
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="feedback.html">
+            
+                <a href="feedback.html">
+            
+                    
+                    Go チームへのフィードバック
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="references.html">
+            
+                <a href="references.html">
+            
+                    
+                    参考文献など
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    本資料について
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Go 2 での提案内容</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="go-2-draft-design-&#x306B;&#x304A;&#x3051;&#x308B;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x63D0;&#x6848;">Go 2 Draft Design &#x306B;&#x304A;&#x3051;&#x308B;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x63D0;&#x6848;</h1>
+<ul>
+<li>&#x5148;&#x7A0B;&#x306E;&#x4F8B;&#x3092;&#x518D;&#x63B2;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> CopyFile(dst, src <span class="hljs-keyword">string</span>) error {
+    r, err := os.Open(src)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;copy %s %s: %v&quot;</span>, src, dst, err)
+    }
+    <span class="hljs-keyword">defer</span> r.Close()
+
+    w, err := os.Create(dst)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;copy %s %s: %v&quot;</span>, src, dst, err)
+    }
+
+    _, err = io.Copy(w, r)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        w.Close()
+        os.Remove(dst) <span class="hljs-comment">// &#x5931;&#x6557;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x6D88;&#x3059;</span>
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;copy %s %s: %v&quot;</span>, src, dst, err)
+    }
+
+    err = w.Close()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        os.Remove(dst) <span class="hljs-comment">// &#x5931;&#x6557;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x6D88;&#x3059;</span>
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;copy %s %s: %v&quot;</span>, src, dst, err)
+    }
+}
+</code></pre>
+<h2 id="checkhandle">check/handle</h2>
+<ul>
+<li>check/handle &#x3068;&#x3044;&#x3046;&#x8A00;&#x8A9E;&#x7D44;&#x307F;&#x8FBC;&#x307F;&#x306E;&#x6A5F;&#x80FD;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x7C21;&#x7565;&#x5316;&#x3059;&#x308B;&#x6848;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> CopyFile(dst, src <span class="hljs-keyword">string</span>) error {
+    handle err {
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;copy %s %s: %v&quot;</span>, src, dst, err)
+    }
+
+    r := check os.Open(src)
+    <span class="hljs-keyword">defer</span> r.Close()
+
+    w := check os.Create(dst)
+    handle err {
+        w.Close()
+        os.Remove(dst) <span class="hljs-comment">// (only if a check fails)</span>
+    }
+
+    check io.Copy(w, r)
+    check w.Close()
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<ul>
+<li><p>&#x3044;&#x307E;&#x306E;&#x3068;&#x3053;&#x308D;&#x306E;&#x4ED5;&#x69D8;&#x6848;</p>
+<ul>
+<li><code>check</code> &#x306F; <code>error</code> &#x304C;&#x8FD4;&#x308B;&#x95A2;&#x6570;&#x306B;&#x9069;&#x7528;&#x3067;&#x304D;&#x308B; (&#x623B;&#x308A;&#x5024;&#x304C;&#x30BF;&#x30D7;&#x30EB;&#x3067;&#x3082;&#x53EF;)</li>
+<li><code>check</code> &#x3092;&#x4ED5;&#x639B;&#x3051;&#x305F;&#x304C; <code>error</code> &#x304C;&#x8FD4;&#x3063;&#x3066;&#x3053;&#x306A;&#x304B;&#x3063;&#x305F;&#x3068;&#x304D;&#x306F;&#x4F55;&#x3082;&#x8D77;&#x3053;&#x3089;&#x306A;&#x3044;</li>
+<li><code>check</code> &#x3092;&#x4ED5;&#x639B;&#x3051;&#x305F;&#x3068;&#x3053;&#x308D;&#x3067; <code>error</code> &#x304C;&#x8FD4;&#x3063;&#x3066;&#x304D;&#x305F;&#x3089;&#x3001;&#x76F4;&#x8FD1;&#x306E; <code>handle</code> &#x306B;&#x98DB;&#x3076;</li>
+<li><code>handle</code> &#x306F;&#x8907;&#x6570;&#x4ED5;&#x639B;&#x3051;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;<ul>
+<li>&#x8907;&#x6570;&#x4ED5;&#x639B;&#x3051;&#x3089;&#x308C;&#x3066;&#x3044;&#x305F;&#x3089;&#x5168;&#x90E8;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</li>
+<li>&#x76F4;&#x8FD1;&#x306B;&#x4ED5;&#x639B;&#x3051;&#x3089;&#x308C;&#x305F;&#x3082;&#x306E;&#x304B;&#x3089;&#x9806;&#x756A;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x308B; (&#x3064;&#x307E;&#x308A;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x5185;&#x3067;&#x8A18;&#x8F09;&#x3068;&#x306F;&#x9006;&#x9806;&#x306E;&#x8A55;&#x4FA1;)</li>
+<li>&#x30EC;&#x30AD;&#x30B7;&#x30AB;&#x30EB;&#x30B9;&#x30B3;&#x30FC;&#x30D7;&#x304C;&#x9069;&#x7528;&#x3055;&#x308C;&#x308B;</li>
+<li>&#x5FC5;&#x305A;&#x3069;&#x3053;&#x304B;&#x3067; <code>return</code> &#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;</li>
+</ul>
+</li>
+<li>handler &#x306E;&#x8A18;&#x8F09;&#x306F;&#x7701;&#x7565;&#x53EF;&#x80FD;&#x3002;&#x7701;&#x7565;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F; <code>return err</code> &#x3068;&#x307F;&#x306A;&#x3055;&#x308C;&#x308B;&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;<code>if err != nil</code> &#x3092;&#x9023;&#x767A;&#x3057;&#x306A;&#x304F;&#x3066;&#x826F;&#x304F;&#x306A;&#x308B;&#x3093;&#x3058;&#x3083;&#x306A;&#x3044;&#x304B;&#x3068;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;</p>
+</li>
+</ul>
+<h2 id="&#x3044;&#x304F;&#x3089;&#x304B;&#x4F8B;">&#x3044;&#x304F;&#x3089;&#x304B;&#x4F8B;</h2>
+<ul>
+<li>&#x306A;&#x3093;&#x3068;&#x306A;&#x304F;&#x3044;&#x3044;&#x611F;&#x3058;&#x306B;&#x4F7F;&#x3048;&#x305D;&#x3046;&#x306A;&#x4F8B;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x6587;&#x5B57;&#x5217;&#x3092;&#x4E8C;&#x500B;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x3001;&#x5404;&#x3005;&#x3092;&#x6570;&#x5024;&#x306B;&#x5909;&#x63DB;&#x3057;&#x3066;&#x8DB3;&#x3057;&#x7B97;&#x3057;&#x305F;&#x7D50;&#x679C;&#x3092;&#x8FD4;&#x3059;</span>
+<span class="hljs-keyword">func</span> printSum(a, b <span class="hljs-keyword">string</span>) error {
+    <span class="hljs-comment">// strconv.Atoi &#x306E;&#x623B;&#x308A;&#x5024;&#x306F; (int, error)</span>
+    <span class="hljs-comment">// &#x672C;&#x6765;&#x306F;&#x3053;&#x3046;&#x66F8;&#x304F;&#x3068;&#x3053;&#x308D;&#x3092;&#x2026;</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// ai, err := strconv.Atoi(a)</span>
+    <span class="hljs-comment">// if err != nil {</span>
+    <span class="hljs-comment">//     return err</span>
+    <span class="hljs-comment">// }</span>
+    <span class="hljs-comment">// bi, err := strconv.Atoi(b)</span>
+    <span class="hljs-comment">// if err != nil {</span>
+    <span class="hljs-comment">//     return err</span>
+    <span class="hljs-comment">// }</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// fmt.Println(&quot;result:&quot;, a + b)</span>
+
+    <span class="hljs-comment">// check/handle &#x3092;&#x4F7F;&#x3048;&#x3070;&#x4EE5;&#x4E0B;&#x3067;&#x6E08;&#x3080;</span>
+    fmt.Println(<span class="hljs-string">&quot;result:&quot;</span>, check strconv.Atoi(a) + check strconv.Atoi(b))
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<ul>
+<li>chain &#x3059;&#x308B;&#x4F8B;<ul>
+<li><code>handle</code> &#x306F;&#x30EC;&#x30AD;&#x30B7;&#x30AB;&#x30EB;&#x30B9;&#x30B3;&#x30FC;&#x30D7;&#x306A;&#x306E;&#x3067;&#x3001;&#x30EB;&#x30FC;&#x30D7;&#x6BCE;&#x306B; <code>handle</code> &#x304C;&#x84C4;&#x7A4D;&#x3057;&#x3066;&#x3044;&#x304F;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x3044;</li>
+<li>check 1 &#x3067;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;C&#x3001;B&#x3001;A &#x306E;&#x9806;&#x756A;&#x306B; <code>handler</code> &#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</li>
+<li>check 2 &#x3067;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;A &#x306E; <code>handler</code> &#x3060;&#x3051;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> process(user <span class="hljs-keyword">string</span>, files <span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) (n <span class="hljs-keyword">int</span>, err error) {
+    <span class="hljs-comment">// handler A</span>
+    handle err { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>, fmt.Errorf(<span class="hljs-string">&quot;process: %v&quot;</span>, err) }
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++ {
+        <span class="hljs-comment">// handler B</span>
+        handle err { err = fmt.Errorf(<span class="hljs-string">&quot;attempt %d: %v&quot;</span>, i, err) }
+
+        <span class="hljs-comment">// handler C</span>
+        handle err { err = moreWrapping(err) }
+
+        check do(something()) <span class="hljs-comment">// check 1: handler chain C, B, A</span>
+    }
+
+    check do(somethingElse) <span class="hljs-comment">// check 2: handler chain A</span>
+}
+</code></pre>
+<ul>
+<li>&#x4EE5;&#x4E0B;&#x306F; <code>defer</code> &#x3068;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x4F8B;<ul>
+<li><code>defer</code> &#x306F;&#x95A2;&#x6570;&#x30EA;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x5408;&#x308F;&#x305B;&#x3066;&#x4E00;&#x56DE;&#x3060;&#x3051;&#x547C;&#x3073;&#x51FA;&#x3059;&#x95A2;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x6A5F;&#x80FD;</li>
+<li>&#x4EE5;&#x4E0B;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;handler &#x304C;&#x5168;&#x90E8;&#x7D42;&#x308F;&#x3063;&#x3066;&#x30A8;&#x30E9;&#x30FC; return &#x304C;&#x78BA;&#x5B9A;&#x3057;&#x305F;&#x3042;&#x3068;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Error <span class="hljs-keyword">struct</span> {
+    Func <span class="hljs-keyword">string</span>
+    User <span class="hljs-keyword">string</span>
+    Path <span class="hljs-keyword">string</span>
+    Err  error
+}
+
+<span class="hljs-keyword">func</span> (e *Error) Error() <span class="hljs-keyword">string</span> {
+    <span class="hljs-keyword">return</span> e.Err.Error()
+}
+
+<span class="hljs-keyword">func</span> ProcessFiles(user <span class="hljs-keyword">string</span>, files <span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) error {
+    e := Error{
+        Func: <span class="hljs-string">&quot;ProcessFile&quot;</span>,
+        User: user,
+    }
+    handle err { e.Err = err; <span class="hljs-keyword">return</span> &amp;e } <span class="hljs-comment">// handler A</span>
+
+    u := check OpenUserInfo(user)         <span class="hljs-comment">// check 1</span>
+    <span class="hljs-keyword">defer</span> u.Close()
+
+    <span class="hljs-keyword">for</span> file := <span class="hljs-keyword">range</span> files {
+        handle err { e.Path = file }       <span class="hljs-comment">// handler B</span>
+        check process(check os.Open(file)) <span class="hljs-comment">// check 2</span>
+    }
+    ...
+}
+</code></pre>
+<h2 id="&#x5DF7;-&#x3061;&#x307E;&#x305F;-&#x306E;&#x53CD;&#x5FDC;">&#x5DF7; (&#x3061;&#x307E;&#x305F;) &#x306E;&#x53CD;&#x5FDC;</h2>
+<ul>
+<li><a href="https://github.com/golang/go/wiki/Go2ErrorHandlingFeedback" target="_blank">Go 2 Error Handling Feedback (GitHub Wiki)</a></li>
+<li>(&#x8D64;&#x585A;&#x304C;&#x898B;&#x308B;&#x9650;&#x308A;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;) &#x51B7;&#x3084;&#x3084;&#x304B;&#x5BC4;&#x308A;&#x306A;&#x306E;&#x304C;&#x591A;&#x3044;&#x6C17;&#x304C;&#x3059;&#x308B;&#x3002;&#x7121;&#x99C4;&#x306B;&#x8907;&#x96D1;&#x3067;&#x306F;&#x306A;&#x3044;&#x304B;&#x3068;&#x3044;&#x3046;&#x610F;&#x898B;&#x304C;&#x7D50;&#x69CB;&#x3042;&#x308B;&#x3002;<ul>
+<li>&#x3053;&#x308C;&#x3060;&#x3063;&#x305F;&#x3089; <code>if err != nil</code> &#x9023;&#x6253;&#x3057;&#x305F;&#x307B;&#x3046;&#x304C;&#x5E73;&#x548C;</li>
+<li><code>if err != nil</code> &#x3068;&#x6DF7;&#x5728;&#x3057;&#x3066;&#x8AAD;&#x307F;&#x306B;&#x304F;&#x304F;&#x306A;&#x308B;&#x61F8;&#x5FF5;</li>
+<li>default handler &#x3060;&#x3051;&#x306A;&#x3089;&#x307E;&#x3060;&#x3044;&#x3044;&#x304B;&#x3082;</li>
+<li>&#x306A;&#x3069;&#x306A;&#x3069;&#x2026;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x305D;&#x306E;&#x4ED6;&#x306E;&#x7D30;&#x304B;&#x3044;&#x8A71;">&#x305D;&#x306E;&#x4ED6;&#x306E;&#x7D30;&#x304B;&#x3044;&#x8A71;</h2>
+<ul>
+<li><code>defer</code> &#x306E;&#x4E2D;&#x3067; <code>check</code> &#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x306F;&#x691C;&#x8A0E;&#x4E2D;</li>
+<li><code>check</code> &#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x306E;&#x4EE3;&#x308F;&#x308A;&#x306B; <code>?</code> &#x3092;&#x4F7F;&#x3046;&#x306E;&#x306F;&#x3069;&#x3046;&#x304B;&#x3068;&#x3044;&#x3046;&#x6848;&#x3082;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// check/handle</span>
+check io.Copy(w, check newReader(foo))
+</code></pre>
+<pre><code class="lang-go"><span class="hljs-comment">// ? &#x3092;&#x4F7F;&#x3046;&#x4F8B;</span>
+io.Copy(w, newReader(foo)?)?
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="err_current.html" class="navigation navigation-prev " aria-label="Previous page: Go のエラーハンドリング">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="generics.html" class="navigation navigation-next " aria-label="Next page: Generics">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Go 2 での提案内容","level":"1.2.2","depth":2,"next":{"title":"Generics","level":"1.3","depth":1,"path":"generics.md","ref":"generics.md","articles":[{"title":"Generics がない Go","level":"1.3.1","depth":2,"path":"generics_current.md","ref":"generics_current.md","articles":[]},{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"path":"generics_suggest.md","ref":"generics_suggest.md","articles":[]}]},"previous":{"title":"Go のエラーハンドリング","level":"1.2.1","depth":2,"path":"err_current.md","ref":"err_current.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"err_suggest.md","mtime":"2018-10-15T14:40:28.164Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-16T07:13:52.808Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
