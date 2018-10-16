@@ -31,3 +31,4 @@
 * [Google I/O 2018](./materials/google_io_2018/public/index.html)
 * [go-wasm](./materials/go-wasm/public/index.html)
 * [Kotlin 1.3-M1](./materials/kotlin_1.3_m1/public/index.html)
+* [Go 2 Draft Design](./materials/go-2-draft-design/public/about_go2.html)
