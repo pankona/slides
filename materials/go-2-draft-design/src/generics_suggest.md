@@ -116,7 +116,7 @@ contract hasFooAsMethod(x T) {
 }
 ```
 
-他にも色々 ([tenntenn さんの gist](https://gist.github.com/tenntenn/3049e06b301b1d7df952d41b12bef7d8)) あるので興味があれば参考されたし。
+他にも色々 ([tenntenn さんの Gist](https://gist.github.com/tenntenn/3049e06b301b1d7df952d41b12bef7d8)) あるので興味があれば参考されたし。
 
 ## contract に対する巷の所感
 
