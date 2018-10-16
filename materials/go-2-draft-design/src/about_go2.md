@@ -11,7 +11,7 @@
 - Go における現状の確認 (問題とされている点)
 - 提案の内容
 
-といったあたりを紹介します。
+といったあたりを (一部はしょって) 紹介します。
 
 - Go 2 Draft Designs はこちら
   - [Go 2 Draft Designs - The Go Blog](https://blog.golang.org/go2draft)

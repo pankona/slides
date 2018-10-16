@@ -1,5 +1,9 @@
 # Go 2 Draft Design におけるエラーハンドリングに対する提案
 
+エラーハンドリングに関する Draft Design (原文) は[こちら](https://go.googlesource.com/proposal/+/master/design/go2draft-error-handling-overview.md)
+
+以下、内容の解説
+
 - 先程の例を再掲
 
 ```go
