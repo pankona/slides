@@ -20,7 +20,7 @@
 
 - プロポーザルまでは行ってない。まだやわやわ。
 
-![russ](../assets/images/russcox.png)
+![russ](./assets/images/russcox.png)
 
 - 変わる可能性も実装されない可能性もある
 
