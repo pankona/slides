@@ -299,7 +299,133 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="go-2-draft-design-&#x306B;&#x304A;&#x3051;&#x308B;-generics-&#x306B;&#x5BFE;&#x3059;&#x308B;&#x63D0;&#x6848;">Go 2 Draft Design &#x306B;&#x304A;&#x3051;&#x308B; Generics &#x306B;&#x5BFE;&#x3059;&#x308B;&#x63D0;&#x6848;</h1>
+<p>Generics &#x306B;&#x95A2;&#x3059;&#x308B; Draft Design (&#x539F;&#x6587;) &#x306F;<a href="https://go.googlesource.com/proposal/+/master/design/go2draft-contracts.md" target="_blank">&#x3053;&#x3061;&#x3089;</a></p>
+<p>&#x4EE5;&#x4E0B;&#x3001;&#x5185;&#x5BB9;&#x306E;&#x89E3;&#x8AAC;</p>
+<ul>
+<li>Generic &#x306A;&#x300C;&#x578B;&#x300D;&#x306E;&#x5B9A;&#x7FA9;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x4EFB;&#x610F;&#x306E;&#x578B; T &#x306E;&#x914D;&#x5217;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x578B;</span>
+<span class="hljs-keyword">type</span> List(<span class="hljs-keyword">type</span> T) []T
+
+<span class="hljs-comment">// &#x5B9F;&#x969B;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306F;&#x3053;&#x3093;&#x306A;&#x611F;&#x3058;</span>
+<span class="hljs-comment">// &#x578B;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066; int &#x3092;&#x6E21;&#x3059;&#x4F8B;</span>
+<span class="hljs-keyword">var</span> ints List(<span class="hljs-keyword">int</span>)
+</code></pre>
+<ul>
+<li>Generic &#x306A;&#x300C;&#x95A2;&#x6570;&#x300D;&#x306E;&#x5B9A;&#x7FA9;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// map &#x306E; key &#x3060;&#x3051;&#x629C;&#x304D;&#x51FA;&#x3057;&#x3066;&#x914D;&#x5217;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x95A2;&#x6570;</span>
+<span class="hljs-comment">// map &#x306E; key &#x3068; value &#x304C;&#x4EFB;&#x610F;&#x306E;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x308B;</span>
+<span class="hljs-keyword">func</span> Keys(<span class="hljs-keyword">type</span> K, V)(m <span class="hljs-keyword">map</span>[K]V) []K { <span class="hljs-comment">/* ... */</span> }
+
+<span class="hljs-comment">// &#x578B;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066; int &#x3068; string &#x3092;&#x6E21;&#x3059;</span>
+m := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">string</span>{
+    <span class="hljs-number">1</span>: <span class="hljs-string">&quot;one&quot;</span>,
+    <span class="hljs-number">2</span>: <span class="hljs-string">&quot;two&quot;</span>,
+}
+keys := Keys(<span class="hljs-keyword">int</span>, <span class="hljs-keyword">string</span>)(m) <span class="hljs-comment">// [1, 2]</span>
+</code></pre>
+<ul>
+<li><strong>contract</strong> &#x306B;&#x3088;&#x308B;&#x578B;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3078;&#x306E;&#x5236;&#x7D04;<ul>
+<li>&#x4EFB;&#x610F;&#x3068;&#x306F;&#x8A00;&#x3046;&#x3051;&#x308C;&#x3069;&#x3001;&#x4F55;&#x3089;&#x304B;&#x306E;&#x5236;&#x7D04;&#x3092;&#x4E0E;&#x3048;&#x305F;&#x3044;&#x5834;&#x5408;&#x306B;&#x7528;&#x3044;&#x308B;</li>
+<li>&#x6570;&#x5024;&#x3068;&#x3057;&#x3066;&#x6BD4;&#x8F03;&#x304C;&#x53EF;&#x80FD;&#x306A;&#x3082;&#x306E;&#x306E;&#x307F;&#x6307;&#x5B9A;&#x53EF;&#x80FD;</li>
+<li>&#x52A0;&#x7B97;&#x304C;&#x53EF;&#x80FD;&#x306A;&#x3082;&#x306E;&#x306E;&#x307F;&#x6307;&#x5B9A;&#x53EF;&#x80FD;</li>
+<li>&#x7279;&#x5B9A;&#x306E;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x304C;&#x751F;&#x3048;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x306E;&#x307F;&#x6307;&#x5B9A;&#x304C;&#x53EF;&#x80FD;&#x3001;&#x7B49;&#x2026;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go">contract Equal(t T) {
+    t == t <span class="hljs-comment">// == &#x3067;&#x304D;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x5224;&#x65AD;&#x3059;&#x308B;</span>
+}
+
+<span class="hljs-comment">// &#x91CD;&#x8907;&#x306A;&#x3057;&#x914D;&#x5217;&#x306E; Set</span>
+<span class="hljs-keyword">type</span> Set(<span class="hljs-keyword">type</span> T Equal) []T
+
+<span class="hljs-comment">// Set &#x306E;&#x4E2D;&#x304B;&#x3089;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x5024;&#x3092;&#x63A2;&#x3057;&#x3066; index &#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;</span>
+<span class="hljs-keyword">func</span> (s Set(T)) Find(x T) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">for</span> i ,v := <span class="hljs-keyword">range</span> s {
+        <span class="hljs-comment">// &#x3053;&#x3053;&#x3067; == &#x3092;&#x4F7F;&#x3046;&#x3002;contract &#x304C;&#x306A;&#x3044;&#x3068;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x306A;&#x308B;</span>
+        <span class="hljs-keyword">if</span> v == x {
+            <span class="hljs-keyword">return</span> i
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>
+}
+</code></pre>
+<p>&#x3082;&#x3046;&#x5C11;&#x3057; contract &#x306E;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-go">contract Addable(t T) {
+    t + t
+    <span class="hljs-comment">// + &#x306E;&#x6F14;&#x7B97;&#x304C;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x3001;&#x6570;&#x5024;&#x304B; string &#x306E;&#x307F;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;</span>
+    <span class="hljs-comment">// &#x306A;&#x304A; Go &#x306F;&#x6F14;&#x7B97;&#x5B50;&#x306E;&#x30AA;&#x30FC;&#x30D0;&#x30FC;&#x30ED;&#x30FC;&#x30C9;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;</span>
+}
+</code></pre>
+<pre><code class="lang-go"><span class="hljs-comment">// Addable &#x3092;&#x4F7F;&#x3063;&#x305F;&#x4F8B;</span>
+<span class="hljs-keyword">func</span> Sum(<span class="hljs-keyword">type</span> T Addable)(x []T) T {
+    <span class="hljs-keyword">var</span> total T
+    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> x {
+        total += v
+    }
+    <span class="hljs-keyword">return</span> total
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> x []<span class="hljs-keyword">int</span>
+    total := Sum(<span class="hljs-keyword">int</span>)(x)
+}
+</code></pre>
+<p>&#x8272;&#x3093;&#x306A; contract &#x304C;&#x3042;&#x308A;&#x5F97;&#x308B;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// 1000 &#x3092;&#x5165;&#x308C;&#x3089;&#x308C;&#x3066;&#x3001;&#x52A0;&#x7B97;&#x304C;&#x53EF;&#x80FD; (int8 &#x306F;&#x30C0;&#x30E1;)</span>
+contract add1K(x T) {
+    x = <span class="hljs-number">1000</span>
+    x + x
+}
+
+<span class="hljs-comment">// String() &#x304C;&#x4F7F;&#x3048;&#x308B;</span>
+contract stringer(x T) {
+    <span class="hljs-keyword">var</span> s <span class="hljs-keyword">string</span> = x.String()
+}
+
+<span class="hljs-comment">// &#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x30FC;</span>
+contract ptr(x T) {
+    *x
+}
+
+<span class="hljs-comment">// &#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</span>
+contract hasFooAsField(x T) {
+    x.Foo = x.Foo
+    <span class="hljs-comment">// &#x5358;&#x306B; x.Foo &#x3067;&#x306F;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x542B;&#x3080;&#x306E;&#x3067;&#x671F;&#x5F85;&#x901A;&#x308A;&#x3067;&#x306A;&#x3044;</span>
+}
+
+<span class="hljs-comment">// &#x30E1;&#x30BD;&#x30C3;&#x30C9;</span>
+contract hasFooAsMethod(x T) {
+    <span class="hljs-keyword">var</span> _ <span class="hljs-keyword">interface</span> {
+        String()
+    } = x
+    <span class="hljs-comment">// &#x5358;&#x306B; x.Foo() &#x3067;&#x306F;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x542B;&#x3080;&#x306E;&#x3067;&#x671F;&#x5F85;&#x901A;&#x308A;&#x3067;&#x306F;&#x306A;&#x3044;</span>
+}
+</code></pre>
+<p>&#x4ED6;&#x306B;&#x3082;&#x8272;&#x3005; (<a href="https://gist.github.com/tenntenn/3049e06b301b1d7df952d41b12bef7d8" target="_blank">tenntenn &#x3055;&#x3093;&#x306E; gist</a>) &#x3042;&#x308B;&#x306E;&#x3067;&#x8208;&#x5473;&#x304C;&#x3042;&#x308C;&#x3070;&#x53C2;&#x8003;&#x3055;&#x308C;&#x305F;&#x3057;&#x3002;</p>
+<h2 id="contract-&#x306B;&#x5BFE;&#x3059;&#x308B;&#x5DF7;&#x306E;&#x6240;&#x611F;">contract &#x306B;&#x5BFE;&#x3059;&#x308B;&#x5DF7;&#x306E;&#x6240;&#x611F;</h2>
+<ul>
+<li>&#x671F;&#x5F85;&#x3057;&#x305F;&#x3069;&#x304A;&#x308A;&#x306E; contract &#x304C;&#x66F8;&#x3051;&#x3066;&#x3044;&#x308B;&#x304B;&#x691C;&#x8A3C;&#x304C;&#x96E3;&#x3057;&#x305D;&#x3046;<ul>
+<li>&#x5BB9;&#x6613;&#x306B;&#x629C;&#x3051;&#x3084;&#x6F0F;&#x308C;&#x304C;&#x767A;&#x751F;&#x3059;&#x308B;&#x6C17;&#x304C;&#x3059;&#x308B;</li>
+<li>contract &#x5185;&#x3067;&#x306F;&#x305F;&#x3076;&#x3093; IDE &#x306E;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3092;&#x53D7;&#x3051;&#x3089;&#x308C;&#x306A;&#x3044;</li>
+<li>&#x307B;&#x3068;&#x3093;&#x3069;&#x30AF;&#x30A4;&#x30BA;</li>
+</ul>
+</li>
+</ul>
+<h2 id="generics-&#x5168;&#x4F53;&#x7684;&#x3092;&#x901A;&#x3057;&#x3066;&#x306E;&#x5DF7;-&#x3061;&#x307E;&#x305F;-&#x306E;&#x53CD;&#x5FDC;">Generics &#x5168;&#x4F53;&#x7684;&#x3092;&#x901A;&#x3057;&#x3066;&#x306E;&#x5DF7; (&#x3061;&#x307E;&#x305F;) &#x306E;&#x53CD;&#x5FDC;</h2>
+<ul>
+<li><a href="https://github.com/golang/go/wiki/Go2GenericsFeedback" target="_blank">Go 2 Generics Feedback (GitHub Wiki)</a><ul>
+<li>&#x8D64;&#x585A;&#x304C;&#x898B;&#x308B;&#x9650;&#x308A;&#x306B;&#x304A;&#x3044;&#x3066;&#x306F;&#x3001;&#x3084;&#x306F;&#x308A;&#x5272;&#x3068;&#x51B7;&#x3084;&#x3084;&#x304B;</li>
+<li>contract &#x304C;&#x96E3;&#x3057;&#x3059;&#x304E;&#x308B;&#x3068;&#x3044;&#x3046;&#x8A71;&#x3002;&#x3053;&#x308C;&#x304C;&#x524D;&#x63D0;&#x306A;&#x3089; Generics &#x3044;&#x3089;&#x3093;&#x3084;&#x308D;&#x3068;&#x3044;&#x3046;&#x610F;&#x898B;&#x3082;&#x3002;</li>
+<li>contract &#x306F;&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x304B;&#x3089;&#x63D0;&#x4F9B;&#x3057;&#x3066;&#x3082;&#x3089;&#x3063;&#x3066;&#x3001;&#x4E00;&#x822C;&#x4EBA;&#x304C;&#x66F8;&#x304B;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x72B6;&#x6CC1;&#x306A;&#x3089;&#x826F;&#x3044;&#x3001;&#x307F;&#x305F;&#x3044;&#x306A;&#x610F;&#x898B;&#x3082;&#x3002;</li>
+<li>&#x62EC;&#x5F27;&#x304C;&#x591A;&#x304F;&#x3066;&#x6C17;&#x6301;&#x3061;&#x60AA;&#x3044;&#x306E;&#x3067;&#x8981;&#x3089;&#x306A;&#x3044;&#x6D3E;</li>
+</ul>
+</li>
+</ul>
+
                                 
                                 </section>
                             
@@ -342,7 +468,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"next":{"title":"Appendix","level":"1.4","depth":1,"path":"appendix.md","ref":"appendix.md","articles":[{"title":"Go チームへのフィードバック","level":"1.4.1","depth":2,"path":"feedback.md","ref":"feedback.md","articles":[]},{"title":"参考文献など","level":"1.4.2","depth":2,"path":"references.md","ref":"references.md","articles":[]},{"title":"本資料について","level":"1.4.3","depth":2,"path":"README.md","ref":"README.md","articles":[]}]},"previous":{"title":"Generics がない Go","level":"1.3.1","depth":2,"path":"generics_current.md","ref":"generics_current.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"generics_suggest.md","mtime":"2018-10-15T07:12:04.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-16T11:36:32.264Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"next":{"title":"Appendix","level":"1.4","depth":1,"path":"appendix.md","ref":"appendix.md","articles":[{"title":"Go チームへのフィードバック","level":"1.4.1","depth":2,"path":"feedback.md","ref":"feedback.md","articles":[]},{"title":"参考文献など","level":"1.4.2","depth":2,"path":"references.md","ref":"references.md","articles":[]},{"title":"本資料について","level":"1.4.3","depth":2,"path":"README.md","ref":"README.md","articles":[]}]},"previous":{"title":"Generics がない Go","level":"1.3.1","depth":2,"path":"generics_current.md","ref":"generics_current.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"generics_suggest.md","mtime":"2018-10-16T13:48:44.297Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-16T14:00:44.188Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

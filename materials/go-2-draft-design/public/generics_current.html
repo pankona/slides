@@ -299,7 +299,162 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="201810-&#x73FE;&#x5728;&#x306E;-go-&#x306B;&#x304A;&#x3051;&#x308B;-generics">2018/10 &#x73FE;&#x5728;&#x306E; Go &#x306B;&#x304A;&#x3051;&#x308B; Generics</h1>
+<ul>
+<li>&#x30DD;&#x30A4;&#x30F3;&#x30C8;<ul>
+<li>Go &#x306F;&#x8A00;&#x8A9E;&#x6A5F;&#x80FD;&#x3068;&#x3057;&#x3066; Generics &#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;</li>
+<li>&#x306E;&#x3067;&#x3001;&#x4F3C;&#x305F;&#x3088;&#x3046;&#x306A; (void* &#x7684;&#x306A;) &#x3082;&#x306E;&#x3084;&#x30B3;&#x30FC;&#x30C9;&#x751F;&#x6210;&#x3067;&#x3057;&#x306E;&#x3044;&#x3067;&#x3044;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<h2 id="generics-&#x306E;&#x5FC5;&#x8981;&#x6027;">Generics &#x306E;&#x5FC5;&#x8981;&#x6027;</h2>
+<ul>
+<li>&#x578B;&#x306B;&#x4F9D;&#x5B58;&#x3057;&#x306A;&#x3044;&#x6C4E;&#x7528;&#x7684;&#x306A;&#x51E6;&#x7406; (&#x95A2;&#x6570;) &#x3092;&#x4F5C;&#x308B;&#x305F;&#x3081;&#x306B;&#x7528;&#x3044;&#x308B;<ul>
+<li>&#x4EFB;&#x610F;&#x306E;&#x578B;&#x306E;&#x914D;&#x5217;&#x3092;&#x30BD;&#x30FC;&#x30C8;&#x3059;&#x308B;</li>
+<li>&#x4EFB;&#x610F;&#x306E;&#x6570;&#x5024;&#x3063;&#x307D;&#x3044;&#x578B;&#x306E;&#x5927;&#x304D;&#x3044;&#x65B9; (&#x3082;&#x3057;&#x304F;&#x306F;&#x5C0F;&#x3055;&#x3044;&#x65B9;) &#x3092;&#x8FD4;&#x3059;</li>
+<li>&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3078;&#x306E; map&#x3001;filter&#x3001;reduce&#x3001;join</li>
+</ul>
+</li>
+</ul>
+<h2 id="go-&#x3067;&#x306F;&#x3069;&#x3046;&#x3084;&#x308B;&#x304B;">Go &#x3067;&#x306F;&#x3069;&#x3046;&#x3084;&#x308B;&#x304B;</h2>
+<p>&#x3044;&#x304F;&#x3089;&#x304B; Generics &#x306E;&#x306A;&#x3044; Go &#x306B;&#x304A;&#x3051;&#x308B; Generics &#x304C;&#x307B;&#x3057;&#x3044;&#x3068;&#x304D;&#x306E;&#x5BFE;&#x51E6;&#x65B9;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x611A;&#x76F4;&#x95A2;&#x6570;&#x5B9A;&#x7FA9;">&#x611A;&#x76F4;&#x95A2;&#x6570;&#x5B9A;&#x7FA9;</h3>
+<p>&#x4F8B;&#x3048;&#x3070;&#x3075;&#x305F;&#x3064;&#x306E;&#x5024;&#x3092;&#x3082;&#x3089;&#x3063;&#x3066;&#x5927;&#x304D;&#x3044;&#x65B9;&#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> max(a, b <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> a &gt; b {
+        <span class="hljs-keyword">return</span> a
+    }
+    <span class="hljs-keyword">return</span> b
+}
+</code></pre>
+<ul>
+<li>&#x4E00;&#x4EF6;&#x3001;&#x826F;&#x3055;&#x305D;&#x3046;&#x3067;&#x3042;&#x308B;&#x304C;&#x2026;&#xFF1F;<ul>
+<li>Go &#x306B;&#x306F;&#x6570;&#x5024;&#x3092;&#x8868;&#x3059;&#x578B;&#x3068;&#x3057;&#x3066; <code>int</code>&#x3001;<code>int32</code>&#x3001;<code>int64</code>&#x3001;<code>uint32</code>&#x3001;<code>uint64</code>&#x3001;<code>float32</code>&#x3001;<code>float64</code> &#x7B49;&#x304C;&#x3042;&#x308B;</li>
+<li>&#x578B;&#x304C;&#x7570;&#x306A;&#x308B;&#x306E;&#x3067;&#x3001;&#x5834;&#x5408;&#x306B;&#x3088;&#x3063;&#x3066;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x95A2;&#x6570;&#x306E;&#x7F85;&#x5217;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308B; (&#x30AD;&#x30E3;&#x30B9;&#x30C8;&#x3067;&#x4E00;&#x90E8;&#x5BFE;&#x5FDC;&#x53EF;&#x80FD;&#x3060;&#x304C;&#x2026;&#xFF1F;)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> maxi(a, b <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> a &gt; b {
+        <span class="hljs-keyword">return</span> a
+    }
+    <span class="hljs-keyword">return</span> b
+}
+
+<span class="hljs-keyword">func</span> maxi32(a, b <span class="hljs-keyword">int32</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> a &gt; b {
+        <span class="hljs-keyword">return</span> a
+    }
+    <span class="hljs-keyword">return</span> b
+}
+
+<span class="hljs-keyword">func</span> maxi64(a, b <span class="hljs-keyword">int64</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> a &gt; b {
+        <span class="hljs-keyword">return</span> a
+    }
+    <span class="hljs-keyword">return</span> b
+}
+
+<span class="hljs-keyword">func</span> maxf32(a, b <span class="hljs-keyword">float32</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> a &gt; b {
+        <span class="hljs-keyword">return</span> a
+    }
+    <span class="hljs-keyword">return</span> b
+}
+
+<span class="hljs-keyword">func</span> maxf64(a, b <span class="hljs-keyword">float64</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> a &gt; b {
+        <span class="hljs-keyword">return</span> a
+    }
+    <span class="hljs-keyword">return</span> b
+}
+</code></pre>
+<h3 id="interface">interface{}</h3>
+<p>interface{} &#x306F;&#x3001;C &#x3067;&#x8A00;&#x3046;&#x3068;&#x3053;&#x308D;&#x306E; void* (&#x3088;&#x308A;&#x3082;&#x3060;&#x3044;&#x3076;&#x4FBF;&#x5229;&#x3060;&#x3051;&#x3069;) &#x3068;&#x601D;&#x3048;&#x3070;&#x3060;&#x3044;&#x305F;&#x3044;&#x30A4;&#x30E1;&#x30FC;&#x30B8;&#x306F;&#x3064;&#x304B;&#x3081;&#x308B;&#x304B;&#x3068;&#x601D;&#x308F;&#x308C;&#x308B;&#x3002;</p>
+<ul>
+<li>interface{} &#x3092;&#x5F15;&#x6570;&#x306B;&#x3068;&#x308B;&#x3088;&#x3046;&#x306A;&#x95A2;&#x6570;&#x306B;&#x306F;&#x3001;&#x4EFB;&#x610F;&#x306E;&#x578B;&#x3092;&#x7A81;&#x3063;&#x8FBC;&#x3080;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;</li>
+<li>interface{} &#x306E;&#x5909;&#x6570;&#x306F;&#x3001;&#x4EFB;&#x610F;&#x306E;&#x578B;&#x306B;&#x30AD;&#x30E3;&#x30B9;&#x30C8; (type assertion &#x3068;&#x547C;&#x3076;) &#x304C;&#x3067;&#x304D;&#x308B;</li>
+<li><strong>&#x4E92;&#x63DB;&#x306E;&#x306A;&#x3044;&#x578B;&#x306B; type assertion &#x3057;&#x3066;&#x4F55;&#x306E;&#x5BFE;&#x51E6;&#x3082;&#x3057;&#x306A;&#x3044;&#x3068;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3059;&#x308B;</strong></li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    m := max(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>)
+    fmt.Println(m.(<span class="hljs-keyword">int</span>)) <span class="hljs-comment">// 10</span>
+}
+
+<span class="hljs-keyword">func</span> max(a, b <span class="hljs-keyword">interface</span>{}) <span class="hljs-keyword">interface</span>{} {
+    ai := a.(<span class="hljs-keyword">int</span>)
+    bi := b.(<span class="hljs-keyword">int</span>)
+    <span class="hljs-keyword">if</span> ai &gt; bi {
+        <span class="hljs-keyword">return</span> ai
+    }
+    <span class="hljs-keyword">return</span> bi
+}
+</code></pre>
+<ul>
+<li>type assertion &#x6642;&#x306E;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x306B;&#x5BFE;&#x51E6;&#x3092;&#x5165;&#x308C;&#x308B;&#x5834;&#x5408;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    m, ok := max(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>).(<span class="hljs-keyword">int</span>)
+    <span class="hljs-keyword">if</span> ok {
+        fmt.Println(m) <span class="hljs-comment">// 10</span>
+    }
+}
+
+<span class="hljs-keyword">func</span> max(a, b <span class="hljs-keyword">interface</span>{}) <span class="hljs-keyword">interface</span>{} {
+    ai, ok := a.(<span class="hljs-keyword">int</span>)
+    <span class="hljs-keyword">if</span> !ok {
+        <span class="hljs-comment">// error handling</span>
+    }
+    bi, ok := b.(<span class="hljs-keyword">int</span>)
+    <span class="hljs-keyword">if</span> !ok {
+        <span class="hljs-comment">// error handling</span>
+    }
+    <span class="hljs-keyword">if</span> ai &gt; bi {
+        <span class="hljs-keyword">return</span> ai
+    }
+    <span class="hljs-keyword">return</span> bi
+}
+</code></pre>
+<ul>
+<li>interface{} &#x306E;&#x3064;&#x3089;&#x3044;&#x3068;&#x3053;&#x308D;<ul>
+<li>&#x3069;&#x306E;&#x578B;&#x306B; type assertion &#x3059;&#x308C;&#x3070;&#x3088;&#x3044;&#x304B;&#x306F;&#x3001;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3084;&#x5B9F;&#x88C5;&#x3092;&#x983C;&#x308A;&#x306B;&#x5224;&#x65AD;&#x3059;&#x308B;&#x3057;&#x304B;&#x306A;&#x3044;</li>
+<li>&#x3067;&#x304D;&#x308C;&#x3070;&#x3053;&#x308C;&#x304F;&#x3089;&#x3044;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x6642;&#x306B;&#x89E3;&#x6C7A;&#x3057;&#x3068;&#x3044;&#x3066;&#x307B;&#x3057;&#x3044;&#x3068;&#x601D;&#x3046;&#x306E;&#x304C;&#x4EBA;&#x60C5;</li>
+<li>&#x3053;&#x308C;&#x304F;&#x3089;&#x3044;&#x306E;&#x898F;&#x6A21;&#x3067;&#x3042;&#x308C;&#x3070;&#x4EBA;&#x9593;&#x306B;&#x3082;&#x5BFE;&#x51E6;&#x53EF;&#x80FD;&#x3060;&#x304C;&#x3001;&#x3061;&#x3087;&#x3063;&#x3068;&#x624B;&#x3092;&#x629C;&#x304F;&#x3068;&#x30AB;&#x30AA;&#x30B9;&#x5316;&#x3057;&#x3066;&#x30E1;&#x30F3;&#x30C6;&#x304C;&#x53B3;&#x3057;&#x304F;&#x306A;&#x3063;&#x3066;&#x3044;&#x304F;</li>
+</ul>
+</li>
+</ul>
+<h3 id="go-generate">go generate</h3>
+<ul>
+<li>Go &#x306B;&#x306F; <code>go generate</code> &#x3068;&#x3044;&#x3046;&#x30B3;&#x30FC;&#x30C9;&#x751F;&#x6210;&#x306E;&#x305F;&#x3081;&#x306E;&#x30B5;&#x30D6;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</li>
+<li>&#x4E00;&#x5FDC;&#x3001;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x7684;&#x306A;&#x3082;&#x306E;&#x3092;&#x7528;&#x610F;&#x3057;&#x3066;&#x304A;&#x304D;&#x3001;&#x5F15;&#x6570;&#x3092;&#x3042;&#x305F;&#x3048;&#x3066;&#x30B3;&#x30FC;&#x30C9;&#x751F;&#x6210;&#x3059;&#x308B;&#x3001;&#x307F;&#x305F;&#x3044;&#x306A;&#x3053;&#x3068;&#x306F;&#x53EF;&#x80FD;&#x3060;&#x304C;&#x2026;<ul>
+<li>&#x4E00;&#x822C;&#x306E; Go &#x306E;&#x30D3;&#x30EB;&#x30C9;&#x624B;&#x9806;&#x304B;&#x3089;&#x5916;&#x308C;&#x308B; (&#x3044;&#x3064; go generate &#x53E9;&#x3051;&#x3070;&#x3044;&#x3044;&#x306E;&#x304B;&#x5206;&#x304B;&#x3089;&#x306A;&#x3044;&#x554F;&#x984C;)</li>
+<li>&#x30AA;&#x30EC;&#x30AA;&#x30EC;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x304C;&#x6EA2;&#x308C;&#x308B;</li>
+<li>&#x5B9F;&#x306F;&#x3042;&#x3093;&#x307E;&#x308A;&#x4EBA;&#x6C17;&#x306A;&#x3044; (&#x50D5;&#x306F;&#x597D;&#x304D;&#x3067;&#x3059;)</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x3068;&#x3053;&#x308D;&#x3067;-generics-&#x306F;&#x4F55;&#x3067;&#x306A;&#x3044;&#x3093;&#x3060;&#x3063;&#x3051;&#xFF1F;">&#x3068;&#x3053;&#x308D;&#x3067; Generics &#x306F;&#x4F55;&#x3067;&#x306A;&#x3044;&#x3093;&#x3060;&#x3063;&#x3051;&#xFF1F;</h2>
+<ul>
+<li>&#x7D50;&#x69CB;&#x6614;&#x304B;&#x3089;&#x8B70;&#x8AD6;&#x3092;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;&#x4EE5;&#x4E0B;&#x306E;&#x8A18;&#x4E8B;&#x306F; 2011 &#x5E74;&#x306B;&#x521D;&#x51FA;&#x306E;&#x5272;&#x3068;&#x30AC;&#x30C1;&#x306A; Generics &#x306E;&#x63D0;&#x6848;<ul>
+<li><a href="https://github.com/golang/proposal/blob/master/design/15292-generics.md" target="_blank">https://github.com/golang/proposal/blob/master/design/15292-generics.md</a></li>
+</ul>
+</li>
+<li>&#x5225;&#x306B; Go &#x306E;&#x30C1;&#x30FC;&#x30E0;&#x306F;&#x300C;Generics &#x304C;&#x4E0D;&#x8981;&#x300D;&#x3068;&#x306F;&#x8A00;&#x3063;&#x3066;&#x306A;&#x3044;<ul>
+<li>&#x3044;&#x307E;&#x306F;&#x3082;&#x3063;&#x3068;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x3084;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x5145;&#x5B9F;&#x3092;&#x512A;&#x5148;&#x3057;&#x3066;&#x3044;&#x308B;&#x72B6;&#x6CC1;</li>
+<li>&#x5FC5;&#x8981;&#x3067;&#x3042;&#x308C;&#x3070;&#x5165;&#x308C;&#x308B;&#x6C17;&#x306F;&#x3042;&#x308B;</li>
+</ul>
+</li>
+<li>&#x305D;&#x3093;&#x306A; Go &#x30C1;&#x30FC;&#x30E0;&#x306E;&#x508D;&#x3089;&#x3001;&#x4E00;&#x822C;&#x4EBA;&#x306E;&#x754C;&#x9688;&#x3067; Generics &#x3044;&#x308B;&#x6D3E;&#x3001;&#x3044;&#x3089;&#x306A;&#x3044;&#x6D3E;&#x304C;&#x62BC;&#x3057;&#x554F;&#x7B54;&#x3092;&#x7E70;&#x308A;&#x8FD4;&#x3059;&#x6628;&#x4ECA;<ul>
+<li>Generics &#x4F7F;&#x308F;&#x306A;&#x304F;&#x3066;&#x3082;&#x5E73;&#x6C17;&#x3060;&#x3088;&#x5B9F;&#x88C5;&#x306B;&#x554F;&#x984C;&#x306A;&#x3044;&#x3088;&#x6D3E;</li>
+<li>Generics &#x304C;&#x306A;&#x3044;&#x8A00;&#x8A9E;&#x306A;&#x3093;&#x3066;&#x3044;&#x307E;&#x3069;&#x304D;&#x306A;&#x3044;&#x3088;&#x306D;&#x7B11;&#x3063;&#x3061;&#x3083;&#x3046;&#x3088;&#x6D3E;</li>
+<li>Generics &#x304C;&#x306A;&#x3044;&#x3068;&#x56F0;&#x308B;&#x5177;&#x4F53;&#x7684;&#x306A;&#x30E6;&#x30FC;&#x30B9;&#x30B1;&#x30FC;&#x30B9;&#x51FA;&#x3057;&#x3066;&#x307F;&#x308D;&#x3088;&#x6D3E;</li>
+<li>Generics &#x304C;&#x306A;&#x304F;&#x3066;&#x3082;&#x56F0;&#x3089;&#x306A;&#x3044;&#x3063;&#x3066;&#x3044;&#x3046;&#x306E;&#x306F;&#x3059;&#x3063;&#x3071;&#x3044;&#x8461;&#x8404;&#x7406;&#x8AD6;&#x3060;&#x308D;&#x6D3E;</li>
+<li>&#x691C;&#x7D22;&#x3059;&#x308B;&#x3068;&#x3057;&#x3087;&#x3061;&#x3085;&#x3046;&#x55A7;&#x5629;&#x3057;&#x3066;&#x308B;&#x306E;&#x304C;&#x57A3;&#x9593;&#x898B;&#x3048;&#x307E;&#x3059;&#x3002;&#x8272;&#x3093;&#x306A;&#x610F;&#x898B;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x898B;&#x3066;&#x307F;&#x308B;&#x306E;&#x3082;&#x9762;&#x767D;&#x3044;&#x304B;&#x3082;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x516C;&#x5F0F;&#x304B;&#x3089;&#x306E; Generics &#x63D0;&#x6848;&#x3067;&#x3001;&#x3064;&#x3044;&#x306B; Go &#x306B; Generics &#x3044;&#x308B;&#x3044;&#x3089;&#x306A;&#x3044;&#x8B70;&#x8AD6;&#x306B;&#x7D42;&#x6B62;&#x7B26;&#x304C;&#xFF01;&#xFF1F;</strong></li>
+</ul>
+
                                 
                                 </section>
                             
@@ -342,7 +497,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generics がない Go","level":"1.3.1","depth":2,"next":{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"path":"generics_suggest.md","ref":"generics_suggest.md","articles":[]},"previous":{"title":"Generics","level":"1.3","depth":1,"path":"generics.md","ref":"generics.md","articles":[{"title":"Generics がない Go","level":"1.3.1","depth":2,"path":"generics_current.md","ref":"generics_current.md","articles":[]},{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"path":"generics_suggest.md","ref":"generics_suggest.md","articles":[]}]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"generics_current.md","mtime":"2018-10-15T07:12:00.277Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-16T11:36:32.264Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Generics がない Go","level":"1.3.1","depth":2,"next":{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"path":"generics_suggest.md","ref":"generics_suggest.md","articles":[]},"previous":{"title":"Generics","level":"1.3","depth":1,"path":"generics.md","ref":"generics.md","articles":[{"title":"Generics がない Go","level":"1.3.1","depth":2,"path":"generics_current.md","ref":"generics_current.md","articles":[]},{"title":"Go 2 での提案内容","level":"1.3.2","depth":2,"path":"generics_suggest.md","ref":"generics_suggest.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"generics_current.md","mtime":"2018-10-16T13:04:13.725Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-16T14:00:44.188Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
