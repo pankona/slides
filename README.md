@@ -4,7 +4,7 @@
 
 スライドの各所に現れる Gopher (Go のマスコット) の原作者は Renee French さんです。
 
-> > >
+>>>
 
 - [Test](./test.html)
 - [Introduction](./intro.html)
@@ -20,7 +20,7 @@
 - [Espresso Test Recorder 使ってみた](./espresso.html)
 - [Let's Go (3)](./golang_intro_3.html)
 
-> > >
+>>>
 
 - [gomobile vs gRPC](./android_grpc_golang.html)
 - [.so tweaking](./so_tweaking.html)
