@@ -7,7 +7,7 @@ hashira という名前の ToDo 管理アプリを作っているので紹介し
 - Qiita のアドカレで紹介した記事 - [ひとりかんばん的な ToDo 管理アプリ「hashira」を Go で作っているぞ - Qiita](https://qiita.com/pankona/items/f5e600ef372f00db978b)
 
 - リポジトリ - https://github.com/pankona/hashira
-- 最新リリースは [v1.7.1](https://github.com/pankona/hashira/releases) です。Mac/Linux (32bit/64bit) 対応です！よかったら試してみてね！
+- (2019/02/20 現在) 最新リリースは [v1.7.2](https://github.com/pankona/hashira/releases) です。Mac/Linux (32bit/64bit) 対応です！よかったら試してみてね！
 
 hashira とは何かをざっくり言うと、
 
