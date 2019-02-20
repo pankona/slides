@@ -31,4 +31,4 @@
 - [go-wasm](./materials/go-wasm/public/index.html)
 - [Kotlin 1.3-M1](./materials/kotlin_1.3_m1/public/index.html)
 - [Go 2 Draft Design](./materials/go-2-draft-design/public/about_go2.html)
-- [hashira](./materials/hashira/public/README.html)
+- [hashira](./materials/hashira/public/index.html)
