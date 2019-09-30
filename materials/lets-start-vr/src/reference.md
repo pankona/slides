@@ -1,7 +1,7 @@
 # 補足
 
-- VR 部 (自称) は `#xr-ja` というチャンネルでほそぼそ VR 関連の話をしているので興味があったら見に来てね。
-- [VR AR MR 諸々 - GitHub Wiki](https://github.com/quipper/aya-issues/wiki/VR-AR-MR-%E8%AB%B8%E3%80%85) も見てね
+- VR 部 (自称) は `#xr-ja` というチャンネルでほそぼそ VR 関連の話をしているので興味があったら見に来てね！
+- [VR AR MR 諸々 - GitHub Wiki](https://github.com/quipper/aya-issues/wiki/VR-AR-MR-%E8%AB%B8%E3%80%85) も見てね！
 
 ## 参考ウェブページ
 
