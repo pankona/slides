@@ -15,6 +15,12 @@ import (
 
 func main() {
 	hoge() // 戻ってきたエラーをチェックしていないので怒られる
+
+
+    // 戻ってきたエラーをチェックしていれば合法 
+    if err := hoge(); err != nil {
+        panic(err)
+    }
 }
 
 func hoge() error {
