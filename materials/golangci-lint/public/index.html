@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="golangci-lint.html" />
+    <link rel="next" href="intro.html" />
     
     
 
@@ -104,7 +104,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="golangci-lint.html">
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="golangci-lint.html">
             
                 <a href="golangci-lint.html">
             
@@ -117,7 +130,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="support-linters.html">
+        <li class="chapter " data-level="1.4" data-path="support-linters.html">
             
                 <a href="support-linters.html">
             
@@ -130,12 +143,180 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="practice.html">
+        <li class="chapter " data-level="1.5" data-path="practice.html">
             
                 <a href="practice.html">
             
                     
-                    イチオシ linters
+                    lint 多すぎでは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="recommend.html">
+            
+                <a href="recommend.html">
+            
+                    
+                    オススメ linters
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="deadcode.html">
+            
+                <a href="deadcode.html">
+            
+                    
+                    deadcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="errcheck.html">
+            
+                <a href="errcheck.html">
+            
+                    
+                    errcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="gosimple.html">
+            
+                <a href="gosimple.html">
+            
+                    
+                    gosimple
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="ineffassign.html">
+            
+                <a href="ineffassign.html">
+            
+                    
+                    ineffassign
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="bodyclose.html">
+            
+                <a href="bodyclose.html">
+            
+                    
+                    bodyclose
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="gocyclo.html">
+            
+                <a href="gocyclo.html">
+            
+                    
+                    gocyclo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="not-recommend.html">
+            
+                <a href="not-recommend.html">
+            
+                    
+                    非オススメ linters
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="gochecknoglobals.html">
+            
+                <a href="gochecknoglobals.html">
+            
+                    
+                    gochecknoglobals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="gochecknoinits.html">
+            
+                <a href="gochecknoinits.html">
+            
+                    
+                    gochecknoinits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="unparam.html">
+            
+                <a href="unparam.html">
+            
+                    
+                    unparam
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="conclusion.html">
+            
+                <a href="conclusion.html">
+            
+                    
+                    まとめ
             
                 </a>
             
@@ -189,6 +370,14 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x672C;&#x8CC7;&#x6599;&#x306B;&#x3064;&#x3044;&#x3066;">&#x672C;&#x8CC7;&#x6599;&#x306B;&#x3064;&#x3044;&#x3066;</h1>
+<ul>
+<li>&#x672C;&#x8CC7;&#x6599;&#x306F;&#x3001;2019/11/05&#x3001;Quipper Ltd &#x793E;&#x5185; LT &#x5927;&#x4F1A;&#x306E;&#x305F;&#x3081;&#x306B;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x6587;&#x66F8;&#x306F; <a href="https://github.com/pankona/slides/tree/gh-pages/materials/golangci-lint" target="_blank">https://github.com/pankona/slides/tree/gh-pages/materials/golangci-lint</a> &#x3067;&#x7BA1;&#x7406;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;<ul>
+<li>&#x8AA4;&#x308A;&#x3001;&#x6539;&#x5584;&#x70B9;&#x306A;&#x3069;&#x3042;&#x308C;&#x3070; issue&#x3001;pull request &#x6B53;&#x8FCE;&#x3067;&#x3059;&#x3002;</li>
+<li>&#x6587;&#x8CAC;&#x306F; <a href="https://github.com/pankona" target="_blank">@pankona</a> &#x3067;&#x3059;&#x3002;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -217,7 +406,7 @@
             
                 
                 
-                <a href="golangci-lint.html" class="navigation navigation-next navigation-unique" aria-label="Next page: golangci-lint">
+                <a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page: はじめに">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -228,7 +417,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"本資料について","level":"1.1","depth":1,"next":{"title":"golangci-lint","level":"1.2","depth":1,"path":"golangci-lint.md","ref":"golangci-lint.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-11-04T13:46:19.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-04T14:12:31.205Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"本資料について","level":"1.1","depth":1,"next":{"title":"はじめに","level":"1.2","depth":1,"path":"intro.md","ref":"intro.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-11-04T15:34:39.895Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-05T08:35:30.695Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>サポートしている lint 一覧 · GitBook</title>
+        <title>gocyclo · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="practice.html" />
+    <link rel="next" href="not-recommend.html" />
     
     
-    <link rel="prev" href="golangci-lint.html" />
+    <link rel="prev" href="bodyclose.html" />
     
 
     </head>
@@ -132,7 +132,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="support-linters.html">
+        <li class="chapter " data-level="1.4" data-path="support-linters.html">
             
                 <a href="support-linters.html">
             
@@ -237,7 +237,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.6" data-path="gocyclo.html">
+        <li class="chapter active" data-level="1.6.6" data-path="gocyclo.html">
             
                 <a href="gocyclo.html">
             
@@ -356,7 +356,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >サポートしている lint 一覧</a>
+        <a href="." >gocyclo</a>
     </h1>
 </div>
 
@@ -371,61 +371,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="golangci-lint-&#x304C;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x308B;-lint-&#x4E00;&#x89A7;">golangci-lint &#x304C;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x308B; lint &#x4E00;&#x89A7;</h1>
-<p>golangci-lint &#x304C;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x308B; linter &#x4E00;&#x89A7;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x51FA;&#x529B;&#x3067;&#x304D;&#x308B;</p>
-<pre><code class="lang-bash">$ golangci-lint <span class="hljs-built_in">help</span> linters
-</code></pre>
-<p>&#x51FA;&#x529B;&#x7D50;&#x679C;&#x306F;&#x4EE5;&#x4E0B;&#x3002;40 &#x500B;&#x304F;&#x3089;&#x3044;&#x3042;&#x3063;&#x3066;&#x3081;&#x3063;&#x3061;&#x3083;&#x591A;&#x3044;...&#xFF01;</p>
-<pre><code>Enabled by default linters:
-deadcode: Finds unused code [fast: true, auto-fix: false]
-errcheck: Errcheck is a program for checking for unchecked errors in go programs. These unchecked errors can be critical bugs in some cases [fast: true, auto-fix: false]
-gosimple (megacheck): Linter for Go source code that specializes in simplifying a code [fast: true, auto-fix: false]
-govet (vet, vetshadow): Vet examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string [fast: true, auto-fix: false]
-ineffassign: Detects when assignments to existing variables are not used [fast: true, auto-fix: false]
-staticcheck (megacheck): Staticcheck is a go vet on steroids, applying a ton of static analysis checks [fast: true, auto-fix: false]
-structcheck: Finds unused struct fields [fast: true, auto-fix: false]
-typecheck: Like the front-end of a Go compiler, parses and type-checks Go code [fast: true, auto-fix: false]
-unused (megacheck): Checks Go code for unused constants, variables, functions and types [fast: false, auto-fix: false]
-varcheck: Finds unused global variables and constants [fast: true, auto-fix: false]
+                                <h1 id="gocyclo">gocyclo</h1>
+<p>Computes and checks the cyclomatic complexity of functions</p>
+<h2 id="&#x4F55;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#xFF1F;">&#x4F55;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#xFF1F;</h2>
+<p>&#x95A2;&#x6570;&#x306E;&#x5FAA;&#x74B0;&#x6027;&#x8907;&#x96D1;&#x5EA6;&#x304C;&#x3057;&#x304D;&#x3044;&#x5024;&#x3092;&#x8D85;&#x3048;&#x308B;&#x3068;&#x6012;&#x3063;&#x3066;&#x304F;&#x308C;&#x308B;</p>
+<h2 id="&#x88DC;&#x8DB3;---&#x5FAA;&#x74B0;&#x6027;&#x8907;&#x96D1;&#x5EA6;&#x306E;&#x8A08;&#x7B97;">&#x88DC;&#x8DB3; - &#x5FAA;&#x74B0;&#x6027;&#x8907;&#x96D1;&#x5EA6;&#x306E;&#x8A08;&#x7B97;</h2>
+<pre><code>// gocyclo &#x306E; README.md &#x304B;&#x3089;&#x629C;&#x7C8B;
 
-Disabled by default linters:
-bodyclose: checks whether HTTP response body is closed successfully [fast: true, auto-fix: false]
-depguard: Go linter that checks if package imports are in a list of acceptable packages [fast: true, auto-fix: false]
-dogsled: Checks assignments with too many blank identifiers (e.g. x, _, _, _, := f()) [fast: true, auto-fix: false]
-dupl: Tool for code clone detection [fast: true, auto-fix: false]
-funlen: Tool for detection of long functions [fast: true, auto-fix: false]
-gochecknoglobals: Checks that no globals are present in Go code [fast: true, auto-fix: false]
-gochecknoinits: Checks that no init functions are present in Go code [fast: true, auto-fix: false]
-gocognit: Computes and checks the cognitive complexity of functions [fast: true, auto-fix: false]
-goconst: Finds repeated strings that could be replaced by a constant [fast: true, auto-fix: false]
-gocritic: The most opinionated Go source code linter [fast: true, auto-fix: false]
-gocyclo: Computes and checks the cyclomatic complexity of functions [fast: true, auto-fix: false]
-godox: Tool for detection of FIXME, TODO and other comment keywords [fast: true, auto-fix: false]
-gofmt: Gofmt checks whether code was gofmt-ed. By default this tool runs with -s option to check for code simplification [fast: true, auto-fix: true]
-goimports: Goimports does everything that gofmt does. Additionally it checks unused imports [fast: true, auto-fix: true]
-golint: Golint differs from gofmt. Gofmt reformats Go source code, whereas golint prints out style mistakes [fast: true, auto-fix: false]
-gosec (gas): Inspects source code for security problems [fast: true, auto-fix: false]
-interfacer: Linter that suggests narrower interface types [fast: true, auto-fix: false]
-lll: Reports long lines [fast: true, auto-fix: false]
-maligned: Tool to detect Go structs that would take less memory if their fields were sorted [fast: true, auto-fix: false]
-misspell: Finds commonly misspelled English words in comments [fast: true, auto-fix: true]
-nakedret: Finds naked returns in functions greater than a specified function length [fast: true, auto-fix: false]
-prealloc: Finds slice declarations that could potentially be preallocated [fast: true, auto-fix: false]
-scopelint: Scopelint checks for unpinned variables in go programs [fast: true, auto-fix: false]
-stylecheck: Stylecheck is a replacement for golint [fast: true, auto-fix: false]
-unconvert: Remove unnecessary type conversions [fast: true, auto-fix: false]
-unparam: Reports unused function parameters [fast: true, auto-fix: false]
-whitespace: Tool for detection of leading and trailing whitespace [fast: true, auto-fix: true]
-wsl: Whitespace Linter - Forces you to use empty lines! [fast: true, auto-fix: false]
-
-Linters presets:
-bugs: bodyclose, errcheck, gosec, govet, scopelint, staticcheck, typecheck
-complexity: gocognit, gocyclo, nakedret
-format: gofmt, goimports
-performance: bodyclose, maligned, prealloc
-style: depguard, dogsled, dupl, funlen, gochecknoglobals, gochecknoinits, goconst, gocritic, godox, golint, gosimple, interfacer, lll, misspell, stylecheck, unconvert, whitespace, wsl
-unused: deadcode, ineffassign, structcheck, unparam, unused, varcheck
+1 is the base complexity of a function
++1 for each &apos;if&apos;, &apos;for&apos;, &apos;case&apos;, &apos;&amp;&amp;&apos; or &apos;||&apos;
+</code></pre><p>&#x3064;&#x307E;&#x308A; <code>if</code>&#x3001;<code>for</code>&#x3001;<code>case</code>&#x3001;<code>&amp;&amp;</code>&#x3001;<code>||</code> &#x304C;&#x3044;&#x3063;&#x3071;&#x3044;&#x51FA;&#x3066;&#x304F;&#x308B;&#x95A2;&#x6570;&#x306F;&#x8907;&#x96D1;&#x3063;&#x3066;&#x3044;&#x3046;&#x3053;&#x3068;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> MonthName(month <span class="hljs-keyword">int</span>) <span class="hljs-keyword">string</span> {
+    <span class="hljs-keyword">switch</span> month {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;January&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;February&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;March&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;April&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;May&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;June&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;July&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">8</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;August&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;September&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;October&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;November&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;December&quot;</span>
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>
+    }
+}
 </code></pre>
+<p>&#x3053;&#x308C;&#x306E;&#x5FAA;&#x74B0;&#x6027;&#x8907;&#x96D1;&#x5EA6;&#x306F; &quot;14&quot;
+(1 &#x304B;&#x3089;&#x59CB;&#x307E;&#x3063;&#x3066;&#x3001;&#x5206;&#x5C90;&#x304C; 13 &#x500B;&#x3042;&#x308B;&#x306E;&#x3067; +13)</p>
+<h2 id="&#x50D5;&#x306E;&#x611F;&#x60F3;">&#x50D5;&#x306E;&#x611F;&#x60F3;</h2>
+<ul>
+<li>&#x95A2;&#x6570;&#x3092;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306B;&#x4FDD;&#x3064;&#x306E;&#x306B;&#x8CA2;&#x732E;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;</li>
+<li>&#x3057;&#x304D;&#x3044;&#x5024;&#x3092;&#x8D85;&#x3048;&#x305F;&#x304B;&#x3089;&#x3068;&#x3044;&#x3063;&#x3066;&#x30B9;&#x30C3;&#x3068;&#x76F4;&#x3059;&#x306E;&#x306F;&#x96E3;&#x3057;&#x304B;&#x3063;&#x305F;&#x308A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;</li>
+<li>&#x3057;&#x304D;&#x3044;&#x5024;&#x3092;&#x8D85;&#x3048;&#x308B;&#x5909;&#x66F4;&#x3092;&#x3057;&#x305F;&#x4EBA;&#x304C;&#x76F4;&#x3055;&#x306A;&#x304D;&#x3083;&#x3044;&#x3051;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x3057;&#x3070;&#x3057;&#x3070;&#x3067;&#x3001;&#x305D;&#x3046;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x306F;&#x30ED;&#x30B7;&#x30A2;&#x30F3;&#x30EB;&#x30FC;&#x30EC;&#x30C3;&#x30C8;&#x7684;&#x306A;&#x3068;&#x3053;&#x308D;&#x3082;&#x3042;&#x308B;</li>
+</ul>
+
                                 
                                 </section>
                             
@@ -452,12 +447,12 @@ unused: deadcode, ineffassign, structcheck, unparam, unused, varcheck
 
             
                 
-                <a href="golangci-lint.html" class="navigation navigation-prev " aria-label="Previous page: golangci-lint">
+                <a href="bodyclose.html" class="navigation navigation-prev " aria-label="Previous page: bodyclose">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="practice.html" class="navigation navigation-next " aria-label="Next page: lint 多すぎでは">
+                <a href="not-recommend.html" class="navigation navigation-next " aria-label="Next page: 非オススメ linters">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -468,7 +463,7 @@ unused: deadcode, ineffassign, structcheck, unparam, unused, varcheck
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"サポートしている lint 一覧","level":"1.4","depth":1,"next":{"title":"lint 多すぎでは","level":"1.5","depth":1,"path":"practice.md","ref":"practice.md","articles":[]},"previous":{"title":"golangci-lint","level":"1.3","depth":1,"path":"golangci-lint.md","ref":"golangci-lint.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"support-linters.md","mtime":"2019-11-04T14:29:19.428Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-05T08:35:30.695Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"gocyclo","level":"1.6.6","depth":2,"next":{"title":"非オススメ linters","level":"1.7","depth":1,"path":"not-recommend.md","ref":"not-recommend.md","articles":[{"title":"gochecknoglobals","level":"1.7.1","depth":2,"path":"gochecknoglobals.md","ref":"gochecknoglobals.md","articles":[]},{"title":"gochecknoinits","level":"1.7.2","depth":2,"path":"gochecknoinits.md","ref":"gochecknoinits.md","articles":[]},{"title":"unparam","level":"1.7.3","depth":2,"path":"unparam.md","ref":"unparam.md","articles":[]}]},"previous":{"title":"bodyclose","level":"1.6.5","depth":2,"path":"bodyclose.md","ref":"bodyclose.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"gocyclo.md","mtime":"2019-11-04T17:57:06.633Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-05T08:35:30.695Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

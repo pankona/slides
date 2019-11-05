@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>イチオシ linters · GitBook</title>
+        <title>lint 多すぎでは · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,6 +61,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="recommend.html" />
+    
     
     <link rel="prev" href="support-linters.html" />
     
@@ -104,7 +106,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="golangci-lint.html">
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="golangci-lint.html">
             
                 <a href="golangci-lint.html">
             
@@ -117,7 +132,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="support-linters.html">
+        <li class="chapter " data-level="1.4" data-path="support-linters.html">
             
                 <a href="support-linters.html">
             
@@ -130,12 +145,180 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="practice.html">
+        <li class="chapter active" data-level="1.5" data-path="practice.html">
             
                 <a href="practice.html">
             
                     
-                    イチオシ linters
+                    lint 多すぎでは
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="recommend.html">
+            
+                <a href="recommend.html">
+            
+                    
+                    オススメ linters
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="deadcode.html">
+            
+                <a href="deadcode.html">
+            
+                    
+                    deadcode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="errcheck.html">
+            
+                <a href="errcheck.html">
+            
+                    
+                    errcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="gosimple.html">
+            
+                <a href="gosimple.html">
+            
+                    
+                    gosimple
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="ineffassign.html">
+            
+                <a href="ineffassign.html">
+            
+                    
+                    ineffassign
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="bodyclose.html">
+            
+                <a href="bodyclose.html">
+            
+                    
+                    bodyclose
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="gocyclo.html">
+            
+                <a href="gocyclo.html">
+            
+                    
+                    gocyclo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="not-recommend.html">
+            
+                <a href="not-recommend.html">
+            
+                    
+                    非オススメ linters
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="gochecknoglobals.html">
+            
+                <a href="gochecknoglobals.html">
+            
+                    
+                    gochecknoglobals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="gochecknoinits.html">
+            
+                <a href="gochecknoinits.html">
+            
+                    
+                    gochecknoinits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="unparam.html">
+            
+                <a href="unparam.html">
+            
+                    
+                    unparam
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="conclusion.html">
+            
+                <a href="conclusion.html">
+            
+                    
+                    まとめ
             
                 </a>
             
@@ -173,7 +356,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >イチオシ linters</a>
+        <a href="." >lint 多すぎでは</a>
     </h1>
 </div>
 
@@ -188,18 +371,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x30A4;&#x30C1;&#x30AA;&#x30B7;-linter">&#x30A4;&#x30C1;&#x30AA;&#x30B7; linter</h1>
-<p>40 &#x500B;&#x4EE5;&#x4E0A;&#x306E; linter &#x3092;&#x3059;&#x3079;&#x3066;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#x2026;&#x306E;&#x304C;&#x826F;&#x3044;&#x306E;&#x304B;&#x3068;&#x3044;&#x3046;&#x3068;&#x305D;&#x3093;&#x306A;&#x3053;&#x3068;&#x306F;&#x306A;&#x3044;</p>
+                                <h1 id="lint-&#x591A;&#x3059;&#x304E;&#x3067;&#x306F;">lint &#x591A;&#x3059;&#x304E;&#x3067;&#x306F;</h1>
+<p>&#x78BA;&#x304B;&#x306B;</p>
+<ul>
+<li>&#x5168;&#x90E8;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#x3068;&#x7D50;&#x69CB;&#x30AD;&#x30C4;&#x30A4;...</li>
+</ul>
+<h2 id="&#x3069;&#x308C;&#x3060;&#x3051;-linter-&#x3092;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#xFF1F;">&#x3069;&#x308C;&#x3060;&#x3051; linter &#x3092;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#xFF1F;</h2>
+<p>40 &#x500B;&#x304F;&#x3089;&#x3044;&#x3042;&#x308B; linter &#x3092;&#x3059;&#x3079;&#x3066;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#x2026;&#x306E;&#x304C;&#x826F;&#x3044;&#x306E;&#x304B;&#x3068;&#x3044;&#x3046;&#x3068;&#x305D;&#x3093;&#x306A;&#x3053;&#x3068;&#x306F;&#x306A;&#x3044;&#x3068;&#x601D;&#x3046;</p>
 <ul>
 <li>&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x639B;&#x3051;&#x308B;&#x3068;&#x3081;&#x3063;&#x3061;&#x3083;&#x6307;&#x6458;&#x4E0A;&#x304C;&#x308B;</li>
-<li>&#x6A19;&#x6E96;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x304A;&#x4F5C;&#x6CD5;&#x304B;&#x3089;&#x767A;&#x5C55;&#x3057;&#x305F; linter &#x3082;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;</li>
+<li>&#x3064;&#x307E;&#x308A; Go &#x6A19;&#x6E96;&#x306E;&#x30B3;&#x30FC;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x304A;&#x4F5C;&#x6CD5;&#x304B;&#x3089;&#x767A;&#x5C55; (&#x9038;&#x8131;&#x3068;&#x3082;&#x8A00;&#x3046;) &#x3057;&#x305F;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x884C;&#x3046; linter &#x3082;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;</li>
+<li>&#x3042;&#x308B;&#x7A0B;&#x5EA6;&#x53B3;&#x9078;&#x3057;&#x3066; linter &#x3092;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#x306E;&#x304C;&#x826F;&#x3055;&#x305D;&#x3046;</li>
 </ul>
-<p>&#x4ECA;&#x65E5;&#x306F;&#x3001;<a href="https://github.com/pankona" target="_blank">@pankona</a> &#x306E;&#x72EC;&#x65AD;&#x3068;&#x504F;&#x898B;&#x3067;&#x3001;</p>
+<h2 id="&#x50D5;&#x304C;&#x30AA;&#x30B9;&#x30B9;&#x30E1;&#x3092;&#x7D39;&#x4ECB;&#x3059;&#x308B;&#x3088;&#xFF01;">&#x50D5;&#x304C;&#x30AA;&#x30B9;&#x30B9;&#x30E1;&#x3092;&#x7D39;&#x4ECB;&#x3059;&#x308B;&#x3088;&#xFF01;</h2>
+<p>&#x306A;&#x306E;&#x3067;&#x3001;&#x4ECA;&#x65E5;&#x306F; <a href="https://github.com/pankona" target="_blank">@pankona</a> &#x306E;&#x72EC;&#x65AD;&#x3068;&#x504F;&#x898B;&#x3067;&#x3001;</p>
 <ul>
 <li>&#x5165;&#x308C;&#x308B;&#x3079;&#x304D; linter</li>
 <li>&#x5165;&#x308C;&#x306A;&#x304F;&#x3066;&#x3082;&#x826F;&#x3044;&#x3093;&#x3058;&#x3083;&#x306A;&#x3044;&#x304B;&#x306A;&#x3068;&#x601D;&#x3046; linter</li>
 </ul>
-<p>&#x3092;&#x3044;&#x304F;&#x3089;&#x304B;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#xFF01;</p>
+<p>&#x3092;&#x6642;&#x9593;&#x306E;&#x8A31;&#x3059;&#x9650;&#x308A;&#x3067;&#x3044;&#x304F;&#x3089;&#x304B;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#xFF01;</p>
 
                                 
                                 </section>
@@ -227,10 +417,14 @@
 
             
                 
-                <a href="support-linters.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: サポートしている lint 一覧">
+                <a href="support-linters.html" class="navigation navigation-prev " aria-label="Previous page: サポートしている lint 一覧">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="recommend.html" class="navigation navigation-next " aria-label="Next page: オススメ linters">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -239,7 +433,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"イチオシ linters","level":"1.4","depth":1,"previous":{"title":"サポートしている lint 一覧","level":"1.3","depth":1,"path":"support-linters.md","ref":"support-linters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"practice.md","mtime":"2019-11-04T14:11:43.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-04T14:12:31.205Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"lint 多すぎでは","level":"1.5","depth":1,"next":{"title":"オススメ linters","level":"1.6","depth":1,"path":"recommend.md","ref":"recommend.md","articles":[{"title":"deadcode","level":"1.6.1","depth":2,"path":"deadcode.md","ref":"deadcode.md","articles":[]},{"title":"errcheck","level":"1.6.2","depth":2,"path":"errcheck.md","ref":"errcheck.md","articles":[]},{"title":"gosimple","level":"1.6.3","depth":2,"path":"gosimple.md","ref":"gosimple.md","articles":[]},{"title":"ineffassign","level":"1.6.4","depth":2,"path":"ineffassign.md","ref":"ineffassign.md","articles":[]},{"title":"bodyclose","level":"1.6.5","depth":2,"path":"bodyclose.md","ref":"bodyclose.md","articles":[]},{"title":"gocyclo","level":"1.6.6","depth":2,"path":"gocyclo.md","ref":"gocyclo.md","articles":[]}]},"previous":{"title":"サポートしている lint 一覧","level":"1.4","depth":1,"path":"support-linters.md","ref":"support-linters.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["uml","search","codeblock-filename"],"pluginsConfig":{"uml":{"format":"svg","charset":"UTF-8","nailgun":false},"search":{},"codeblock-filename":{},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"practice.md","mtime":"2019-11-04T14:50:03.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-05T08:35:30.695Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
